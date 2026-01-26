@@ -1,6 +1,4 @@
-// src/components/Contact.tsx
-import React from "react";
-import { Contact } from "../types";
+import type { Contact } from "../types";
 
 export default function ContactSection({
   age,

@@ -1,10 +1,9 @@
-// src/App.tsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Experience from "./components/Experience";
 import Sidebar from "./components/Sidebar";
-import { Resume } from "./types";
-import { fetchGist } from "../utils/fetchGist";
+import type { Resume } from "./types";
+import { fetchGist } from "./utils";
 
 export default function App() {
   const [resumeData, setResumeData] = useState<Resume | null>(null);
@@ -28,7 +27,7 @@ export default function App() {
         setResumeData(data);
         setLoading(false);
       })
-      .catch((err) => {
+      .catch(() => {
         setError("Failed to load resume data.");
         setLoading(false);
       });

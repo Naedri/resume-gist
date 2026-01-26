@@ -1,8 +1,6 @@
-// src/components/Skills.tsx
-import React from "react";
-
+import type { Skill } from "../types";
 interface SkillsProps {
-  skills: string[];
+  skills: Skill[];
 }
 
 export default function Skills({ skills }: SkillsProps) {
@@ -14,7 +12,7 @@ export default function Skills({ skills }: SkillsProps) {
       <ul className="skills-list">
         {skills.map((skill, index) => (
           <li key={index} className="skill-item">
-            {skill}
+            {skill.name}
           </li>
         ))}
       </ul>

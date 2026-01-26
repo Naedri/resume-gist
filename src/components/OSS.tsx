@@ -1,6 +1,4 @@
-// src/components/OSS.tsx
-import React from 'react';
-import { OSS } from '../types';
+import type { OSS } from "../types";
 
 interface OSSProps {
   oss: OSS[];
@@ -9,7 +7,9 @@ interface OSSProps {
 export default function OSSSection({ oss }: OSSProps) {
   return (
     <section>
-      <h3 className="section-title" data-i18n="section.oss">Open Source</h3>
+      <h3 className="section-title" data-i18n="section.oss">
+        Open Source
+      </h3>
       {oss.map((item, index) => (
         <div key={index} className="oss-item">
           <div className="oss-title">
@@ -18,7 +18,9 @@ export default function OSSSection({ oss }: OSSProps) {
             </a>
           </div>
           <div className="oss-description">
-            <span data-i18n={`oss.${item.title.toLowerCase().replace(' ', '_')}.desc`}>
+            <span
+              data-i18n={`oss.${item.title.toLowerCase().replace(" ", "_")}.desc`}
+            >
               {item.description}
             </span>
           </div>

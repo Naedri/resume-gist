@@ -1,13 +1,19 @@
-// src/types/index.ts
-export interface Resume {
+export interface ResumeEssential {
   name: string;
   title: string;
   summary: string;
+}
+
+export interface Skill {
+  name: string;
+}
+
+export interface Resume extends ResumeEssential {
   experience: Experience[];
   contact: Contact;
-  skills: string[];
+  skills: Skill[];
   education: Education[];
-  oss: OSS[]; // Reverted to OSS
+  oss: OSS[];
 }
 
 export interface Experience {
@@ -41,7 +47,6 @@ export interface Education {
 }
 
 export interface OSS {
-  // Reverted to OSS
   title: string;
   url: string;
   description: string;

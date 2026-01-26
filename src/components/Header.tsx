@@ -1,10 +1,6 @@
-// src/components/Header.tsx
-import React from "react";
+import type { ResumeEssential } from "../types";
 
-interface HeaderProps {
-  name: string;
-  title: string;
-  summary: string;
+interface HeaderProps extends ResumeEssential {
   toggleLanguage: () => void;
   currentLanguage: "en" | "fr";
 }

@@ -1,6 +1,4 @@
-// src/components/Experience.tsx
-import React from "react";
-import { Experience } from "../types";
+import type { Experience } from "../types";
 
 interface ExperienceProps {
   experiences: Experience[];

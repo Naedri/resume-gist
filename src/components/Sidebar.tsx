@@ -1,6 +1,4 @@
-// src/components/Sidebar.tsx
-import React from "react";
-import { Contact, Education, OSS } from "../types";
+import type { Contact, Education, OSS, Skill } from "../types";
 import ContactSection from "./Contact";
 import Skills from "./Skills";
 import EducationSection from "./Education";
@@ -8,7 +6,7 @@ import OSSSection from "./OSS";
 
 interface SidebarProps {
   contact: Contact;
-  skills: string[];
+  skills: Skill[];
   education: Education[];
   oss: OSS[];
 }
@@ -30,9 +28,7 @@ export default function Sidebar({
           onClick={() => window.print()}
           className="print-button"
           data-i18n="print.button"
-        >
-          Export to PDF
-        </button>
+        />
       </div>
     </aside>
   );

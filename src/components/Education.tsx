@@ -1,6 +1,4 @@
-// src/components/Education.tsx
-import React from "react";
-import { Education } from "../types";
+import type { Education } from "../types";
 
 interface EducationProps {
   education: Education[];
