@@ -1,38 +1,38 @@
-export interface ResumeEssential {
+export interface BasicType {
   name: string;
   title: string;
   summary: string;
 }
 
-export interface Skill {
+export interface SkillType {
   name: string;
 }
 
-export interface Resume extends ResumeEssential {
-  experience: Experience[];
-  contact: Contact;
-  skills: Skill[];
-  education: Education[];
-  oss: OSS[];
+export interface ResumeType extends BasicType {
+  experience: ExperienceType[];
+  contact: ContactType;
+  skills: SkillType[];
+  education: EducationType[];
+  oss: ProjectType[];
 }
 
-export interface Experience {
+export interface ExperienceType {
   company: {
     name: string;
     url: string;
   };
   jobTitle: string;
   date: string;
-  projects: ExperienceProject[];
+  projects: ExperienceProjectType[];
 }
 
-export interface ExperienceProject {
+export interface ExperienceProjectType {
   title: string;
   bullets: string[];
   stack: string[];
 }
 
-export interface Contact {
+export interface ContactType {
   age: string;
   location: string;
   phone: string;
@@ -40,13 +40,13 @@ export interface Contact {
   github: string;
 }
 
-export interface Education {
+export interface EducationType {
   school: string;
   degree: string;
   bullets: string[];
 }
 
-export interface OSS {
+export interface ProjectType {
   title: string;
   url: string;
   description: string;

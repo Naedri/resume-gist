@@ -1,9 +1,9 @@
-import type { Skill } from "../types";
-interface SkillsProps {
-  skills: Skill[];
+import type { SkillType } from "@/types";
+export interface SkillListProps {
+  skills: SkillType[];
 }
 
-export default function Skills({ skills }: SkillsProps) {
+export const SkillList = ({ skills }: SkillListProps) => {
   return (
     <section>
       <h3 className="section-title" data-i18n="section.skills">
@@ -18,4 +18,4 @@ export default function Skills({ skills }: SkillsProps) {
       </ul>
     </section>
   );
-}
+};

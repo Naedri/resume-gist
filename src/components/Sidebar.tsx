@@ -1,28 +1,30 @@
-import type { Contact, Education, OSS, Skill } from "../types";
-import ContactSection from "./Contact";
-import Skills from "./Skills";
-import EducationSection from "./Education";
-import OSSSection from "./OSS";
+import type {
+  ContactType,
+  EducationType,
+  ProjectType,
+  SkillType
+} from "@/types";
+import {
+  ContactSection,
+  SkillList,
+  EducationList,
+  ProjectList
+} from "@/components";
 
-interface SidebarProps {
-  contact: Contact;
-  skills: Skill[];
-  education: Education[];
-  oss: OSS[];
+export interface SidebarProps {
+  contact: ContactType;
+  skills: SkillType[];
+  education: EducationType[];
+  oss: ProjectType[];
 }
 
-export default function Sidebar({
-  contact,
-  skills,
-  education,
-  oss
-}: SidebarProps) {
+export const Sidebar = ({ contact, skills, education, oss }: SidebarProps) => {
   return (
     <aside className="sidebar">
       <ContactSection {...contact} />
-      <Skills skills={skills} />
-      <EducationSection education={education} />
-      <OSSSection oss={oss} />
+      <SkillList skills={skills} />
+      <EducationList education={education} />
+      <ProjectList oss={oss} />
       <div className="no-print">
         <button
           onClick={() => window.print()}
@@ -32,4 +34,4 @@ export default function Sidebar({
       </div>
     </aside>
   );
-}
+};

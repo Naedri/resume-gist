@@ -1,12 +1,12 @@
-import type { Contact } from "../types";
+import type { ContactType } from "@/types";
 
-export default function ContactSection({
+export const ContactSection = ({
   age,
   location,
   phone,
   email,
   github
-}: Contact) {
+}: ContactType) => {
   return (
     <section>
       <h3 className="section-title" data-i18n="section.contact">
@@ -71,4 +71,4 @@ export default function ContactSection({
       </ul>
     </section>
   );
-}
+};

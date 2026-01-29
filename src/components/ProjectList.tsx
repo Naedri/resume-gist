@@ -1,10 +1,10 @@
-import type { OSS } from "../types";
+import type { ProjectType } from "@/types";
 
-interface OSSProps {
-  oss: OSS[];
+export interface ProjectListProps {
+  oss: ProjectType[];
 }
 
-export default function OSSSection({ oss }: OSSProps) {
+export const ProjectList = ({ oss }: ProjectListProps) => {
   return (
     <section>
       <h3 className="section-title" data-i18n="section.oss">
@@ -28,4 +28,4 @@ export default function OSSSection({ oss }: OSSProps) {
       ))}
     </section>
   );
-}
+};

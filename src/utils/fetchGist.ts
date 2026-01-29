@@ -1,4 +1,6 @@
-export async function fetchGist(gistId: string): Promise<any> {
+import type { ResumeType } from "@/types";
+
+export async function fetchGist(gistId: string): Promise<ResumeType> {
   try {
     const response = await fetch(`https://api.github.com/gists/${gistId}`);
     if (!response.ok) {

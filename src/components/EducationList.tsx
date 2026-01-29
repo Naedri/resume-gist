@@ -1,10 +1,10 @@
-import type { Education } from "../types";
+import type { EducationType } from "@/types";
 
-interface EducationProps {
-  education: Education[];
+export interface EducationListProps {
+  education: EducationType[];
 }
 
-export default function EducationSection({ education }: EducationProps) {
+export const EducationList = ({ education }: EducationListProps) => {
   return (
     <section className="education">
       <h3 className="section-title" data-i18n="section.education">
@@ -33,4 +33,4 @@ export default function EducationSection({ education }: EducationProps) {
       ))}
     </section>
   );
-}
+};

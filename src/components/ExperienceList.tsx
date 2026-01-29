@@ -1,10 +1,10 @@
-import type { Experience } from "../types";
+import type { ExperienceType } from "@/types";
 
-interface ExperienceProps {
-  experiences: Experience[];
+export interface ExperienceListProps {
+  experiences: ExperienceType[];
 }
 
-export default function Experience({ experiences }: ExperienceProps) {
+export const ExperienceList = ({ experiences }: ExperienceListProps) => {
   return (
     <section>
       <h3 className="section-title" data-i18n="section.experience">
@@ -59,4 +59,4 @@ export default function Experience({ experiences }: ExperienceProps) {
       ))}
     </section>
   );
-}
+};

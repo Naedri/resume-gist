@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import Header from "./components/Header";
-import Experience from "./components/Experience";
-import Sidebar from "./components/Sidebar";
-import type { Resume } from "./types";
-import { fetchGist } from "./utils";
+import { Header, ExperienceList, Sidebar } from "@/components";
+import type { ResumeType } from "@/types";
+import { fetchGist } from "@/utils";
 
 export default function App() {
-  const [resumeData, setResumeData] = useState<Resume | null>(null);
+  const [resumeData, setResumeData] = useState<ResumeType | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [language, setLanguage] = useState<"en" | "fr">("en");
@@ -23,7 +21,7 @@ export default function App() {
     }
 
     fetchGist(gistId)
-      .then((data: Resume) => {
+      .then((data: ResumeType) => {
         setResumeData(data);
         setLoading(false);
       })
@@ -51,7 +49,7 @@ export default function App() {
           toggleLanguage={toggleLanguage}
           currentLanguage={language}
         />
-        <Experience experiences={resumeData.experience} />
+        <ExperienceList experiences={resumeData.experience} />
       </main>
       <Sidebar
         contact={resumeData.contact}

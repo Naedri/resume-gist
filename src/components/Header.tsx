@@ -1,17 +1,17 @@
-import type { ResumeEssential } from "../types";
+import type { BasicType } from "@/types";
 
-interface HeaderProps extends ResumeEssential {
+export interface HeaderProps extends BasicType {
   toggleLanguage: () => void;
   currentLanguage: "en" | "fr";
 }
 
-export default function Header({
+export const Header = ({
   name,
   title,
   summary,
   toggleLanguage,
   currentLanguage
-}: HeaderProps) {
+}: HeaderProps) => {
   return (
     <header className="header">
       <div className="lang-toggle no-print" aria-label="Language toggle">
@@ -42,4 +42,4 @@ export default function Header({
       />
     </header>
   );
-}
+};
