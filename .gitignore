@@ -27,3 +27,6 @@ dist-ssr
 
 # Custom dictionary
 cspell.json
+
+# Types produced by npm prepare
+./src/types/json-resume.d.ts
