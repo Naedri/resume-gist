@@ -1,24 +1,22 @@
-import type { ResumeType } from "@/types";
+import type { ResumeType, GistResponse } from "@/types";
 
-interface GistResponse {
-  files: {
-    "resume.json": {
-      content: string;
-    };
-  };
-}
+const gistCache: Record<string, ResumeType> = {};
 
-export async function fetchGist(gistId: string): Promise<ResumeType> {
-  try {
+export const fetchGist = async (gistId: string): Promise<ResumeType> => {
+  let res;
+  if (gistCache[gistId]) res = gistCache[gistId];
+  else {
     const response = await fetch(`https://api.github.com/gists/${gistId}`);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch Gist: ${response.statusText}`);
+    if (response.ok) {
+      const gist: GistResponse = (await response.json()) as ResumeType;
+      const resume = JSON.parse(
+        gist.files["resume.json"].content
+      ) as ResumeSchema;
+      gistCache[gistId] = resume;
+      res = resume;
+    } else {
+      throw new Error(`Error fetching Gist: ${gistId}`);
     }
-
-    const data: GistResponse = (await response.json()) as GistResponse;
-    return JSON.parse(data.files["resume.json"].content) as ResumeType;
-  } catch (error) {
-    console.error("Error fetching Gist:", error);
-    throw error;
   }
-}
+  return res;
+};
