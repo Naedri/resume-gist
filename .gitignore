@@ -30,3 +30,6 @@ cspell.json
 
 # Types produced by npm prepare
 ./src/types/json-resume.d.ts
+
+# Env files
+.env
