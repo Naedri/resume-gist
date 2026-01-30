@@ -3,22 +3,21 @@ import { Header, ExperienceList, Sidebar } from "@/components";
 import type { ResumeType } from "@/types";
 import { fetchGist } from "@/utils";
 
-export default function App() {
+export interface AppProps {
+  gistIdEn: string;
+  gistIdFr: string;
+}
+
+export default function App({ gistIdEn, gistIdFr }: AppProps) {
   const [resumeData, setResumeData] = useState<ResumeType | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [language, setLanguage] = useState<"en" | "fr">("en");
 
   useEffect(() => {
-    const gistId =
-      language === "en"
-        ? import.meta.env.VITE_GIST_ID_EN
-        : import.meta.env.VITE_GIST_ID_FR;
-    if (!gistId) {
-      setError("Gist ID not found in environment variables.");
-      setLoading(false);
-      return;
-    }
+    if (!gistIdEn || !gistIdFr) return;
+
+    const gistId = language === "en" ? gistIdEn : gistIdFr;
 
     fetchGist(gistId)
       .then((data: ResumeType) => {
@@ -29,7 +28,7 @@ export default function App() {
         setError("Failed to load resume data.");
         setLoading(false);
       });
-  }, [language]);
+  }, [gistIdEn, gistIdFr, language]);
 
   const toggleLanguage = () => {
     setLanguage(language === "en" ? "fr" : "en");

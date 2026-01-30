@@ -5,6 +5,9 @@ import App from "./App";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <App
+      gistIdEn={import.meta.env.VITE_GIST_ID_EN}
+      gistIdFr={import.meta.env.VITE_GIST_ID_FR}
+    />
   </StrictMode>
 );
