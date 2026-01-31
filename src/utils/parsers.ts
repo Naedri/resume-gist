@@ -9,11 +9,11 @@ export function parseSchema(resume: ResumeSchema): ResumeType {
   const projects = resume.projects ?? [];
 
   const parsedResume: ResumeType = {
+    age: basicInfo.age ?? undefined,
     name: basicInfo.name ?? "",
     title: basicInfo.label ?? "",
     summary: basicInfo.summary ?? "",
     contact: {
-      age: "",
       location: contactInfo.location?.city ?? "",
       phone: contactInfo.phone ?? "",
       email: contactInfo.email ?? "",

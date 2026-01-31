@@ -1,4 +1,5 @@
 export interface BasicType {
+  age?: number;
   name: string;
   title: string;
   summary: string;
@@ -33,7 +34,6 @@ export interface ExperienceProjectType {
 }
 
 export interface ContactType {
-  age: string;
   location: string;
   phone: string;
   email: string;
