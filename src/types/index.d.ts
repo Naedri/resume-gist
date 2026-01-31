@@ -1,4 +1,3 @@
-export * from "./resume";
 export * from "./gist";
-import type { ResumeSchema } from "./json-resume";
-export type Resume = ResumeSchema;
+export * from "./json-resume";
+export * from "./resume";

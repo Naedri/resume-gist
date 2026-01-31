@@ -1,1 +1,2 @@
-export * from "./fetchGist";
+export * from "./fetchers";
+export * from "./parsers";
