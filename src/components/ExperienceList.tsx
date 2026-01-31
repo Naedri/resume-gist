@@ -9,9 +9,7 @@ export const ExperienceList = ({ experiences }: ExperienceListProps) => {
   const { t } = useTranslation();
   return (
     <section>
-      <h3 className="section-title" data-i18n="section.experience">
-        {t("section.experience")}
-      </h3>
+      <h3 className="section-title">{t("section.experience")}</h3>
       {experiences.map((exp, index) => (
         <div key={index} className="experience-item">
           <div className="experience-header">
@@ -52,8 +50,7 @@ export const ExperienceList = ({ experiences }: ExperienceListProps) => {
                 ))}
               </ul>
               <div className="stack">
-                <span data-i18n="stack.label">{t("section.stack")}</span>:{" "}
-                {project.stack.join(", ")}
+                <span>{t("section.stack")}</span>: {project.stack.join(", ")}
               </div>
             </div>
           ))}

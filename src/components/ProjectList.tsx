@@ -9,9 +9,7 @@ export const ProjectList = ({ oss }: ProjectListProps) => {
   const { t } = useTranslation();
   return (
     <section>
-      <h3 className="section-title" data-i18n="section.oss">
-        {t("section.oss")}
-      </h3>
+      <h3 className="section-title">{t("section.oss")}</h3>
       {oss.map((item, index) => (
         <div key={index} className="oss-item">
           <div className="oss-title">

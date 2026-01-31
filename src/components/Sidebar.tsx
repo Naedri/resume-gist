@@ -28,11 +28,7 @@ export const Sidebar = ({ contact, skills, education, oss }: SidebarProps) => {
       <EducationList education={education} />
       <ProjectList oss={oss} />
       <div className="no-print">
-        <button
-          onClick={() => window.print()}
-          className="print-button"
-          data-i18n="print.button"
-        >
+        <button onClick={() => window.print()} className="print-button">
           {t("button.print")}
         </button>
       </div>

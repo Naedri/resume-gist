@@ -42,14 +42,8 @@ export const Header = ({
         </button>
       </div>
       <h1 className="name">{name}</h1>
-      <h2 className="title" data-i18n="title.role">
-        {title}
-      </h2>
-      <p
-        className="summary"
-        data-i18n="summary"
-        dangerouslySetInnerHTML={{ __html: summary }}
-      />
+      <h2 className="title">{title}</h2>
+      <p className="summary" dangerouslySetInnerHTML={{ __html: summary }} />
     </header>
   );
 };
