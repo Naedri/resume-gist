@@ -1,4 +1,9 @@
 import type { ContactType } from "@/types";
+import { useTranslation } from "react-i18next";
+
+export interface ContactProps extends ContactType {
+  age?: number;
+}
 
 export const ContactSection = ({
   age,
@@ -6,11 +11,12 @@ export const ContactSection = ({
   phone,
   email,
   github
-}: ContactType) => {
+}: ContactProps) => {
+  const { t } = useTranslation();
   return (
     <section>
       <h3 className="section-title" data-i18n="section.contact">
-        Contact
+        {t("section.contact")}
       </h3>
       <ul className="contact-list">
         <li className="contact-item">
@@ -20,7 +26,7 @@ export const ContactSection = ({
               d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
             />
           </svg>
-          <span data-i18n="age">{age}</span>
+          <span data-i18n="age">{t("basics.age", { age })}</span>
         </li>
         <li className="contact-item">
           <svg className="icon" viewBox="0 0 24 24" aria-hidden="true">

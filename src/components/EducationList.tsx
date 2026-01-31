@@ -1,14 +1,16 @@
 import type { EducationType } from "@/types";
+import { useTranslation } from "react-i18next";
 
 export interface EducationListProps {
   education: EducationType[];
 }
 
 export const EducationList = ({ education }: EducationListProps) => {
+  const { t } = useTranslation();
   return (
     <section className="education">
       <h3 className="section-title" data-i18n="section.education">
-        Education
+        {t("section.education")}
       </h3>
       {education.map((edu, index) => (
         <div key={index}>

@@ -1,5 +1,20 @@
 {
-  "print": {
-    "button": "Exporter en PDF"
+  "basics": {
+    "age": "{{age}} ans"
+  },
+  "button": {
+    "print": "Exporter en PDF"
+  },
+  "language": {
+    "en": "EN",
+    "fr": "FR"
+  },
+  "section": {
+    "contact": "Contact",
+    "education": "Formations",
+    "experience": "Expériences Professionnelles",
+    "oss": "Projets Open Source",
+    "skill": "Compétences",
+    "stack": "Stack"
   }
 }

@@ -1,4 +1,5 @@
 import type { BasicType } from "@/types";
+import { useTranslation } from "react-i18next";
 
 export interface HeaderProps extends BasicType {
   toggleLanguage: () => void;
@@ -12,6 +13,7 @@ export const Header = ({
   toggleLanguage,
   currentLanguage
 }: HeaderProps) => {
+  const { t } = useTranslation();
   return (
     <header className="header">
       <div className="lang-toggle no-print" aria-label="Language toggle">
@@ -20,7 +22,11 @@ export const Header = ({
           className="lang-btn"
           aria-pressed={currentLanguage === "en"}
         >
-          {currentLanguage === "en" ? <strong>EN</strong> : "EN"}
+          {currentLanguage === "en" ? (
+            <strong>{t("language.en")}</strong>
+          ) : (
+            t("language.en")
+          )}
         </button>
         <span> | </span>
         <button
@@ -28,7 +34,11 @@ export const Header = ({
           className="lang-btn"
           aria-pressed={currentLanguage === "fr"}
         >
-          {currentLanguage === "fr" ? <strong>FR</strong> : "FR"}
+          {currentLanguage === "fr" ? (
+            <strong>{t("language.fr")}</strong>
+          ) : (
+            t("language.fr")
+          )}
         </button>
       </div>
       <h1 className="name">{name}</h1>

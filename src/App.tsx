@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Header, ExperienceList, Sidebar } from "@/components";
 import type { ResumeSchema } from "@/types";
 import { fetchGist, parseSchema } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 export interface AppProps {
   gistIdEn: string;
@@ -13,6 +14,7 @@ export default function App({ gistIdEn, gistIdFr }: AppProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [language, setLanguage] = useState<"en" | "fr">("en");
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     if (!gistIdEn || !gistIdFr) return;
@@ -31,7 +33,9 @@ export default function App({ gistIdEn, gistIdFr }: AppProps) {
   }, [gistIdEn, gistIdFr, language]);
 
   const toggleLanguage = () => {
-    setLanguage(language === "en" ? "fr" : "en");
+    const newLanguage = language === "en" ? "fr" : "en";
+    setLanguage(newLanguage);
+    void i18n.changeLanguage(newLanguage);
   };
 
   if (loading) return <div>Loading...</div>;

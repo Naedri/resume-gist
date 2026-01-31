@@ -10,6 +10,7 @@ import {
   EducationList,
   ProjectList
 } from "@/components";
+import { useTranslation } from "react-i18next";
 
 export interface SidebarProps {
   contact: ContactType;
@@ -19,6 +20,7 @@ export interface SidebarProps {
 }
 
 export const Sidebar = ({ contact, skills, education, oss }: SidebarProps) => {
+  const { t } = useTranslation();
   return (
     <aside className="sidebar">
       <ContactSection {...contact} />
@@ -30,7 +32,9 @@ export const Sidebar = ({ contact, skills, education, oss }: SidebarProps) => {
           onClick={() => window.print()}
           className="print-button"
           data-i18n="print.button"
-        />
+        >
+          {t("button.print")}
+        </button>
       </div>
     </aside>
   );

@@ -1,14 +1,16 @@
 import type { ProjectType } from "@/types";
+import { useTranslation } from "react-i18next";
 
 export interface ProjectListProps {
   oss: ProjectType[];
 }
 
 export const ProjectList = ({ oss }: ProjectListProps) => {
+  const { t } = useTranslation();
   return (
     <section>
       <h3 className="section-title" data-i18n="section.oss">
-        Open Source
+        {t("section.oss")}
       </h3>
       {oss.map((item, index) => (
         <div key={index} className="oss-item">
