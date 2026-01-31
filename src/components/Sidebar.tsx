@@ -5,7 +5,7 @@ import type {
   SkillType
 } from "@/types";
 import {
-  ContactSection,
+  ContactList,
   SkillList,
   EducationList,
   ProjectList
@@ -23,7 +23,7 @@ export const Sidebar = ({ contact, skills, education, oss }: SidebarProps) => {
   const { t } = useTranslation();
   return (
     <aside className="sidebar">
-      <ContactSection {...contact} />
+      <ContactList {...contact} />
       <SkillList skills={skills} />
       <EducationList education={education} />
       <ProjectList oss={oss} />

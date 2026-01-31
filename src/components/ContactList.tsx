@@ -1,17 +1,17 @@
 import type { ContactType } from "@/types";
 import { useTranslation } from "react-i18next";
 
-export interface ContactProps extends ContactType {
+export interface ContactListProps extends ContactType {
   age?: number;
 }
 
-export const ContactSection = ({
+export const ContactList = ({
   age,
   location,
   phone,
   email,
   github
-}: ContactProps) => {
+}: ContactListProps) => {
   const { t } = useTranslation();
   return (
     <section>
