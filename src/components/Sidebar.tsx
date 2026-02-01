@@ -13,17 +13,24 @@ import {
 import { useTranslation } from "react-i18next";
 
 export interface SidebarProps {
+  age?: number;
   contact: ContactType;
   skills: SkillType[];
   education: EducationType[];
   oss: ProjectType[];
 }
 
-export const Sidebar = ({ contact, skills, education, oss }: SidebarProps) => {
+export const Sidebar = ({
+  age,
+  contact,
+  skills,
+  education,
+  oss
+}: SidebarProps) => {
   const { t } = useTranslation();
   return (
     <aside className="sidebar">
-      <ContactList {...contact} />
+      <ContactList age={age} {...contact} />
       <SkillList skills={skills} />
       <EducationList education={education} />
       <ProjectList oss={oss} />

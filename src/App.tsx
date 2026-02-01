@@ -57,6 +57,7 @@ export default function App({ gistIdEn, gistIdFr }: AppProps) {
         <ExperienceList experiences={resume.experience} />
       </main>
       <Sidebar
+        age={resume.age}
         contact={resume.contact}
         skills={resume.skills}
         education={resume.education}
