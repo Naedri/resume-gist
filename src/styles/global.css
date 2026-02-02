@@ -1,0 +1,309 @@
+:root {
+  --primary-color: #1a202c;
+  --secondary-color: #4a5568;
+  --accent-color: #2c5282;
+  --light-color: #f8f9fa;
+  --border-color: #e2e8f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cambria", Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+  color: var(--primary-color);
+  background-color: white;
+  max-width: 8.5in;
+  margin: 0 auto;
+  padding: 1rem;
+  font-size: 10pt;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.resume-container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 1.5rem;
+  background-color: white;
+}
+
+.main-content {
+  padding-right: 1rem;
+}
+
+.sidebar {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+}
+
+.sidebar:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: #d1d5db;
+  opacity: 0.5;
+}
+
+.header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #d1d5db;
+  position: relative;
+}
+
+.lang-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.25rem;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  font-size: 9pt;
+  padding: 0.125rem 0.25rem;
+}
+
+.lang-btn[aria-pressed="true"] {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.name {
+  font-size: 18pt;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 14pt;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.summary {
+  font-size: 10pt;
+  margin-bottom: 0.5rem;
+  /* max-width: 90%;
+  margin-left: auto;
+  margin-right: auto; */
+}
+
+.section-title {
+  font-size: 12pt;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0.75rem 0 0.5rem 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #d1d5db;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.experience-item {
+  margin-bottom: 0.75rem;
+}
+
+/* Visual separation between experiences to avoid date overlap issues */
+.experience-item + .experience-item {
+  border-top: 1px solid #d1d5db;
+  padding-top: 0.5rem;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.25rem;
+}
+
+.company {
+  font-weight: 600;
+  font-size: 11pt;
+}
+
+.job-title {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 10pt;
+}
+
+.date {
+  color: var(--secondary-color);
+  font-size: 10pt;
+  font-style: italic;
+}
+
+.project-title {
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 0.1rem;
+  font-size: 10pt;
+}
+
+.stack {
+  font-size: 9.5pt;
+  color: var(--secondary-color);
+  margin: 0.1rem 0 0.25rem 0;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+  font-size: 9.5pt;
+  position: relative;
+  padding-left: 0;
+}
+
+li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+}
+
+.contact-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 9.5pt;
+  padding-left: 0;
+}
+
+.contact-item:before {
+  display: none;
+}
+
+.icon {
+  display: none;
+}
+
+.oss-item {
+  margin-bottom: 0.75rem;
+}
+
+.oss-title {
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+  font-size: 9.5pt;
+}
+
+.oss-description {
+  font-size: 9.5pt;
+  color: var(--secondary-color);
+  line-height: 1.4;
+}
+
+.education {
+  margin-top: 0.75rem;
+}
+
+.school {
+  font-weight: 600;
+  font-size: 10pt;
+}
+
+.school-spacing {
+  margin-top: 0.75rem;
+}
+
+.degree {
+  font-style: italic;
+  color: var(--secondary-color);
+  font-size: 9.5pt;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin-left: 0;
+}
+
+.skill-item {
+  border: 1px solid #d1d5db;
+  padding: 0.15rem 0.4rem;
+  border-radius: 2px;
+  font-size: 9pt;
+}
+
+.skill-item:before {
+  display: none;
+}
+
+.print-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: "Cambria", "Times New Roman", serif;
+}
+
+/* Print-specific styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .resume-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .no-print {
+    display: none;
+  }
+}
