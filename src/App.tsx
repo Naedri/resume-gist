@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Header, ExperienceList, Sidebar } from "@/components";
 import type { ResumeSchema } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "./hooks";
 
 export interface AppProps {
   gistIdEn: string;
@@ -13,13 +13,12 @@ export default function App({ gistIdEn, gistIdFr }: AppProps) {
   const [resumeData, setResumeData] = useState<ResumeSchema | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [language, setLanguage] = useState<"en" | "fr">("en");
-  const { i18n } = useTranslation();
+  const { currentLanguage } = useLanguage();
 
   useEffect(() => {
     if (!gistIdEn || !gistIdFr) return;
 
-    const gistId = language === "en" ? gistIdEn : gistIdFr;
+    const gistId = currentLanguage === "en" ? gistIdEn : gistIdFr;
 
     fetchRemoteResume(gistId)
       .then((data: ResumeSchema) => {
@@ -30,13 +29,7 @@ export default function App({ gistIdEn, gistIdFr }: AppProps) {
         setError("Failed to load resume data.");
         setLoading(false);
       });
-  }, [gistIdEn, gistIdFr, language]);
-
-  const toggleLanguage = () => {
-    const newLanguage = language === "en" ? "fr" : "en";
-    setLanguage(newLanguage);
-    void i18n.changeLanguage(newLanguage);
-  };
+  }, [gistIdEn, gistIdFr, currentLanguage]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -51,8 +44,6 @@ export default function App({ gistIdEn, gistIdFr }: AppProps) {
           name={resume.name}
           title={resume.title}
           summary={resume.summary}
-          toggleLanguage={toggleLanguage}
-          currentLanguage={language}
         />
         <ExperienceList experiences={resume.experience} />
       </main>

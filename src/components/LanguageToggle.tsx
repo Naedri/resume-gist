@@ -1,15 +1,9 @@
+import { useLanguage } from "@/hooks";
 import { useTranslation } from "react-i18next";
 
-export interface LanguageToggleProps {
-  currentLanguage: string;
-  toggleLanguage: () => void;
-}
-
-export const LanguageToggle = ({
-  currentLanguage,
-  toggleLanguage
-}: LanguageToggleProps) => {
+export const LanguageToggle = () => {
   const { t } = useTranslation();
+  const { currentLanguage, toggleLanguage } = useLanguage();
 
   return (
     <div className="lang-toggle no-print" aria-label="Language toggle">
