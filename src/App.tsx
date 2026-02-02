@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Header, ExperienceList, Sidebar } from "@/components";
 import type { ResumeSchema } from "@/types";
-import { fetchGist, parseSchema } from "@/utils";
+import { fetchRemoteResume, parseSchema } from "@/utils";
 import { useTranslation } from "react-i18next";
 
 export interface AppProps {
@@ -21,7 +21,7 @@ export default function App({ gistIdEn, gistIdFr }: AppProps) {
 
     const gistId = language === "en" ? gistIdEn : gistIdFr;
 
-    fetchGist(gistId)
+    fetchRemoteResume(gistId)
       .then((data: ResumeSchema) => {
         setResumeData(data);
         setLoading(false);

@@ -2,7 +2,18 @@ import type { ResumeSchema, GistResponse } from "@/types";
 
 const gistCache: Record<string, ResumeSchema> = {};
 
-export const fetchGist = async (gistId: string): Promise<ResumeSchema> => {
+export const fetchLocalResume = async (): Promise<ResumeSchema> => {
+  const response = await fetch("/private/resume.json");
+  if (response.ok) {
+    return (await response.json()) as ResumeSchema;
+  } else {
+    throw new Error("Error fetching local resume");
+  }
+};
+
+export const fetchRemoteResume = async (
+  gistId: string
+): Promise<ResumeSchema> => {
   let res;
   if (gistCache[gistId]) res = gistCache[gistId];
   else {

@@ -34,3 +34,6 @@ src/types/json-resume.d.ts
 
 # Env files
 .env
+
+# Private files
+private/*
