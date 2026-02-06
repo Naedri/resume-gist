@@ -1,24 +1,22 @@
 import { useState, useEffect } from "react";
 import { Header, ExperienceList, Sidebar } from "@/components";
-import type { ResumeSchema } from "@/types";
+import type { ResumeSchema, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
-import { useLanguage } from "./hooks";
+import { useLanguage } from "@/hooks";
 
 export interface AppProps {
-  gistIdEn: string;
-  gistIdFr: string;
+  gistIds: Record<Locale, string>;
 }
 
-export default function App({ gistIdEn, gistIdFr }: AppProps) {
+export default function App({ gistIds }: AppProps) {
   const [resumeData, setResumeData] = useState<ResumeSchema | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { currentLanguage } = useLanguage();
 
   useEffect(() => {
-    if (!gistIdEn || !gistIdFr) return;
-
-    const gistId = currentLanguage === "en" ? gistIdEn : gistIdFr;
+    const gistId = gistIds[currentLanguage];
+    if (!gistId) return;
 
     fetchRemoteResume(gistId)
       .then((data: ResumeSchema) => {
@@ -29,7 +27,7 @@ export default function App({ gistIdEn, gistIdFr }: AppProps) {
         setError("Failed to load resume data.");
         setLoading(false);
       });
-  }, [gistIdEn, gistIdFr, currentLanguage]);
+  }, [currentLanguage, gistIds]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;

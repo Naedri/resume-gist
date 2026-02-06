@@ -1,7 +1,8 @@
 import { createContext } from "react";
+import type { Locale } from "@/types";
 
 interface LanguageContextType {
-  currentLanguage: string;
+  currentLanguage: Locale;
   toggleLanguage: () => void;
 }
 
