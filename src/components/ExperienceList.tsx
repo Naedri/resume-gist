@@ -23,30 +23,16 @@ export const ExperienceList = ({ experiences }: ExperienceListProps) => {
                   {exp.company.name}
                 </a>
               </div>
-              <div
-                className="job-title"
-                data-i18n={`job.${exp.jobTitle.toLowerCase().replace(" ", "_")}`}
-              >
-                {exp.jobTitle}
-              </div>
+              <div className="job-title">{exp.jobTitle}</div>
             </div>
-            <div
-              className="date"
-              data-i18n={`${exp.company.name.toLowerCase()}.date`}
-            >
-              {exp.date}
-            </div>
+            <div className="date">{exp.date}</div>
           </div>
           {exp.projects.map((project, idx) => (
             <div key={idx}>
               <div className="project-title">{project.title}</div>
               <ul>
                 {project.bullets.map((bullet, i) => (
-                  <li
-                    key={i}
-                    data-i18n={`${exp.company.name.toLowerCase()}.b${i + 1}`}
-                    dangerouslySetInnerHTML={{ __html: bullet }}
-                  />
+                  <li key={i} dangerouslySetInnerHTML={{ __html: bullet }} />
                 ))}
               </ul>
               <div className="stack">

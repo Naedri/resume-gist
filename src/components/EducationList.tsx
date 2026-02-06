@@ -13,20 +13,10 @@ export const EducationList = ({ education }: EducationListProps) => {
       {education.map((edu, index) => (
         <div key={index}>
           <div className="school">{edu.school}</div>
-          <div
-            className="degree"
-            data-i18n={`edu.${edu.school.toLowerCase().replace(" ", "_")}`}
-          >
-            {edu.degree}
-          </div>
+          <div className="degree">{edu.degree}</div>
           <ul>
             {edu.bullets.map((bullet, i) => (
-              <li
-                key={i}
-                data-i18n={`edu.${edu.school.toLowerCase().replace(" ", "_")}.b${i + 1}`}
-              >
-                {bullet}
-              </li>
+              <li key={i}>{bullet}</li>
             ))}
           </ul>
         </div>

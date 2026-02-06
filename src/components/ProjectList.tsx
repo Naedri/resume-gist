@@ -18,11 +18,7 @@ export const ProjectList = ({ oss }: ProjectListProps) => {
             </a>
           </div>
           <div className="oss-description">
-            <span
-              data-i18n={`oss.${item.title.toLowerCase().replace(" ", "_")}.desc`}
-            >
-              {item.description}
-            </span>
+            <span>{item.description}</span>
           </div>
         </div>
       ))}
