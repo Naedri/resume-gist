@@ -3,12 +3,14 @@ import { Header, ExperienceList, Sidebar } from "@/components";
 import type { CustomResumeSchema, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
 import { useLanguage } from "@/hooks";
+import { useTranslation } from "react-i18next";
 
 export interface AppProps {
   gistIds: Record<Locale, string>;
 }
 
 export default function App({ gistIds }: AppProps) {
+  const { t } = useTranslation();
   const [resumeData, setResumeData] = useState<CustomResumeSchema | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -29,9 +31,9 @@ export default function App({ gistIds }: AppProps) {
       });
   }, [currentLanguage, gistIds]);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-  if (!resumeData) return <div>No data available.</div>;
+  if (loading) return <div>{t("message.loading")}</div>;
+  if (error) return <div>{t("message.error", { error })}</div>;
+  if (!resumeData) return <div>{t("message.noData")}</div>;
 
   const resume = parseSchema(resumeData);
 

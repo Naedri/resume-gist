@@ -9,6 +9,11 @@
     "en": "EN",
     "fr": "FR"
   },
+  "message": {
+    "loading": "Chargement...",
+    "noData": "Pas de données disponibles",
+    "error": "Erreur: {{error}}"
+  },
   "section": {
     "contact": "Contact",
     "education": "Formations",
