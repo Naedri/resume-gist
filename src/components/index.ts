@@ -7,3 +7,4 @@ export * from "./LanguageToggle.tsx";
 export * from "./ProjectList.tsx";
 export * from "./Sidebar.tsx";
 export * from "./SkillList.tsx";
+export * from "./SkeletonLoader";
