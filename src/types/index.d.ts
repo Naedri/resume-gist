@@ -1,6 +1,7 @@
 export * from "./gist";
 export * from "./locale";
 export * from "./resume";
+export * from "./app";
 export { Iso8601 } from "./json-resume";
 
 import type { ResumeSchema as JsonResumeSchema } from "./json-resume";

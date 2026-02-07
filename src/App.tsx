@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { Header, ExperienceList, Sidebar } from "@/components";
 import type { CustomResumeSchema, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
-import { useLanguage } from "@/hooks";
+import { useAppState, useLanguage } from "@/hooks";
 import { useTranslation } from "react-i18next";
+import { AppStateProvider } from "./providers";
 
 export interface AppProps {
   gistIds: Record<Locale, string>;
@@ -12,7 +13,10 @@ export interface AppProps {
 export default function App({ gistIds }: AppProps) {
   const { t } = useTranslation();
   const [resumeData, setResumeData] = useState<CustomResumeSchema | null>(null);
-  const [loading, setLoading] = useState(true);
+  const {
+    state: { loading },
+    setLoading
+  } = useAppState();
   const [error, setError] = useState<string | null>(null);
   const { currentLanguage } = useLanguage();
 
@@ -38,22 +42,24 @@ export default function App({ gistIds }: AppProps) {
   const resume = parseSchema(resumeData);
 
   return (
-    <div className="resume-container">
-      <main className="main-content">
-        <Header
-          name={resume.name}
-          title={resume.title}
-          summary={resume.summary}
+    <AppStateProvider>
+      <div className="resume-container">
+        <main className="main-content">
+          <Header
+            name={resume.name}
+            title={resume.title}
+            summary={resume.summary}
+          />
+          <ExperienceList experiences={resume.experience} />
+        </main>
+        <Sidebar
+          age={resume.age}
+          contact={resume.contact}
+          skills={resume.skills}
+          education={resume.education}
+          oss={resume.oss}
         />
-        <ExperienceList experiences={resume.experience} />
-      </main>
-      <Sidebar
-        age={resume.age}
-        contact={resume.contact}
-        skills={resume.skills}
-        education={resume.education}
-        oss={resume.oss}
-      />
-    </div>
+      </div>
+    </AppStateProvider>
   );
 }
