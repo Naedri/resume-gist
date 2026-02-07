@@ -1,11 +1,11 @@
-import type { ResumeSchema, GistResponse } from "@/types";
+import type { CustomResumeSchema, GistResponse } from "@/types";
 
-const gistCache: Record<string, ResumeSchema> = {};
+const gistCache: Record<string, CustomResumeSchema> = {};
 
-export const fetchLocalResume = async (): Promise<ResumeSchema> => {
+export const fetchLocalResume = async (): Promise<CustomResumeSchema> => {
   const response = await fetch("/private/resume.json");
   if (response.ok) {
-    return (await response.json()) as ResumeSchema;
+    return (await response.json()) as CustomResumeSchema;
   } else {
     throw new Error("Error fetching local resume");
   }
@@ -13,7 +13,7 @@ export const fetchLocalResume = async (): Promise<ResumeSchema> => {
 
 export const fetchRemoteResume = async (
   gistId: string
-): Promise<ResumeSchema> => {
+): Promise<CustomResumeSchema> => {
   let res;
   if (gistCache[gistId]) res = gistCache[gistId];
   else {
@@ -22,7 +22,7 @@ export const fetchRemoteResume = async (
       const gist = (await response.json()) as GistResponse;
       const resume = JSON.parse(
         gist.files["resume.json"].content
-      ) as ResumeSchema;
+      ) as CustomResumeSchema;
       gistCache[gistId] = resume;
       res = resume;
     } else {

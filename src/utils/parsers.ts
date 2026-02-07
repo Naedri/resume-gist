@@ -1,6 +1,6 @@
-import type { ResumeSchema, ResumeType } from "@/types";
+import type { CustomResumeSchema, ResumeType } from "@/types";
 
-export function parseSchema(resume: ResumeSchema): ResumeType {
+export function parseSchema(resume: CustomResumeSchema): ResumeType {
   const basicInfo = resume.basics ?? {};
   const contactInfo = resume.basics ?? {};
   const skills = resume.skills ?? [];
@@ -37,11 +37,11 @@ export function parseSchema(resume: ResumeSchema): ResumeType {
       },
       jobTitle: exp.position ?? "",
       date: `${exp.startDate ?? ""} - ${exp.endDate ?? ""}`,
+      stack: exp.stack ?? [],
       projects:
         exp.highlights?.map((highlight) => ({
           title: "",
-          bullets: [highlight],
-          stack: []
+          bullets: [highlight]
         })) ?? []
     })),
     oss: projects.map((project) => ({

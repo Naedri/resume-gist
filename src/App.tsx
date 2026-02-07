@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Header, ExperienceList, Sidebar } from "@/components";
-import type { ResumeSchema, Locale } from "@/types";
+import type { CustomResumeSchema, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
 import { useLanguage } from "@/hooks";
 
@@ -9,7 +9,7 @@ export interface AppProps {
 }
 
 export default function App({ gistIds }: AppProps) {
-  const [resumeData, setResumeData] = useState<ResumeSchema | null>(null);
+  const [resumeData, setResumeData] = useState<CustomResumeSchema | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { currentLanguage } = useLanguage();
@@ -19,7 +19,7 @@ export default function App({ gistIds }: AppProps) {
     if (!gistId) return;
 
     fetchRemoteResume(gistId)
-      .then((data: ResumeSchema) => {
+      .then((data: CustomResumeSchema) => {
         setResumeData(data);
         setLoading(false);
       })

@@ -35,11 +35,13 @@ export const ExperienceList = ({ experiences }: ExperienceListProps) => {
                   <li key={i} dangerouslySetInnerHTML={{ __html: bullet }} />
                 ))}
               </ul>
-              <div className="stack">
-                <span>{t("section.stack")}</span>: {project.stack.join(", ")}
-              </div>
             </div>
           ))}
+          {exp.stack && exp.stack.length > 0 && (
+            <div className="stack">
+              <span>{t("section.stack")}</span>: {exp.stack.join(", ")}
+            </div>
+          )}
         </div>
       ))}
     </section>

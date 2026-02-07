@@ -34,4 +34,4 @@ npm run preview
 
 ## Gist Structure
 
-Your Gist must include a `resume.json` file, of which the type is defined by the [`ResumeSchema`](./src/types/index.d.ts) interface.
+Your Gist must include a `resume.json` file, of which the type is defined by the [`CustomResumeSchema`](./src/types/index.d.ts) interface.

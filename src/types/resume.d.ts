@@ -25,12 +25,12 @@ export interface ExperienceType {
   jobTitle: string;
   date: string;
   projects: ExperienceProjectType[];
+  stack?: string[];
 }
 
 export interface ExperienceProjectType {
   title: string;
   bullets: string[];
-  stack: string[];
 }
 
 export interface ContactType {
