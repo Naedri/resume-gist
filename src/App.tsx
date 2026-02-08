@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Header, ExperienceList, Sidebar } from "@/components";
 import type { CustomResumeSchema, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
@@ -15,6 +15,7 @@ export default function App({ gistIds }: AppProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const { currentLanguage } = useLanguage();
+  const prefetchGists = useRef(new Set<string>());
 
   const onFetchError = () => {
     setError(t("message.error.fetchResume"));
@@ -32,6 +33,21 @@ export default function App({ gistIds }: AppProps) {
     if (!gistId) return;
     fetchRemoteResume(gistId).then(onFetchSuccess).catch(onFetchError);
   }, [currentLanguage]);
+
+  useEffect(() => {
+    if (!loading && resumeData) {
+      for (const [locale, id] of Object.entries(gistIds)) {
+        if (
+          locale !== currentLanguage &&
+          id &&
+          !prefetchGists.current.has(id)
+        ) {
+          fetchRemoteResume(id).catch(console.error);
+          prefetchGists.current.add(id);
+        }
+      }
+    }
+  }, [loading, resumeData, gistIds, currentLanguage]);
 
   if (error) return <div>{t("message.error.display", { error })}</div>;
   if (!loading && !resumeData) return <div>{t("message.error.noData")}</div>;
