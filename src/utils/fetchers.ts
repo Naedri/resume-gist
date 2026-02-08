@@ -3,12 +3,14 @@ import type { CustomResumeSchema, GistResponse } from "@/types";
 const gistCache: Record<string, CustomResumeSchema> = {};
 
 export const fetchLocalResume = async (): Promise<CustomResumeSchema> => {
-  const response = await fetch("/private/resume.json");
-  if (response.ok) {
-    return (await response.json()) as CustomResumeSchema;
-  } else {
-    throw new Error("Error fetching local resume");
+  const urls = ["/private/resume.json", "/private/resume.jsonc"];
+  for (const url of urls) {
+    const response = await fetch(url);
+    if (response.ok) {
+      return (await response.json()) as CustomResumeSchema;
+    }
   }
+  throw new Error("Error fetching local resume");
 };
 
 export const fetchRemoteResume = async (
