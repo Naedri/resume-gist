@@ -374,6 +374,11 @@ li:before {
     display: none;
   }
 
+  /* Skills */
+  .skills-list {
+    justify-content: center;
+  }
+
   /* Ordering  */
   .main-content,
   .sidebar {
