@@ -11,10 +11,15 @@ export const Header = ({ name, title, summary, loading }: HeaderProps) => {
   return (
     <header className="header">
       <LanguageToggle />
-      <h1 className="name">{name}</h1>
+      <h1 className="name">{name ?? t("section.header.name")}</h1>
       <h2 className="title">{loading ? t("message.loading") : title}</h2>
       <SkeletonLoader loading={loading} lines={4}>
-        <p className="summary" dangerouslySetInnerHTML={{ __html: summary }} />
+        {summary && (
+          <p
+            className="summary"
+            dangerouslySetInnerHTML={{ __html: summary }}
+          />
+        )}
       </SkeletonLoader>
     </header>
   );

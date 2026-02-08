@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { SkeletonLoader } from "@/components";
 
 export interface ExperienceListProps {
-  experiences: ExperienceType[];
+  experiences?: ExperienceType[];
   loading: boolean;
 }
 
@@ -16,7 +16,7 @@ export const ExperienceList = ({
     <section>
       <h3 className="section-title">{t("section.experience")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        {experiences.map((exp, index) => (
+        {experiences?.map((exp, index) => (
           <div key={index} className="experience-item">
             <div className="experience-header">
               <div>

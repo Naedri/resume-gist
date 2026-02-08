@@ -14,10 +14,10 @@ import { useTranslation } from "react-i18next";
 
 export interface SidebarProps {
   age?: number;
-  contact: ContactType;
-  skills: SkillType[];
-  education: EducationType[];
-  oss: ProjectType[];
+  contact?: ContactType;
+  skills?: SkillType[];
+  education?: EducationType[];
+  oss?: ProjectType[];
   loading: boolean;
 }
 
@@ -32,10 +32,14 @@ export const Sidebar = ({
   const { t } = useTranslation();
   return (
     <aside className="sidebar">
-      <ContactList age={age} {...contact} loading={loading} />
-      <SkillList skills={skills} loading={loading} />
-      <EducationList education={education} loading={loading} />
-      <ProjectList oss={oss} loading={loading} />
+      {(loading || contact) && (
+        <ContactList age={age} {...contact} loading={loading} />
+      )}
+      {(loading || skills) && <SkillList skills={skills} loading={loading} />}
+      {(loading || education) && (
+        <EducationList education={education} loading={loading} />
+      )}
+      {(loading || oss) && <ProjectList oss={oss} loading={loading} />}
       <div className="no-print">
         <button onClick={() => window.print()} className="print-button">
           {t("button.print")}

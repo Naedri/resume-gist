@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { SkeletonLoader } from "@/components";
 
 export interface EducationListProps {
-  education: EducationType[];
+  education?: EducationType[];
   loading: boolean;
 }
 
@@ -13,7 +13,7 @@ export const EducationList = ({ education, loading }: EducationListProps) => {
     <section className="education">
       <h3 className="section-title">{t("section.education")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        {education.map((edu, index) => (
+        {education?.map((edu, index) => (
           <div key={index}>
             <div className="school">{edu.school}</div>
             <div className="degree">{edu.degree}</div>

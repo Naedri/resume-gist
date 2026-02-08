@@ -1,8 +1,8 @@
 export interface BasicType {
   age?: number;
-  name: string;
-  title: string;
-  summary: string;
+  name?: string;
+  title?: string;
+  summary?: string;
 }
 
 export interface SkillType {
@@ -34,10 +34,10 @@ export interface ExperienceProjectType {
 }
 
 export interface ContactType {
-  location: string;
-  phone: string;
-  email: string;
-  github: string;
+  location?: string;
+  phone?: string;
+  email?: string;
+  github?: string;
 }
 
 export interface EducationType {

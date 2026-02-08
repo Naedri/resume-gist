@@ -16,44 +16,45 @@ export default function App({ gistIds }: AppProps) {
   const [error, setError] = useState<string | null>(null);
   const { currentLanguage } = useLanguage();
 
+  const onFetchError = () => {
+    setError(t("message.error.fetchResume"));
+    setResumeData(null);
+    setLoading(false);
+  };
+  const onFetchSuccess = (data: CustomResumeSchema) => {
+    setError(null);
+    setResumeData(data);
+    setLoading(false);
+  };
+
   useEffect(() => {
     const gistId = gistIds[currentLanguage];
     if (!gistId) return;
+    fetchRemoteResume(gistId).then(onFetchSuccess).catch(onFetchError);
+  }, [currentLanguage]);
 
-    fetchRemoteResume(gistId)
-      .then((data: CustomResumeSchema) => {
-        setResumeData(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setError("Failed to load resume data.");
-        setLoading(false);
-      });
-  }, [currentLanguage, gistIds]);
+  if (error) return <div>{t("message.error.display", { error })}</div>;
+  if (!loading && !resumeData) return <div>{t("message.error.noData")}</div>;
 
-  if (loading) return <div>{t("message.loading")}</div>;
-  if (error) return <div>{t("message.error", { error })}</div>;
-  if (!resumeData) return <div>{t("message.noData")}</div>;
-
-  const resume = parseSchema(resumeData);
+  const resume = resumeData ? parseSchema(resumeData) : undefined;
 
   return (
     <div className="resume-container">
       <main className="main-content">
         <Header
-          name={resume.name}
-          title={resume.title}
-          summary={resume.summary}
+          name={resume?.name}
+          title={resume?.title}
+          summary={resume?.summary}
           loading={loading}
         />
-        <ExperienceList experiences={resume.experience} loading={loading} />
+        <ExperienceList experiences={resume?.experience} loading={loading} />
       </main>
       <Sidebar
-        age={resume.age}
-        contact={resume.contact}
-        skills={resume.skills}
-        education={resume.education}
-        oss={resume.oss}
+        age={resume?.age}
+        contact={resume?.contact}
+        skills={resume?.skills}
+        education={resume?.education}
+        oss={resume?.oss}
         loading={loading}
       />
     </div>

@@ -10,11 +10,17 @@
     "fr": "FR"
   },
   "message": {
-    "loading": "Chargement...",
-    "noData": "Pas de données disponibles",
-    "error": "Erreur: {{error}}"
+    "error": {
+      "display": "Erreur: {{error}}",
+      "fetchResume": "Echec du chargement des données du CV.",
+      "noData": "Pas de données disponibles"
+    },
+    "loading": "Chargement..."
   },
   "section": {
+    "header": {
+      "name": "Adrien JALLAIS"
+    },
     "contact": "Contact",
     "education": "Formations",
     "experience": "Expériences Professionnelles",

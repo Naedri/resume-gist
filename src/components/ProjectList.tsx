@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { SkeletonLoader } from "@/components";
 
 export interface ProjectListProps {
-  oss: ProjectType[];
+  oss?: ProjectType[];
   loading: boolean;
 }
 
@@ -13,7 +13,7 @@ export const ProjectList = ({ oss, loading }: ProjectListProps) => {
     <section>
       <h3 className="section-title">{t("section.oss")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        {oss.map((item, index) => (
+        {oss?.map((item, index) => (
           <div key={index} className="oss-item">
             <div className="oss-title">
               <a href={item.url} target="_blank" rel="noopener noreferrer">
