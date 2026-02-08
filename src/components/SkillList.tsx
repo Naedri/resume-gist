@@ -10,7 +10,7 @@ export interface SkillListProps {
 export const SkillList = ({ skills, loading }: SkillListProps) => {
   const { t } = useTranslation();
   return (
-    <section>
+    <section className="skills-container">
       <h3 className="section-title">{t("section.skill")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
         <ul className="skills-list">

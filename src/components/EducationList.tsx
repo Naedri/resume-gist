@@ -10,11 +10,11 @@ export interface EducationListProps {
 export const EducationList = ({ education, loading }: EducationListProps) => {
   const { t } = useTranslation();
   return (
-    <section className="education">
+    <section className="educations-container">
       <h3 className="section-title">{t("section.education")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
         {education?.map((edu, index) => (
-          <div key={index}>
+          <div key={index} className="education-item">
             <div className="school">{edu.school}</div>
             <div className="degree">{edu.degree}</div>
             <ul>

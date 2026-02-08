@@ -9,7 +9,7 @@ export interface HeaderProps extends BasicType {
 export const Header = ({ name, title, summary, loading }: HeaderProps) => {
   const { t } = useTranslation();
   return (
-    <header className="header">
+    <header className="header-container">
       <LanguageToggle />
       <h1 className="name">{name ?? t("section.header.name")}</h1>
       <h2 className="title">{loading ? t("message.loading") : title}</h2>

@@ -17,7 +17,7 @@ export const ContactList = ({
 }: ContactListProps) => {
   const { t } = useTranslation();
   return (
-    <section>
+    <section className="contacts-container">
       <h3 className="section-title">{t("section.contact")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
         <ul className="contact-list">

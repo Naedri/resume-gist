@@ -13,7 +13,7 @@ export const ExperienceList = ({
 }: ExperienceListProps) => {
   const { t } = useTranslation();
   return (
-    <section>
+    <section className="experiences-container">
       <h3 className="section-title">{t("section.experience")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
         {experiences?.map((exp, index) => (

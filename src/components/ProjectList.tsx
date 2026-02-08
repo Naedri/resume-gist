@@ -10,7 +10,7 @@ export interface ProjectListProps {
 export const ProjectList = ({ oss, loading }: ProjectListProps) => {
   const { t } = useTranslation();
   return (
-    <section>
+    <section className="projects-container">
       <h3 className="section-title">{t("section.oss")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
         {oss?.map((item, index) => (
