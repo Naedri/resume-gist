@@ -357,6 +357,23 @@ li:before {
     margin-top: 0;
   }
 
+  /* Contact section */
+  .contact-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .contact-item {
+    margin-bottom: 0;
+  }
+
+  .contact-list .icon {
+    display: none;
+  }
+
   /* Ordering  */
   .main-content,
   .sidebar {
