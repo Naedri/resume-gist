@@ -40,8 +40,8 @@ export const Sidebar = ({
         <EducationList education={education} loading={loading} />
       )}
       {(loading || oss) && <ProjectList oss={oss} loading={loading} />}
-      <div className="no-print">
-        <button onClick={() => window.print()} className="print-button">
+      <div className="print-button">
+        <button onClick={() => window.print()} className="no-print">
           {t("button.print")}
         </button>
       </div>

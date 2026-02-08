@@ -268,7 +268,7 @@ li:before {
   display: none;
 }
 
-.print-button {
+.print-button > button {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   background-color: var(--accent-color);
@@ -319,6 +319,7 @@ li:before {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: relative;
   }
 
   .sidebar:before {
@@ -334,16 +335,26 @@ li:before {
     padding-right: 0;
   }
 
-  /* Manager lang-toggle */
+  /* Manage lang-toggle and print-button */
   .header-container {
     display: flex;
     flex-direction: column;
+    padding-top: 3rem;
   }
 
   .lang-toggle {
-    position: static;
-    align-self: flex-end;
-    margin-bottom: 0.5rem;
+    position: absolute;
+    right: 0;
+  }
+
+  .print-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .print-button > button {
+    margin-top: 0;
   }
 
   /* Ordering  */
@@ -352,7 +363,8 @@ li:before {
     display: contents;
   }
 
-  .lang-toggle {
+  .lang-toggle,
+  .print-button {
     order: -7;
   }
   .header-container,
