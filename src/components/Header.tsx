@@ -1,13 +1,21 @@
-import { LanguageToggle } from "@/components";
+import { LanguageToggle, SkeletonLoader } from "@/components";
 import type { BasicType } from "@/types";
+import { useTranslation } from "react-i18next";
 
-export const Header = ({ name, title, summary }: BasicType) => {
+export interface HeaderProps extends BasicType {
+  loading: boolean;
+}
+
+export const Header = ({ name, title, summary, loading }: HeaderProps) => {
+  const { t } = useTranslation();
   return (
     <header className="header">
       <LanguageToggle />
       <h1 className="name">{name}</h1>
-      <h2 className="title">{title}</h2>
-      <p className="summary" dangerouslySetInnerHTML={{ __html: summary }} />
+      <h2 className="title">{loading ? t("message.loading") : title}</h2>
+      <SkeletonLoader loading={loading} lines={4}>
+        <p className="summary" dangerouslySetInnerHTML={{ __html: summary }} />
+      </SkeletonLoader>
     </header>
   );
 };

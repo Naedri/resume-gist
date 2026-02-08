@@ -12,7 +12,7 @@ export interface AppProps {
 export default function App({ gistIds }: AppProps) {
   const { t } = useTranslation();
   const [resumeData, setResumeData] = useState<CustomResumeSchema | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const { currentLanguage } = useLanguage();
 
@@ -44,8 +44,9 @@ export default function App({ gistIds }: AppProps) {
           name={resume.name}
           title={resume.title}
           summary={resume.summary}
+          loading={loading}
         />
-        <ExperienceList experiences={resume.experience} />
+        <ExperienceList experiences={resume.experience} loading={loading} />
       </main>
       <Sidebar
         age={resume.age}
@@ -53,6 +54,7 @@ export default function App({ gistIds }: AppProps) {
         skills={resume.skills}
         education={resume.education}
         oss={resume.oss}
+        loading={loading}
       />
     </div>
   );

@@ -18,6 +18,7 @@ export interface SidebarProps {
   skills: SkillType[];
   education: EducationType[];
   oss: ProjectType[];
+  loading: boolean;
 }
 
 export const Sidebar = ({
@@ -25,15 +26,16 @@ export const Sidebar = ({
   contact,
   skills,
   education,
-  oss
+  oss,
+  loading
 }: SidebarProps) => {
   const { t } = useTranslation();
   return (
     <aside className="sidebar">
-      <ContactList age={age} {...contact} />
-      <SkillList skills={skills} />
-      <EducationList education={education} />
-      <ProjectList oss={oss} />
+      <ContactList age={age} {...contact} loading={loading} />
+      <SkillList skills={skills} loading={loading} />
+      <EducationList education={education} loading={loading} />
+      <ProjectList oss={oss} loading={loading} />
       <div className="no-print">
         <button onClick={() => window.print()} className="print-button">
           {t("button.print")}

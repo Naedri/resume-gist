@@ -1,4 +1,3 @@
-import React from "react";
 import "./SkeletonLoader.css";
 
 interface SkeletonLoaderProps {
@@ -7,11 +6,11 @@ interface SkeletonLoaderProps {
   lines?: number;
 }
 
-export const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({
+export const SkeletonLoader = ({
   loading = false,
   children,
   lines = 3
-}) => {
+}: SkeletonLoaderProps) => {
   if (!loading) {
     return <>{children}</>;
   }
