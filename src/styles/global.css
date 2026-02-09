@@ -255,23 +255,17 @@ li:before {
   font-size: 9.5pt;
 }
 
-.skills-list {
+.skill-list {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   gap: 0.4rem;
-  list-style: none;
   margin-left: 0;
 }
 
-.skill-item {
-  border: 1px solid var(--square-line-color);
-  padding: 0.15rem 0.4rem;
-  border-radius: 2px;
-  font-size: 9pt;
-}
-
-.skill-item:before {
-  display: none;
+.skill-title {
+  font-weight: 600;
+  font-size: 10pt;
 }
 
 .print-button > button {
@@ -376,11 +370,6 @@ li:before {
     margin-bottom: 0;
   }
 
-  /* Skills */
-  .skills-list {
-    justify-content: center;
-  }
-
   /* Ordering  */
   .main-content,
   .sidebar {
@@ -402,7 +391,7 @@ li:before {
     order: -5;
   }
   .skills-container,
-  .skills-list {
+  .skill-list {
     order: -4;
   }
   .experiences-container,

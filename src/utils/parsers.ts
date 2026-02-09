@@ -23,7 +23,8 @@ export function parseSchema(resume: CustomResumeSchema): ResumeType {
         )?.username ?? ""
     },
     skills: skills.map((skill) => ({
-      name: skill.name ?? ""
+      name: skill.name ?? "",
+      keywords: skill.keywords ?? []
     })),
     education: education.map((edu) => ({
       school: edu.institution ?? "",

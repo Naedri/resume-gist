@@ -7,6 +7,7 @@ export interface BasicType {
 
 export interface SkillType {
   name: string;
+  keywords: string[];
 }
 
 export interface ResumeType extends BasicType {

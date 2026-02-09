@@ -45,7 +45,8 @@ export const ExperienceList = ({
             ))}
             {exp.stack && exp.stack.length > 0 && (
               <div className="stack">
-                <span>{t("section.stack")}</span>: {exp.stack.join(", ")}
+                <span>{t("experience.stack")}</span>
+                {` ${exp.stack.join(", ")}`}
               </div>
             )}
           </div>

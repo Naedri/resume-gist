@@ -25,7 +25,9 @@
     "education": "Education",
     "experience": "Professional Experiences",
     "oss": "Open Source Softwares",
-    "skill": "Skills",
-    "stack": "Stack"
+    "skill": "Skills"
+  },
+  "experience": {
+    "stack": "Stack :"
   }
 }

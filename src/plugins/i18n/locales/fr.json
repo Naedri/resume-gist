@@ -25,7 +25,9 @@
     "education": "Formations",
     "experience": "Expériences Professionnelles",
     "oss": "Projets Open Source",
-    "skill": "Compétences",
-    "stack": "Stack"
+    "skill": "Compétences"
+  },
+  "experience": {
+    "stack": "Stack:"
   }
 }
