@@ -34,4 +34,18 @@ npm run preview
 
 ## Gist Structure
 
-Your Gist must include a `resume.json` file, of which the type is defined by the [`CustomResumeSchema`](./src/types/index.d.ts) interface.
+Your gist must include a `resume.json` file, of which the type is defined by the [JSON Resume schema](https://jsonresume.org/schema).
+Supported attributes are the following :
+
+- [x] `basics`
+- [x] `work`
+- [ ] `volunteer`
+- [x] `education`
+- [ ] `awards`
+- [ ] `certificates`
+- [ ] `publications`
+- [x] `skills`
+- [x] `languages`
+- [ ] `interests`
+- [ ] `references`
+- [x] `projects`

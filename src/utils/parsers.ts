@@ -1,56 +1,14 @@
-import type { CustomResumeSchema, ResumeType } from "@/types";
+import type { ResumeSchemaOfficial, ResumeSchema } from "@/types";
 
-export function parseSchema(resume: CustomResumeSchema): ResumeType {
-  const basicInfo = resume.basics ?? {};
-  const contactInfo = resume.basics ?? {};
-  const skills = resume.skills ?? [];
-  const education = resume.education ?? [];
-  const work = resume.work ?? [];
-  const projects = resume.projects ?? [];
-
-  const parsedResume: ResumeType = {
-    age: basicInfo.age ?? undefined,
-    name: basicInfo.name ?? "",
-    title: basicInfo.label ?? "",
-    summary: basicInfo.summary ?? "",
-    contact: {
-      location: contactInfo.location?.city ?? "",
-      phone: contactInfo.phone ?? "",
-      email: contactInfo.email ?? "",
-      github:
-        contactInfo.profiles?.find(
-          (profile) => profile.network?.toLowerCase() === "github"
-        )?.username ?? ""
-    },
-    skills: skills.map((skill) => ({
-      name: skill.name ?? "",
-      keywords: skill.keywords ?? []
-    })),
-    education: education.map((edu) => ({
-      school: edu.institution ?? "",
-      degree: edu.studyType ?? "",
-      bullets: edu.courses ?? []
-    })),
-    experience: work.map((exp) => ({
-      company: {
-        name: exp.name ?? "",
-        url: exp.url ?? ""
-      },
-      jobTitle: exp.position ?? "",
-      date: `${exp.startDate ?? ""} - ${exp.endDate ?? ""}`,
-      stack: exp.stack ?? [],
-      projects:
-        exp.highlights?.map((highlight) => ({
-          title: "",
-          bullets: [highlight]
-        })) ?? []
-    })),
-    oss: projects.map((project) => ({
-      title: project.name ?? "",
-      url: project.url ?? "",
-      description: project.description ?? ""
-    }))
+export function parseSchema(resumeJson: ResumeSchemaOfficial): ResumeSchema {
+  return {
+    basic: resumeJson.basics ?? {},
+    works: resumeJson.work ?? [],
+    educations: resumeJson.education ?? [],
+    certificates: resumeJson.certificates ?? [],
+    skills: resumeJson.skills ?? [],
+    languages: resumeJson.languages ?? [],
+    references: resumeJson.references ?? [],
+    projects: resumeJson.projects ?? []
   };
-
-  return parsedResume;
 }

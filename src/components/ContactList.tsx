@@ -1,9 +1,8 @@
-import type { ContactType } from "@/types";
+import type { BasicType } from "@/types";
 import { useTranslation } from "react-i18next";
 import { Icon, SkeletonLoader } from "@/components";
 
-export interface ContactListProps extends ContactType {
-  age?: number;
+export interface ContactListProps extends BasicType {
   loading: boolean;
 }
 
@@ -30,7 +29,9 @@ export const ContactList = ({
           {location && (
             <li className="contact-item">
               <Icon type="location" />
-              <span>{location}</span>
+              <span>
+                {location.city ?? location.postalCode ?? location.region}
+              </span>
             </li>
           )}
           {phone && (

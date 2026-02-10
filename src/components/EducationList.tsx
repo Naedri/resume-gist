@@ -15,13 +15,15 @@ export const EducationList = ({ education, loading }: EducationListProps) => {
       <SkeletonLoader loading={loading} lines={4}>
         {education?.map((edu, index) => (
           <div key={index} className="education-item">
-            <div className="school">{edu.school}</div>
-            <div className="degree">{edu.degree}</div>
-            <ul>
-              {edu.bullets.map((bullet, i) => (
-                <li key={i}>{bullet}</li>
-              ))}
-            </ul>
+            <div className="school">{edu.institution}</div>
+            <div className="degree">{edu.studyType}</div>
+            {edu.courses && edu.courses.length > 0 && (
+              <ul>
+                {edu.courses.map((course, i) => (
+                  <li key={i}>{course}</li>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
       </SkeletonLoader>

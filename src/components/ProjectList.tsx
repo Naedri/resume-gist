@@ -17,7 +17,7 @@ export const ProjectList = ({ oss, loading }: ProjectListProps) => {
           <div key={index} className="oss-item">
             <div className="oss-title">
               <a href={item.url} target="_blank" rel="noopener noreferrer">
-                {item.title}
+                {item.name}
               </a>
             </div>
             <div className="oss-description">

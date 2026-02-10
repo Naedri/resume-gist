@@ -6,13 +6,15 @@ export interface HeaderProps extends BasicType {
   loading: boolean;
 }
 
-export const Header = ({ name, title, summary, loading }: HeaderProps) => {
+export const Header = ({ name, label, summary, loading }: HeaderProps) => {
   const { t } = useTranslation();
   return (
     <header className="header-container">
       <LanguageToggle />
       <h1 className="name">{name ?? t("section.header.name")}</h1>
-      <h2 className="title">{loading ? t("message.loading") : title}</h2>
+      <h2 className="label">
+        {loading ? t("message.loading") : (label ?? "")}
+      </h2>
       <SkeletonLoader loading={loading} lines={4}>
         {summary && (
           <p

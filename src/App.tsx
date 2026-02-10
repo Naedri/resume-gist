@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Header, ExperienceList, Sidebar } from "@/components";
-import type { CustomResumeSchema, Locale } from "@/types";
+import type { ResumeSchemaOfficial, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
 import { useLanguage } from "@/hooks";
 import { useTranslation } from "react-i18next";
@@ -11,7 +11,9 @@ export interface AppProps {
 
 export default function App({ gistIds }: AppProps) {
   const { t } = useTranslation();
-  const [resumeData, setResumeData] = useState<CustomResumeSchema | null>(null);
+  const [resumeData, setResumeData] = useState<ResumeSchemaOfficial | null>(
+    null
+  );
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const { currentLanguage } = useLanguage();
@@ -22,7 +24,7 @@ export default function App({ gistIds }: AppProps) {
     setResumeData(null);
     setLoading(false);
   };
-  const onFetchSuccess = (data: CustomResumeSchema) => {
+  const onFetchSuccess = (data: ResumeSchemaOfficial) => {
     setError(null);
     setResumeData(data);
     setLoading(false);
@@ -58,19 +60,18 @@ export default function App({ gistIds }: AppProps) {
     <div className="resume-container">
       <main className="main-content">
         <Header
-          name={resume?.name}
-          title={resume?.title}
-          summary={resume?.summary}
+          name={resume?.basic?.name}
+          title={resume?.basic?.label}
+          summary={resume?.basic?.summary}
           loading={loading}
         />
-        <ExperienceList experiences={resume?.experience} loading={loading} />
+        <ExperienceList experiences={resume?.works} loading={loading} />
       </main>
       <Sidebar
-        age={resume?.age}
-        contact={resume?.contact}
+        basic={resume?.basic}
         skills={resume?.skills}
-        education={resume?.education}
-        oss={resume?.oss}
+        education={resume?.educations}
+        oss={resume?.projects}
         loading={loading}
       />
     </div>

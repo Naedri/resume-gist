@@ -1,9 +1,4 @@
-import type {
-  ContactType,
-  EducationType,
-  ProjectType,
-  SkillType
-} from "@/types";
+import type { BasicType, EducationType, ProjectType, SkillType } from "@/types";
 import {
   ContactList,
   SkillList,
@@ -13,8 +8,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 export interface SidebarProps {
-  age?: number;
-  contact?: ContactType;
+  basic?: BasicType;
   skills?: SkillType[];
   education?: EducationType[];
   oss?: ProjectType[];
@@ -22,8 +16,7 @@ export interface SidebarProps {
 }
 
 export const Sidebar = ({
-  age,
-  contact,
+  basic,
   skills,
   education,
   oss,
@@ -32,9 +25,7 @@ export const Sidebar = ({
   const { t } = useTranslation();
   return (
     <aside className="sidebar">
-      {(loading || contact) && (
-        <ContactList age={age} {...contact} loading={loading} />
-      )}
+      {(loading || basic) && <ContactList {...basic} loading={loading} />}
       {(loading || skills) && <SkillList skills={skills} loading={loading} />}
       {(loading || education) && (
         <EducationList education={education} loading={loading} />

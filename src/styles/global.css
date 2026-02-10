@@ -110,7 +110,7 @@ a:focus-visible {
   letter-spacing: 0.05em;
 }
 
-.title {
+.label {
   font-size: 14pt;
   color: var(--accent-color);
   margin-bottom: 0.5rem;
@@ -372,7 +372,7 @@ a:focus-visible {
   }
   .header-container,
   .name,
-  .title,
+  .label,
   .summary {
     order: -6;
   }
