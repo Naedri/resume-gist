@@ -38,6 +38,7 @@ export interface ContactType {
   location?: string;
   phone?: string;
   email?: string;
+  // url
   github?: string;
 }
 
