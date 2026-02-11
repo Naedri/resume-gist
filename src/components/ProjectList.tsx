@@ -15,14 +15,12 @@ export const ProjectList = ({ projects, loading }: ProjectListProps) => {
       <SkeletonLoader loading={loading} lines={4}>
         {projects?.map((p, index) => (
           <div key={index} className="project-item">
-            <div className="project-title">
+            <h4 className="project-name">
               <a href={p.url} target="_blank" rel="noopener noreferrer">
                 {p.name}
               </a>
-            </div>
-            <div className="project-description">
-              <span>{p.description}</span>
-            </div>
+            </h4>
+            <p className="project-description">{p.description}</p>
           </div>
         ))}
       </SkeletonLoader>

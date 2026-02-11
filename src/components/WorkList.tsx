@@ -1,6 +1,7 @@
 import type { WorkType } from "@/types";
 import { useTranslation } from "react-i18next";
 import { SkeletonLoader } from "@/components";
+import { getDuration } from "@/utils";
 
 export interface WorkListProps {
   works?: WorkType[];
@@ -17,18 +18,20 @@ export const WorkList = ({ works, loading }: WorkListProps) => {
           <div key={index} className="work-item">
             <div className="work-header">
               <div>
-                <div className="work-name">
+                <h4 className="work-name">
                   <a href={w.url} target="_blank" rel="noopener noreferrer">
                     {w.name}
                   </a>
-                </div>
-                <div className="work-position">{w.position}</div>
+                </h4>
+                <h5 className="work-position">{w.position}</h5>
               </div>
               <div className="date">
-                {[
-                  t("date.xs", { val: w.startDate }),
-                  t("date.xs", { val: w.endDate })
-                ].join(" - ")}
+                <time dateTime={getDuration(w.startDate, w.endDate)}>
+                  {[
+                    t("date.xs", { val: w.startDate }),
+                    t("date.xs", { val: w.endDate })
+                  ].join(" - ")}
+                </time>
               </div>
             </div>
             {w.highlights && w.highlights.length > 0 && (

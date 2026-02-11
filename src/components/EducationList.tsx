@@ -1,6 +1,7 @@
 import type { EducationType } from "@/types";
 import { useTranslation } from "react-i18next";
 import { SkeletonLoader } from "@/components";
+import { getDuration } from "@/utils";
 
 export interface EducationListProps {
   educations?: EducationType[];
@@ -15,13 +16,15 @@ export const EducationList = ({ educations, loading }: EducationListProps) => {
       <SkeletonLoader loading={loading} lines={4}>
         {educations?.map((e, index) => (
           <div key={index} className="education-item">
-            <div className="school">{e.institution}</div>
-            <div className="degree">{e.studyType}</div>
+            <h4 className="school">{e.institution}</h4>
+            <h5 className="degree">{e.studyType}</h5>
             <div className="date">
-              {[
-                t("date.xxs", { val: e.startDate }),
-                t("date.xxs", { val: e.endDate })
-              ].join(" - ")}
+              <time dateTime={getDuration(e.startDate, e.endDate)}>
+                {[
+                  t("date.xxs", { val: e.startDate }),
+                  t("date.xxs", { val: e.endDate })
+                ].join(" - ")}
+              </time>
             </div>
             {e.courses && e.courses.length > 0 && (
               <ul>

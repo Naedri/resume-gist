@@ -172,13 +172,6 @@ a:focus-visible {
   font-style: italic;
 }
 
-.project-title {
-  font-weight: 600;
-  margin-top: 0.5rem;
-  margin-bottom: 0.1rem;
-  font-size: 10pt;
-}
-
 .work-stack {
   font-size: 9.5pt;
   color: var(--secondary-color);
@@ -214,7 +207,7 @@ a:focus-visible {
   margin-bottom: 0.75rem;
 }
 
-.project-title {
+.project-name {
   font-weight: 600;
   margin-bottom: 0.1rem;
   font-size: 9.5pt;
@@ -253,7 +246,7 @@ a:focus-visible {
   margin-left: 0;
 }
 
-.skill-title {
+.skill-name {
   font-weight: 600;
   font-size: 10pt;
 }
@@ -393,7 +386,7 @@ a:focus-visible {
     order: -2;
   }
   .projects-container,
-  .project-title {
+  .project-name {
     order: -1;
   }
 }
