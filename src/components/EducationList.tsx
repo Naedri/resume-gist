@@ -17,6 +17,12 @@ export const EducationList = ({ educations, loading }: EducationListProps) => {
           <div key={index} className="education-item">
             <div className="school">{e.institution}</div>
             <div className="degree">{e.studyType}</div>
+            <div className="date">
+              {[
+                t("date.xxs", { val: e.startDate }),
+                t("date.xxs", { val: e.endDate })
+              ].join(" - ")}
+            </div>
             {e.courses && e.courses.length > 0 && (
               <ul>
                 {e.courses.map((course, i) => (

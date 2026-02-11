@@ -12,3 +12,11 @@ export function parseSchema(resumeJson: ResumeSchemaOfficial): ResumeSchema {
     projects: resumeJson.projects ?? []
   };
 }
+
+export function parseDate(date: string): Date {
+  const parsedDate = new Date(date);
+  if (isNaN(parsedDate.getTime())) {
+    throw new Error("Invalid ISO 8601 date format");
+  }
+  return parsedDate;
+}

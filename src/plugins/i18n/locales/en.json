@@ -5,6 +5,10 @@
   "button": {
     "print": "Export to PDF"
   },
+  "date": {
+    "xs": "{{val, DATE_XS}}",
+    "xxs": "{{val, DATE_XXS}}"
+  },
   "language": {
     "en": "EN",
     "fr": "FR"

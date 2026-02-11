@@ -24,7 +24,12 @@ export const WorkList = ({ works, loading }: WorkListProps) => {
                 </div>
                 <div className="work-position">{w.position}</div>
               </div>
-              <div className="date">{[w.startDate, w.endDate].join(" - ")}</div>
+              <div className="date">
+                {[
+                  t("date.xs", { val: w.startDate }),
+                  t("date.xs", { val: w.endDate })
+                ].join(" - ")}
+              </div>
             </div>
             {w.highlights && w.highlights.length > 0 && (
               <ul>
