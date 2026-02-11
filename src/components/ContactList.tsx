@@ -36,28 +36,28 @@ export const ContactList = ({
           )}
           {phone && (
             <li className="contact-item">
+              <Icon type="phone" />
               <a href={`tel:${phone}`}>
-                <Icon type="phone" />
                 <span>{phone}</span>
               </a>
             </li>
           )}
           {email && (
             <li className="contact-item">
+              <Icon type="mail" />
               <a href={`mailto:${email}`}>
-                <Icon type="mail" />
                 <span>{email}</span>
               </a>
             </li>
           )}
           {github && (
             <li className="contact-item">
+              <Icon type="github" />
               <a
                 href={`https://github.com/${github}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Icon type="github" />
                 <span>{github}</span>
               </a>
             </li>

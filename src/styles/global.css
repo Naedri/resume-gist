@@ -6,6 +6,7 @@
   --border-color: #e2e8f0;
   --line-color: #d1d5db;
   --square-line-color: #d1d5db;
+  --icon-color: #2c5282;
   --primary-font: "Cambria", "Times New Roman", serif;
 }
 
@@ -201,6 +202,7 @@ a:focus-visible {
   width: 1rem;
   height: 1rem;
   object-fit: contain;
+  color: var(--icon-color);
 }
 
 .project-item {
