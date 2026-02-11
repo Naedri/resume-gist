@@ -61,7 +61,7 @@ export default function App({ gistIds }: AppProps) {
       <main className="main-content">
         <Header
           name={resume?.basic?.name}
-          title={resume?.basic?.label}
+          label={resume?.basic?.label}
           summary={resume?.basic?.summary}
           loading={loading}
         />
