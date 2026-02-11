@@ -138,29 +138,29 @@ a:focus-visible {
   letter-spacing: 0.05em;
 }
 
-.experience-item {
+.work-item {
   margin-bottom: 0.75rem;
 }
 
 /* Visual separation between experiences to avoid date overlap issues */
-.experience-item + .experience-item {
+.work-item + .work-item {
   border-top: 1px solid var(--line-color);
   padding-top: 0.5rem;
 }
 
-.experience-header {
+.work-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 0.25rem;
 }
 
-.company {
+.work-name {
   font-weight: 600;
   font-size: 11pt;
 }
 
-.job-title {
+.work-position {
   font-weight: normal;
   font-style: italic;
   font-size: 10pt;
@@ -179,7 +179,7 @@ a:focus-visible {
   font-size: 10pt;
 }
 
-.stack {
+.work-stack {
   font-size: 9.5pt;
   color: var(--secondary-color);
 }
@@ -210,17 +210,17 @@ a:focus-visible {
   object-fit: contain;
 }
 
-.oss-item {
+.project-item {
   margin-bottom: 0.75rem;
 }
 
-.oss-title {
+.project-title {
   font-weight: 600;
   margin-bottom: 0.1rem;
   font-size: 9.5pt;
 }
 
-.oss-description {
+.project-description {
   font-size: 9.5pt;
   color: var(--secondary-color);
   line-height: 1.4;
@@ -384,8 +384,8 @@ a:focus-visible {
   .skill-list {
     order: -4;
   }
-  .experiences-container,
-  .experience-item {
+  .works-container,
+  .work-item {
     order: -3;
   }
   .educations-container,
@@ -393,8 +393,7 @@ a:focus-visible {
     order: -2;
   }
   .projects-container,
-  .project-title,
-  .stack {
+  .project-title {
     order: -1;
   }
 }

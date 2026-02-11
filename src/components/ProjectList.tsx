@@ -3,25 +3,25 @@ import { useTranslation } from "react-i18next";
 import { SkeletonLoader } from "@/components";
 
 export interface ProjectListProps {
-  oss?: ProjectType[];
+  projects?: ProjectType[];
   loading: boolean;
 }
 
-export const ProjectList = ({ oss, loading }: ProjectListProps) => {
+export const ProjectList = ({ projects, loading }: ProjectListProps) => {
   const { t } = useTranslation();
   return (
     <section className="projects-container">
-      <h3 className="section-title">{t("section.oss")}</h3>
+      <h3 className="section-title">{t("section.project")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        {oss?.map((item, index) => (
-          <div key={index} className="oss-item">
-            <div className="oss-title">
-              <a href={item.url} target="_blank" rel="noopener noreferrer">
-                {item.name}
+        {projects?.map((p, index) => (
+          <div key={index} className="project-item">
+            <div className="project-title">
+              <a href={p.url} target="_blank" rel="noopener noreferrer">
+                {p.name}
               </a>
             </div>
-            <div className="oss-description">
-              <span>{item.description}</span>
+            <div className="project-description">
+              <span>{p.description}</span>
             </div>
           </div>
         ))}

@@ -23,11 +23,11 @@
     },
     "contact": "Contact",
     "education": "Formations",
-    "experience": "Expériences Professionnelles",
-    "oss": "Projets Open Source",
+    "work": "Expériences Professionnelles",
+    "project": "Projets Open Source",
     "skill": "Compétences"
   },
-  "experience": {
+  "work": {
     "stack": "Stack:"
   }
 }

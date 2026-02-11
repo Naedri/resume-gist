@@ -14,12 +14,12 @@ export const SkillList = ({ skills, loading }: SkillListProps) => {
       <h3 className="section-title">{t("section.skill")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
         <div className="skill-list">
-          {skills?.map((skill, index) => (
+          {skills?.map((s, index) => (
             <div key={index} className="skill-item">
-              <span className="skill-title">{skill.name}</span>
-              {skill.keywords && skill.keywords.length > 0 && (
+              <span className="skill-title">{s.name}</span>
+              {s.keywords && s.keywords.length > 0 && (
                 <div className="skill-keyword-list">
-                  {skill.keywords.join(", ")}
+                  {s.keywords.join(", ")}
                 </div>
               )}
             </div>

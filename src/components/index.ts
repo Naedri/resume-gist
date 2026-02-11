@@ -1,6 +1,6 @@
 export * from "./ContactList.tsx";
 export * from "./EducationList.tsx";
-export * from "./ExperienceList.tsx";
+export * from "./WorkList.tsx";
 export * from "./Header.tsx";
 export * from "./Icon.tsx";
 export * from "./LanguageToggle.tsx";

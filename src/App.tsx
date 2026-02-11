@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Header, ExperienceList, Sidebar } from "@/components";
+import { Header, WorkList, Sidebar } from "@/components";
 import type { ResumeSchemaOfficial, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
 import { useLanguage } from "@/hooks";
@@ -65,13 +65,13 @@ export default function App({ gistIds }: AppProps) {
           summary={resume?.basic?.summary}
           loading={loading}
         />
-        <ExperienceList experiences={resume?.works} loading={loading} />
+        <WorkList works={resume?.works} loading={loading} />
       </main>
       <Sidebar
         basic={resume?.basic}
         skills={resume?.skills}
-        education={resume?.educations}
-        oss={resume?.projects}
+        educations={resume?.educations}
+        projects={resume?.projects}
         loading={loading}
       />
     </div>
