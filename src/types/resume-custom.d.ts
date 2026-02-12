@@ -2,7 +2,6 @@ import type { ResumeSchemaOfficial } from "@/types";
 
 export type BasicType = NonNullable<ResumeSchemaOfficial["basics"]> & {
   age?: number;
-  github?: string;
 };
 export type WorkType = NonNullable<ResumeSchemaOfficial["work"]>[number] & {
   stack?: string[];
