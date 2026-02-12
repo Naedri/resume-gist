@@ -7,7 +7,8 @@
   },
   "date": {
     "xs": "{{val, DATE_XS}}",
-    "xxs": "{{val, DATE_XXS}}"
+    "xxs": "{{val, DATE_XXS}}",
+    "today": "Aujourd'hui"
   },
   "language": {
     "en": "EN",

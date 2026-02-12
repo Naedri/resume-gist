@@ -1,7 +1,10 @@
 import type { Iso8601 } from "@/types";
 
+export const TODAY = "Present";
+
 export function parseDate(date: Iso8601): Date {
-  const parsedDate = new Date(date);
+  const _date = date == TODAY ? new Date() : date;
+  const parsedDate = new Date(_date);
   if (isNaN(parsedDate.getTime())) {
     throw new Error("Invalid ISO 8601 date format");
   }

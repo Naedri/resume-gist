@@ -1,9 +1,9 @@
-import i18n from "i18next";
+import i18n, { t } from "i18next";
 import { initReactI18next } from "react-i18next";
 import type { Iso8601, Locale, Resources } from "@/types";
 import en from "./locales/en.json";
 import fr from "./locales/fr.json";
-import { parseDate } from "@/utils";
+import { parseDate, TODAY } from "@/utils";
 
 const firstLocale: Locale = "fr";
 const altLocale: Locale = "en";
@@ -26,6 +26,7 @@ i18n
   });
 
 i18n.services.formatter?.add("DATE_XS", (value: Iso8601, lng?: string) => {
+  if (value == TODAY) return t("date.today");
   const date = parseDate(value);
   return date.toLocaleDateString(lng, {
     month: "2-digit",
@@ -34,6 +35,7 @@ i18n.services.formatter?.add("DATE_XS", (value: Iso8601, lng?: string) => {
 });
 
 i18n.services.formatter?.add("DATE_XXS", (value: Iso8601, lng?: string) => {
+  if (value == TODAY) return t("date.today");
   const date = parseDate(value);
   return date.toLocaleDateString(lng, {
     year: "numeric"
