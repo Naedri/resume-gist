@@ -34,7 +34,7 @@ npm run preview
 
 ## Gist Structure
 
-Your gist must include a `resume.json` file, of which the type is defined by the [JSON Resume schema](https://jsonresume.org/schema).
+Your gist must include a [`resume.jsonc`](./src/types/gist.d.ts) file, of which the type is defined by the [JSON Resume schema](https://jsonresume.org/schema).
 Supported attributes are the following :
 
 - [x] `basics`

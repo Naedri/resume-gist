@@ -1,6 +1,6 @@
 export interface GistResponse {
   files: {
-    "resume.json": {
+    "resume.jsonc": {
       content: string;
     };
   };

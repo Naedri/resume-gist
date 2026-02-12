@@ -3,7 +3,7 @@ import type { ResumeSchemaOfficial, GistResponse } from "@/types";
 const gistCache: Record<string, ResumeSchemaOfficial> = {};
 
 export const fetchLocalResume = async (): Promise<ResumeSchemaOfficial> => {
-  const urls = ["/private/resume.json", "/private/resume.jsonc"];
+  const urls = ["/private/resume.jsonc", "/private/resume.json"];
   for (const url of urls) {
     const response = await fetch(url);
     if (response.ok) {
@@ -23,7 +23,7 @@ export const fetchRemoteResume = async (
     if (response.ok) {
       const gist = (await response.json()) as GistResponse;
       const resume = JSON.parse(
-        gist.files["resume.json"].content
+        gist.files["resume.jsonc"].content
       ) as ResumeSchemaOfficial;
       gistCache[gistId] = resume;
       res = resume;
