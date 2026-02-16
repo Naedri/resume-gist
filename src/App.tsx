@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Header, WorkList, Sidebar } from "@/components";
 import type { ResumeSchemaOfficial, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
@@ -19,22 +19,22 @@ export default function App({ gistIds }: AppProps) {
   const { currentLanguage } = useLanguage();
   const prefetchGists = useRef(new Set<string>());
 
-  const onFetchError = () => {
+  const onFetchError = useCallback(() => {
     setError(t("message.error.fetchResume"));
     setResumeData(null);
     setLoading(false);
-  };
-  const onFetchSuccess = (data: ResumeSchemaOfficial) => {
+  }, [t]);
+  const onFetchSuccess = useCallback((data: ResumeSchemaOfficial) => {
     setError(null);
     setResumeData(data);
     setLoading(false);
-  };
+  }, []);
 
   useEffect(() => {
     const gistId = gistIds[currentLanguage];
     if (!gistId) return;
     fetchRemoteResume(gistId).then(onFetchSuccess).catch(onFetchError);
-  }, [currentLanguage]);
+  }, [currentLanguage, gistIds, onFetchError, onFetchSuccess]);
 
   useEffect(() => {
     if (!loading && resumeData) {

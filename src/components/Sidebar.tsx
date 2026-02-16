@@ -23,6 +23,13 @@ export const Sidebar = ({
   loading
 }: SidebarProps) => {
   const { t } = useTranslation();
+
+  const handlePrint = () => {
+    if (typeof window !== "undefined") {
+      window.print();
+    }
+  };
+
   return (
     <aside className="sidebar">
       {(loading || basic) && <ContactList {...basic} loading={loading} />}
@@ -34,7 +41,7 @@ export const Sidebar = ({
         <ProjectList projects={projects} loading={loading} />
       )}
       <div className="print-button">
-        <button onClick={() => window.print()} className="no-print">
+        <button onClick={handlePrint} className="no-print">
           {t("button.print")}
         </button>
       </div>
