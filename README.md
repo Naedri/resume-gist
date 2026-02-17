@@ -32,6 +32,15 @@ npm run build
 npm run preview
 ```
 
+### Alternative with container
+
+Build then run the docker image:
+
+```sh
+docker build --build-arg VITE_GIST_ID_EN=your_english_gist_id --build-arg VITE_GIST_ID_FR=your_french_gist_id -t localhost/resume_image .
+docker run -p 4173:4173 -e PORT=4173 --rm localhost/resume_image
+```
+
 ## Gist Structure
 
 Your gist must include a [`resume.jsonc`](./src/types/gist.d.ts) file, of which the type is defined by the [JSON Resume schema](https://jsonresume.org/schema).
