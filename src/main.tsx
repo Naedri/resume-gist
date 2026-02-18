@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/providers";
 import { firstLocale, i18n } from "@/plugins";
 import "@/styles";
 import App from "./App";
+import { gistIds } from "@/utils";
 
 document.documentElement.lang = firstLocale;
 document.title =
@@ -12,10 +13,6 @@ document.title =
   import.meta.env.VITE_RESUME_NAME ??
   "Resume";
 
-const gistIds = {
-  en: import.meta.env.VITE_GIST_ID_EN,
-  fr: import.meta.env.VITE_GIST_ID_FR
-};
 const name = import.meta.env.VITE_RESUME_NAME;
 
 createRoot(document.getElementById("root")!).render(
