@@ -29,7 +29,8 @@ VITE_GIST_ID_FR=your_french_gist_idw
 VITE_RESUME_NAME=John Doe
 VITE_DOCUMENT_TITLE=John Doe
 VITE_DOCUMENT_LANG=en
-VITE_TELEMETRY_URL=http://localhost:3000/api/telemetry
+VITE_TELEMETRY_URL=https://yolofunyolo.provider.co/functions/v1/resume-telemetry
+VITE_TELEMETRY_HEADER_KEY=sb_publishable_789456123_000
 ```
 
 3. Run:
@@ -49,9 +50,18 @@ docker build \
   --build-arg VITE_GIST_ID_EN \
   --build-arg VITE_GIST_ID_FR \
   --build-arg VITE_RESUME_NAME \
+  --build-arg VITE_DOCUMENT_TITLE \
+  --build-arg VITE_DOCUMENT_LANG \
+  --build-arg VITE_TELEMETRY_URL \
+  --build-arg VITE_TELEMETRY_HEADER_KEY \
   -t localhost/resume_image .
 docker run -p 4173:4173 -e PORT=4173 --rm localhost/resume_image
 ```
+
+## Telemetry
+
+Current implementation is compatible with [Supabase server-side functions](https://supabase.com/docs/guides/functions).
+To send data to another database service provider, additional `TelemetryService` and `TelemetryConsumer` will need to be implemented in [telemetry.ts](./src/utils/telemetry.ts).
 
 ## Gist Structure
 

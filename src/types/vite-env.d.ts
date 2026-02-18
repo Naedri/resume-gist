@@ -10,6 +10,7 @@ interface ImportMetaEnv {
   readonly VITE_DOCUMENT_TITLE?: string;
   readonly VITE_DOCUMENT_LANG?: Locale;
   readonly VITE_TELEMETRY_URL?: string;
+  readonly VITE_TELEMETRY_HEADER_KEY?: string;
 }
 
 interface ImportMeta {
