@@ -11,7 +11,7 @@ document.documentElement.lang = firstLocale;
 document.title =
   import.meta.env.VITE_DOCUMENT_TITLE ??
   import.meta.env.VITE_RESUME_NAME ??
-  "Resume";
+  "Resume Telemetry";
 
 const name = import.meta.env.VITE_RESUME_NAME;
 

@@ -1,12 +1,12 @@
-# Resume
+# Resume telemetry
 
-This project generates a resume web page.
+Powered by data retrieved from GitHub gists, this project generates a web-based resume that tracks when it is accessed, helping you decide when to follow up on your applications.
 
 ## Features
 
 - [x] Fetch resume data from GitHub gists containing a `resume.json` file.
 - [x] Support both English and French versions.
-- [x] Single page application is available in the [`main`](https://github.com/Naedri/resume/tree/main) branch and server-side rendering is available in the [`feat/ssr`](https://github.com/Naedri/resume/tree/feat/ssr) branch.
+- [x] Single page application is available in the [`main`](https://github.com/Naedri/resume-telemetry/tree/main) branch and server-side rendering is available in the [`feat/ssr`](https://github.com/Naedri/resume-telemetry/tree/feat/ssr) branch.
 - [x] Send telemetry to a provided endpoint.
 
 ## Setup
@@ -14,7 +14,7 @@ This project generates a resume web page.
 1. Clone and install:
 
 ```bash
-git clone https://github.com/Naedri/resume.git
+git clone https://github.com/Naedri/resume-telemetry.git
 cd resume
 npm install
 ```
