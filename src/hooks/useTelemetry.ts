@@ -25,7 +25,7 @@ export function useTelemetry() {
       if (url) {
         const payload = {
           event,
-          ...data,
+          data: data ?? {},
           url: window.location.href,
           timestamp: new Date().toISOString(),
           sessionId: getSessionId()
