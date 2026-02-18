@@ -16,15 +16,17 @@ import { useTelemetry } from "@/hooks/useTelemetry";
 
 export interface AppProps {
   gistIds: Record<Locale, string>;
+  initialData?: ResumeSchemaOfficial | null;
   name?: string;
 }
 
-export default function App({ gistIds, name }: AppProps) {
+export default function App({ gistIds, initialData, name }: AppProps) {
   const { t } = useTranslation();
   const [resumeData, setResumeData] = useState<ResumeSchemaOfficial | null>(
-    null
+    initialData ?? null
   );
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(!initialData);
+  const isFirstRender = useRef(true);
   const [error, setError] = useState<string | null>(null);
   const { currentLanguage } = useLanguage();
   const prefetchGists = useRef(new Set<string>());
@@ -50,17 +52,17 @@ export default function App({ gistIds, name }: AppProps) {
   useEffect(() => {
     const gistId = gistIds[currentLanguage];
     if (!gistId) return;
+    if (isFirstRender.current && initialData) {
+      isFirstRender.current = false;
+      return;
+    }
     fetchRemoteResume(gistId).then(onFetchSuccess).catch(onFetchError);
-  }, [currentLanguage, gistIds, onFetchError, onFetchSuccess]);
+  }, [currentLanguage, gistIds, initialData, onFetchError, onFetchSuccess]);
 
   useEffect(() => {
     if (!loading && resumeData) {
-      for (const [locale, id] of Object.entries(gistIds)) {
-        if (
-          locale !== currentLanguage &&
-          id &&
-          !prefetchGists.current.has(id)
-        ) {
+      for (const id of Object.values(gistIds)) {
+        if (id && !prefetchGists.current.has(id)) {
           fetchRemoteResume(id).catch(console.error);
           prefetchGists.current.add(id);
         }

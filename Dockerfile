@@ -1,39 +1,40 @@
-# ---------- BUILD STAGE ----------
+# ---------- Build stage ----------
 FROM node:20-slim AS build
 WORKDIR /app
 
-# Copy dependency files to allow caching 'npm ci' products
+# 1. Install dependencies (cache optimized)
 COPY package*.json tsconfig*.json ./
-
 RUN npm ci
 
-# Copy rest of files to allow next 'npm build'
+# 2. Copy source code
 COPY . .
 
-# ---- Build-time variables (Vite only) ----
-# Declare argument used with --build-arg
+# 3. Configure buildtime (--build-arg)
 ARG VITE_GIST_ID_EN
 ARG VITE_GIST_ID_FR
-ARG VITE_RESUME_NAME
-ARG VITE_DOCUMENT_LANG
-ARG VITE_DOCUMENT_TITLE
-ARG VITE_TELEMETRY_URL
 
-# Build bundle
+# 4. Build the application
 RUN npm run build
 
-# ---------- RUNTIME STAGE ----------
-FROM node:20-slim as runtime
+# ---------- Runtime stage ----------
+FROM node:20-slim AS runtime
 WORKDIR /app
 
-# Copy only necessary runtime files
-COPY --from=build /app/dist/ ./dist/
-COPY --from=build /app/package.json ./
-COPY --from=build /app/node_modules ./node_modules
+# 5. Install production dependencies only
+COPY package*.json ./
+RUN npm ci --omit=dev --ignore-scripts
 
-# ---- Runtime configuration ----
-ENV PORT=4173
+# 6. Copy compiled artifacts only
+COPY --from=build /app/dist/ ./dist/
+
+# 7. Configure runtime (-e)
+ENV PORT=5173
+ENV NODE_ENV=production
 
 EXPOSE $PORT
 
-CMD ["npm", "run", "preview", "--", "--host"]
+# 8. Drop privileges as non-root user (security best practice)
+RUN addgroup -S nodejs && adduser -S nodejs -G nodejs
+USER nodejs
+
+CMD ["node", "dist/server.js"]

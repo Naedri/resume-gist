@@ -3,5 +3,6 @@
 !Dockerfile
 !index.html
 !package*.json
+!server.ts
 !tsconfig*.json
 !vite.config.ts

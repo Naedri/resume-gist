@@ -7,8 +7,11 @@ import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
   globalIgnores(["dist", "src/types/json-resume.d.ts"]),
+
+  // CLIENT (React / browser)
   {
-    files: ["**/*.{ts,tsx}"],
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/server.ts", "src/entry-server.tsx"],
     extends: [
       js.configs.recommended,
       // Remove tseslint.configs.recommended and replace with this
@@ -22,11 +25,24 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+        project: "./tsconfig.app.json",
         tsconfigRootDir: import.meta.dirname
       },
       ecmaVersion: 2020,
       globals: globals.browser
+    }
+  },
+
+  // SERVER (Node / SSR)
+  {
+    files: ["src/server.ts", "src/entry-server.tsx", "vite.config.ts"],
+    extends: [js.configs.recommended, tseslint.configs.recommendedTypeChecked],
+    languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.node.json",
+        tsconfigRootDir: import.meta.dirname
+      },
+      globals: globals.node
     }
   }
 ]);
