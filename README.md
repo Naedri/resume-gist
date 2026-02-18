@@ -36,7 +36,7 @@ VITE_TELEMETRY_URL=http://localhost:3000/api/telemetry
 
 ```bash
 npm run build
-npm run preview
+npm run start
 ```
 
 ### Alternative with container
@@ -50,7 +50,7 @@ docker build \
   --build-arg VITE_GIST_ID_FR \
   --build-arg VITE_RESUME_NAME \
   -t localhost/resume_image .
-docker run -p 4173:4173 -e PORT=4173 --rm localhost/resume_image
+docker run -p 5173:5173 -e PORT=5173 --rm localhost/resume_image
 ```
 
 ## Gist Structure
