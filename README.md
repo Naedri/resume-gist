@@ -18,11 +18,12 @@ cd resume
 npm install
 ```
 
-2. Add `.env` file with your Gist IDs:
+2. Add `.env` file with at least your Gist IDs, and optionally your API endpoint listening to request send by [`ùseTelemetry`](./src/hooks/useTelemetry.ts) hook:
 
 ```env
 VITE_GIST_ID_EN=your_english_gist_id
-VITE_GIST_ID_FR=your_french_gist_id
+VITE_GIST_ID_FR=your_french_gist_idw
+VITE_TELEMETRY_URL=http://localhost:3000/api/telemetry
 ```
 
 3. Run:
@@ -37,7 +38,7 @@ npm run preview
 Build then run the docker image:
 
 ```sh
-docker build --build-arg VITE_GIST_ID_EN=your_english_gist_id --build-arg VITE_GIST_ID_FR=your_french_gist_id -t localhost/resume_image .
+docker build --build-arg VITE_GIST_ID_EN=your_english_gist_id --build-arg VITE_GIST_ID_FR=your_french_gist_id -build-arg VITE_TELEMETRY_URL=http://localhost:3000/api/telemetry -t localhost/resume_image .
 docker run -p 4173:4173 -e PORT=4173 --rm localhost/resume_image
 ```
 

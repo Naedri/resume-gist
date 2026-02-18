@@ -14,6 +14,7 @@ COPY . .
 # Declare argument used with --build-arg
 ARG VITE_GIST_ID_EN
 ARG VITE_GIST_ID_FR
+ARG VITE_TELEMETRY_URL
 
 # Build bundle
 RUN npm run build

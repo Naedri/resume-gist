@@ -10,4 +10,5 @@ interface ImportMeta {
 interface ImportMetaEnv {
   readonly VITE_GIST_ID_EN: string;
   readonly VITE_GIST_ID_FR: string;
+  readonly VITE_TELEMETRY_URL: string;
 }

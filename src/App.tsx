@@ -4,6 +4,7 @@ import type { ResumeSchemaOfficial, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
 import { useLanguage } from "@/hooks";
 import { useTranslation } from "react-i18next";
+import { useTelemetry } from "@/hooks/useTelemetry";
 
 export interface AppProps {
   gistIds: Record<Locale, string>;
@@ -18,6 +19,11 @@ export default function App({ gistIds }: AppProps) {
   const [error, setError] = useState<string | null>(null);
   const { currentLanguage } = useLanguage();
   const prefetchGists = useRef(new Set<string>());
+  const sendTelemetry = useTelemetry();
+
+  useEffect(() => {
+    sendTelemetry("APP_MOUNTED");
+  }, [sendTelemetry]);
 
   const onFetchError = useCallback(() => {
     setError(t("message.error.fetchResume"));

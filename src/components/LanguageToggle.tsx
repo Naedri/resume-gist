@@ -1,4 +1,5 @@
 import { useLanguage } from "@/hooks";
+import { altLocale, firstLocale } from "@/plugins";
 import { useTranslation } from "react-i18next";
 
 export const LanguageToggle = () => {
@@ -10,24 +11,24 @@ export const LanguageToggle = () => {
       <button
         onClick={toggleLanguage}
         className="lang-btn"
-        aria-pressed={currentLanguage === "en"}
+        aria-pressed={currentLanguage === firstLocale}
       >
-        {currentLanguage === "en" ? (
-          <strong>{t("language.en")}</strong>
+        {currentLanguage === firstLocale ? (
+          <strong>{t(`language.${firstLocale}`)}</strong>
         ) : (
-          t("language.en")
+          t(`language.${firstLocale}`)
         )}
       </button>
       <span> | </span>
       <button
         onClick={toggleLanguage}
         className="lang-btn"
-        aria-pressed={currentLanguage === "fr"}
+        aria-pressed={currentLanguage === altLocale}
       >
-        {currentLanguage === "fr" ? (
-          <strong>{t("language.fr")}</strong>
+        {currentLanguage === altLocale ? (
+          <strong>{t(`language.${altLocale}`)}</strong>
         ) : (
-          t("language.fr")
+          t(`language.${altLocale}`)
         )}
       </button>
     </div>

@@ -8,6 +8,7 @@ export interface HeaderProps extends BasicType {
 
 export const Header = ({ name, label, summary, loading }: HeaderProps) => {
   const { t } = useTranslation();
+
   return (
     <header className="header-container">
       <LanguageToggle />

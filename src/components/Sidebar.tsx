@@ -6,6 +6,7 @@ import {
   ProjectList
 } from "@/components";
 import { useTranslation } from "react-i18next";
+import { useTelemetry } from "@/hooks/useTelemetry";
 
 export interface SidebarProps {
   basic?: BasicType;
@@ -23,10 +24,12 @@ export const Sidebar = ({
   loading
 }: SidebarProps) => {
   const { t } = useTranslation();
+  const sendTelemetry = useTelemetry();
 
   const handlePrint = () => {
     if (typeof window !== "undefined") {
       window.print();
+      sendTelemetry("PRINT_CLICKED");
     }
   };
 
