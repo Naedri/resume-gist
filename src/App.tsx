@@ -8,9 +8,10 @@ import { useTelemetry } from "@/hooks/useTelemetry";
 
 export interface AppProps {
   gistIds: Record<Locale, string>;
+  name?: string;
 }
 
-export default function App({ gistIds }: AppProps) {
+export default function App({ gistIds, name }: AppProps) {
   const { t } = useTranslation();
   const [resumeData, setResumeData] = useState<ResumeSchemaOfficial | null>(
     null
@@ -66,7 +67,7 @@ export default function App({ gistIds }: AppProps) {
     <div className="resume-container">
       <main className="main-content">
         <Header
-          name={resume?.basic?.name}
+          name={name ?? resume?.basic?.name ?? t("message.loading")}
           label={resume?.basic?.label}
           summary={resume?.basic?.summary}
           loading={loading}

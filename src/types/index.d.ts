@@ -1,4 +1,3 @@
-export * from "./env";
 export * from "./gist";
 export * from "./locale";
 export type { Iso8601 } from "./json-resume";

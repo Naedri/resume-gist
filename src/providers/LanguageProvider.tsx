@@ -16,6 +16,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     sendTelemetry("LANGUAGE_CHANGED", { language: newLanguage });
     setLanguage(newLanguage);
     void i18n.changeLanguage(newLanguage);
+    document.documentElement.lang = newLanguage;
   };
 
   return (

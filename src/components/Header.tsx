@@ -12,7 +12,7 @@ export const Header = ({ name, label, summary, loading }: HeaderProps) => {
   return (
     <header className="header-container">
       <LanguageToggle />
-      <h1 className="name">{name ?? t("section.header.name")}</h1>
+      <h1 className="name">{name}</h1>
       <h2 className="label">
         {loading ? t("message.loading") : (label ?? "")}
       </h2>

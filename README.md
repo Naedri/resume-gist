@@ -1,12 +1,13 @@
 # Resume
 
-This project generates a server-side rendered resume web page in English or French, using data from a GitHub Gist containing a `resume.json` file.
+This project generates a resume web page.
 
 ## Features
 
-- Fetch resume data from a GitHub Gist.
-- Support for English and French versions.
-- Server-side rendering for SEO and performance.
+- [x] Fetch resume data from GitHub Gists containing a `resume.json` file.
+- [x] Support both English and French versions.
+- [x] Single page application is available in the [`main`](https://github.com/Naedri/resume/tree/main) branch and server-side rendering is available in the [`feat/ssr`](https://github.com/Naedri/resume/tree/feat/ssr) branch.
+- [x] Send telemetry to a provided endpoint.
 
 ## Setup
 
@@ -18,11 +19,16 @@ cd resume
 npm install
 ```
 
-2. Add `.env` file with at least your Gist IDs, and optionally your API endpoint listening to request send by [`ùseTelemetry`](./src/hooks/useTelemetry.ts) hook:
+2. Add an `.env` file containing the following:
 
 ```env
+# required
 VITE_GIST_ID_EN=your_english_gist_id
 VITE_GIST_ID_FR=your_french_gist_idw
+# optional
+VITE_RESUME_NAME=John Doe
+VITE_DOCUMENT_TITLE=John Doe
+VITE_DOCUMENT_LANG=en
 VITE_TELEMETRY_URL=http://localhost:3000/api/telemetry
 ```
 
@@ -38,13 +44,18 @@ npm run preview
 Build then run the docker image:
 
 ```sh
-docker build --build-arg VITE_GIST_ID_EN=your_english_gist_id --build-arg VITE_GIST_ID_FR=your_french_gist_id -build-arg VITE_TELEMETRY_URL=http://localhost:3000/api/telemetry -t localhost/resume_image .
+export $(cat .env | xargs)
+docker build \
+  --build-arg VITE_GIST_ID_EN \
+  --build-arg VITE_GIST_ID_FR \
+  --build-arg VITE_RESUME_NAME \
+  -t localhost/resume_image .
 docker run -p 4173:4173 -e PORT=4173 --rm localhost/resume_image
 ```
 
 ## Gist Structure
 
-Your gist must include a [`resume.jsonc`](./src/types/gist.d.ts) file, of which the type is defined by the [JSON Resume schema](https://jsonresume.org/schema).
+Your gist must include a [`resume.json`](./src/types/gist.d.ts) file, of which the type is defined by the [JSON Resume schema](https://jsonresume.org/schema).
 Supported attributes are the following :
 
 - [x] `basics`

@@ -5,8 +5,9 @@ import en from "./locales/en.json";
 import fr from "./locales/fr.json";
 import { parseDate, TODAY } from "@/utils";
 
-const firstLocale: Locale = "fr";
-const altLocale: Locale = "en";
+const firstLocale: Locale =
+  (import.meta.env.VITE_DOCUMENT_LANG as Locale) ?? "en";
+const altLocale: Locale = firstLocale === "en" ? "fr" : "en";
 
 const resources: Resources = {
   en: { translation: en },
