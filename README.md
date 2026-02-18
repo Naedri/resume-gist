@@ -4,7 +4,7 @@ This project generates a resume web page.
 
 ## Features
 
-- [x] Fetch resume data from GitHub Gists containing a `resume.json` file.
+- [x] Fetch resume data from GitHub gists containing a `resume.json` file.
 - [x] Support both English and French versions.
 - [x] Single page application is available in the [`main`](https://github.com/Naedri/resume/tree/main) branch and server-side rendering is available in the [`feat/ssr`](https://github.com/Naedri/resume/tree/feat/ssr) branch.
 - [x] Send telemetry to a provided endpoint.
@@ -62,6 +62,10 @@ docker run -p 4173:4173 -e PORT=4173 --rm localhost/resume_image
 
 Current implementation is compatible with [Supabase server-side functions](https://supabase.com/docs/guides/functions).
 To send data to another database service provider, additional `TelemetryService` and `TelemetryConsumer` will need to be implemented in [telemetry.ts](./src/utils/telemetry.ts).
+
+### Setup
+
+If you plan to use Supabase, you will need first to create the pqSQL data table that will store telemetry data ([`01_create_table.sql`](https://gist.github.com/Naedri/02a2d08b2003422ae361e6adb1ddb94a#file-01_create_table-sql)) then create the edge functions that will validate the event data and perform associated database operations ([`02_telemetry_edge_function.ts`](https://gist.github.com/Naedri/02a2d08b2003422ae361e6adb1ddb94a#file-02_telemetry_edge_function-ts)).
 
 ## Gist Structure
 
