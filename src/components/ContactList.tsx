@@ -16,6 +16,7 @@ export const ContactList = ({
 }: ContactListProps) => {
   const { t } = useTranslation();
   const github = profiles?.find((p) => p.network == "GitHub");
+  const linkedin = profiles?.find((p) => p.network == "LinkedIn");
   return (
     <section className="contacts-container">
       <h3 className="section-title">{t("section.contact")}</h3>
@@ -37,11 +38,11 @@ export const ContactList = ({
               </a>
             </li>
           )}
-          {email && (
+          {linkedin && (
             <li className="contact-item">
-              <Icon type="mail" />
-              <a href={`mailto:${email}`}>
-                <span>{email}</span>
+              <Icon type="linkedin" />
+              <a href={linkedin.url} target="_blank" rel="noopener noreferrer">
+                <span>{linkedin.username}</span>
               </a>
             </li>
           )}
