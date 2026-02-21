@@ -43,11 +43,12 @@ export class SupabaseService implements TelemetryService {
 
   send(event: TelemetryEvent, data?: Record<string, unknown>): void {
     const payload = {
-      event,
       data: data ?? {},
-      url: window.location.href,
+      event,
+      sessionId: getSessionId(),
       timestamp: new Date().toISOString(),
-      sessionId: getSessionId()
+      url: window.location.href,
+      userAgent: window.navigator.userAgent
     };
     fetch(this.url, {
       method: "POST",
