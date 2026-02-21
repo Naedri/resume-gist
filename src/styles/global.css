@@ -8,6 +8,7 @@
   --square-line-color: #d1d5db;
   --icon-color: #2c5282;
   --primary-font: "Cambria", "Times New Roman", serif;
+  --line-size: 1px;
 }
 
 * {
@@ -29,6 +30,7 @@ body {
 
 ul {
   list-style-type: none;
+  margin-left: 0.5rem;
 }
 
 li {
@@ -69,7 +71,7 @@ a:focus-visible {
   left: 0;
   top: 0;
   height: 100%;
-  width: 1px;
+  width: var(--line-size);
   background-color: var(--line-color);
 }
 
@@ -77,7 +79,7 @@ a:focus-visible {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   text-align: center;
-  border-bottom: 1px solid var(--line-color);
+  border-bottom: var(--line-size) solid var(--line-color);
   position: relative;
 }
 
@@ -134,18 +136,21 @@ a:focus-visible {
   color: var(--primary-color);
   margin: 0.75rem 0 0.5rem 0;
   padding-bottom: 0.25rem;
-  border-bottom: 1px solid var(--line-color);
+  border-bottom: var(--line-size) solid var(--line-color);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .work-item {
   margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 /* Visual separation between experiences to avoid date overlap issues */
 .work-item + .work-item {
-  border-top: 1px solid var(--line-color);
+  border-top: var(--line-size) solid var(--line-color);
   padding-top: 0.5rem;
 }
 
@@ -153,7 +158,6 @@ a:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 0.25rem;
 }
 
 .work-name {
@@ -303,8 +307,12 @@ a:focus-visible {
   .resume-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     position: relative;
+
+    .header-container {
+      margin-bottom: 0;
+    }
   }
 
   .sidebar:before {

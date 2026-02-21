@@ -21,18 +21,12 @@ export const ContactList = ({
       <h3 className="section-title">{t("section.contact")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
         <ul className="contact-list">
-          {age && (
+          {email && (
             <li className="contact-item">
-              <Icon type="user" />
-              <span>{t("basics.age", { age })}</span>
-            </li>
-          )}
-          {location && (
-            <li className="contact-item">
-              <Icon type="location" />
-              <span>
-                {location.city ?? location.postalCode ?? location.region}
-              </span>
+              <Icon type="mail" />
+              <a href={`mailto:${email}`}>
+                <span>{email}</span>
+              </a>
             </li>
           )}
           {phone && (
@@ -57,6 +51,20 @@ export const ContactList = ({
               <a href={github.url} target="_blank" rel="noopener noreferrer">
                 <span>{github.username}</span>
               </a>
+            </li>
+          )}
+          {location && (
+            <li className="contact-item">
+              <Icon type="location" />
+              <span>
+                {location.city ?? location.postalCode ?? location.region}
+              </span>
+            </li>
+          )}
+          {age && (
+            <li className="contact-item">
+              <Icon type="user" />
+              <span>{t("basics.age", { age })}</span>
             </li>
           )}
         </ul>

@@ -19,5 +19,8 @@
     "MD024": { "siblings_only": true },
     "MD036": { "enabled": false },
     "MD029": { "enabled": false }
-  }
+  },
+
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.editorDecoration.disableHover": false
 }

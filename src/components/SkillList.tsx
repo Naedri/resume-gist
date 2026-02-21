@@ -18,9 +18,13 @@ export const SkillList = ({ skills, loading }: SkillListProps) => {
             <div key={index} className="skill-item">
               <h4 className="skill-name">{s.name}</h4>
               {s.keywords && s.keywords.length > 0 && (
-                <div className="skill-keyword-list">
-                  {s.keywords.join(", ")}
-                </div>
+                <ul className="skill-keyword-list">
+                  {s?.keywords?.map((keyword, i) => (
+                    <li className="skill-keyword" key={i}>
+                      {keyword}
+                    </li>
+                  ))}
+                </ul>
               )}
             </div>
           ))}
