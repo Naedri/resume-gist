@@ -34,10 +34,13 @@ export const WorkList = ({ works, loading }: WorkListProps) => {
                 </time>
               </div>
             </div>
+            {w.summary && <p className="work-summary">{w.summary}</p>}
             {w.highlights && w.highlights.length > 0 && (
-              <ul>
+              <ul className="work-highlight-list">
                 {w?.highlights?.map((highlight, i) => (
-                  <li key={i} dangerouslySetInnerHTML={{ __html: highlight }} />
+                  <li className="work-highlight" key={i}>
+                    {highlight}
+                  </li>
                 ))}
               </ul>
             )}
