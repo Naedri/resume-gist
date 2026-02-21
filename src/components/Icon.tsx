@@ -1,6 +1,13 @@
 import type { SVGProps, ReactNode } from "react";
 
-type IconType = "linkedin" | "github" | "location" | "mail" | "phone" | "user";
+type IconType =
+  | "github"
+  | "linkedin"
+  | "location"
+  | "mail"
+  | "phone"
+  | "redirection"
+  | "user";
 
 interface IconProps extends SVGProps<SVGSVGElement> {
   type: IconType;
@@ -41,6 +48,19 @@ const icons: IconDefinition = {
         stroke="currentColor"
         strokeWidth="0.7"
         d="M4.943 13.394V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+      />
+    ]
+  },
+  redirection: {
+    size: 16,
+    draws: [
+      <path
+        fill-rule="evenodd"
+        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+      />,
+      <path
+        fill-rule="evenodd"
+        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
       />
     ]
   },

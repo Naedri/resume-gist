@@ -40,7 +40,7 @@ export const ContactList = ({
           )}
           {linkedin && (
             <li className="contact-item">
-              <Icon type="linkedin" />
+              <Icon type="redirection" />
               <a href={linkedin.url} target="_blank" rel="noopener noreferrer">
                 <span>{linkedin.username}</span>
               </a>
@@ -48,7 +48,7 @@ export const ContactList = ({
           )}
           {github && (
             <li className="contact-item">
-              <Icon type="github" />
+              <Icon type="redirection" />
               <a href={github.url} target="_blank" rel="noopener noreferrer">
                 <span>{github.username}</span>
               </a>
