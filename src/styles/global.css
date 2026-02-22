@@ -391,41 +391,4 @@ button {
   .print-button > button {
     margin-top: 0;
   }
-
-  /* Ordering  */
-  .main-content,
-  .sidebar {
-    display: contents;
-  }
-
-  .lang-toggle,
-  .print-button {
-    order: -7;
-  }
-  .header-container,
-  .name,
-  .label,
-  .summary {
-    order: -6;
-  }
-  .contacts-container,
-  .contact-list {
-    order: -5;
-  }
-  .skills-container,
-  .skill-list {
-    order: -4;
-  }
-  .works-container,
-  .work-item {
-    order: -3;
-  }
-  .educations-container,
-  .education-item {
-    order: -2;
-  }
-  .projects-container,
-  .project-name {
-    order: -1;
-  }
 }

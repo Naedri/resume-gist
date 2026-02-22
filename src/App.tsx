@@ -10,7 +10,7 @@ import {
 } from "@/components";
 import type { ResumeSchemaOfficial, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
-import { useLanguage } from "@/hooks";
+import { useLanguage, useWindowSize } from "@/hooks";
 import { useTranslation } from "react-i18next";
 import { useTelemetry } from "@/hooks/useTelemetry";
 
@@ -29,6 +29,8 @@ export default function App({ gistIds, name }: AppProps) {
   const { currentLanguage } = useLanguage();
   const prefetchGists = useRef(new Set<string>());
   const sendTelemetry = useTelemetry();
+  const { width } = useWindowSize();
+  const isMobile = width > 0 && width <= 768;
 
   useEffect(() => {
     sendTelemetry("APP_MOUNTED");
@@ -71,34 +73,58 @@ export default function App({ gistIds, name }: AppProps) {
 
   const resume = resumeData ? parseSchema(resumeData) : undefined;
 
+  const headerComponent = (
+    <Header
+      name={name ?? resume?.basic?.name ?? t("message.loading")}
+      label={resume?.basic?.label}
+      summary={resume?.basic?.summary}
+      loading={loading}
+    />
+  );
+  const workListComponent = (loading || resume?.works) && (
+    <WorkList works={resume?.works} loading={loading} />
+  );
+  const contactListComponent = (loading || resume?.basic) && (
+    <ContactList {...resume?.basic} loading={loading} />
+  );
+  const skillListComponent = (loading || resume?.skills) && (
+    <SkillList skills={resume?.skills} loading={loading} />
+  );
+  const educationListComponent = (loading || resume?.educations) && (
+    <EducationList educations={resume?.educations} loading={loading} />
+  );
+  const projectListComponent = (loading || resume?.projects) && (
+    <ProjectList projects={resume?.projects} loading={loading} />
+  );
+  const printButtonComponent = <PrintButton />;
+
   return (
     <div className="resume-container">
-      <main className="main-content">
-        <Header
-          name={name ?? resume?.basic?.name ?? t("message.loading")}
-          label={resume?.basic?.label}
-          summary={resume?.basic?.summary}
-          loading={loading}
-        />
-        {(loading || resume?.works) && (
-          <WorkList works={resume?.works} loading={loading} />
-        )}
-      </main>
-      <aside className="sidebar">
-        {(loading || resume?.basic) && (
-          <ContactList {...resume?.basic} loading={loading} />
-        )}
-        {(loading || resume?.skills) && (
-          <SkillList skills={resume?.skills} loading={loading} />
-        )}
-        {(loading || resume?.educations) && (
-          <EducationList educations={resume?.educations} loading={loading} />
-        )}
-        {(loading || resume?.projects) && (
-          <ProjectList projects={resume?.projects} loading={loading} />
-        )}
-        <PrintButton />
-      </aside>
+      {isMobile ? (
+        <main>
+          {printButtonComponent}
+          {headerComponent}
+          {contactListComponent}
+          {skillListComponent}
+          {workListComponent}
+          {educationListComponent}
+          {projectListComponent}
+        </main>
+      ) : (
+        <>
+          <main className="main-content">
+            {headerComponent}
+            {workListComponent}
+          </main>
+          <aside className="sidebar">
+            {contactListComponent}
+            {skillListComponent}
+            {educationListComponent}
+            {projectListComponent}
+            {printButtonComponent}
+          </aside>
+        </>
+      )}
     </div>
   );
 }
