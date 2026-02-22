@@ -11,8 +11,14 @@
     "today": "Present"
   },
   "language": {
-    "en": "EN",
-    "fr": "FR"
+    "long": {
+      "en": "English",
+      "fr": "Français"
+    },
+    "short": {
+      "en": "En",
+      "fr": "Fr"
+    }
   },
   "message": {
     "error": {

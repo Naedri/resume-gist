@@ -94,18 +94,21 @@ button {
   right: 0;
   top: 0;
   padding: 0.25rem;
-}
 
-.lang-btn {
-  background: none;
-  border: none;
-  color: var(--accent-color);
-  cursor: pointer;
-  font-size: 9pt;
-  padding: 0.125rem 0.25rem;
+  & > button {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    padding: 0.125rem 0.25rem;
+  }
 
-  &[aria-pressed="true"] {
-    font-weight: 700;
+  & > button.is-active {
+      text-decoration: underline;
+    }
+
+  & > button:hover {
+    font-weight: 400;
     text-decoration: underline;
   }
 }
