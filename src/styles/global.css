@@ -9,8 +9,8 @@
   --icon-color: #2c5282;
   --primary-font: "Cambria", "Times New Roman", serif;
   --line-size: 1px;
-  --font-weight-m: 400;
-  --font-weight-l: 600;
+  --font-weight-m: normal;
+  --font-weight-l: bold;
   --font-weight-xl: 700;
   --font-size-s: 9.5pt;
   --font-size-m: 10pt;
@@ -73,11 +73,23 @@ button {
 .main-content {
   padding-right: 1rem;
 }
+/* 
+.header-section {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.work-section {
+  grid-column: 1;
+  grid-row: 2;
+} */
 
 .sidebar {
   padding-left: 1rem;
   padding-right: 1rem;
   position: relative;
+  /* grid-column: 2;
+  grid-row: 1 / span 2; */
 }
 
 .sidebar:before {
@@ -168,7 +180,7 @@ button {
   margin-bottom: 0.5rem;
   line-height: 1.2;
   font-style: italic;
-  font-weight: normal;
+  font-weight: var(--font-weight-m);
 }
 
 .summary {
@@ -216,7 +228,7 @@ button {
 }
 
 .work-position {
-  font-weight: normal;
+  font-weight: var(--font-weight-m);
   font-style: italic;
   font-size: var(--font-size-m);
 }
@@ -244,19 +256,15 @@ button {
 }
 
 .project-item {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .project-name {
   font-weight: var(--font-weight-l);
-  margin-bottom: 0.1rem;
-  font-size: var(--font-size-s);
 }
 
 .project-description {
-  font-size: var(--font-size-s);
-  color: var(--secondary-color);
-  line-height: 1.4;
+  margin-left: 0.5rem;
 }
 
 .education-item {
@@ -279,7 +287,7 @@ button {
 }
 
 .education-type {
-  font-weight: normal;
+  font-weight: var(--font-weight-m);
   font-style: italic;
   font-size: var(--font-size-m);
 }
