@@ -1,5 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Header, WorkList, Sidebar } from "@/components";
+import {
+  ContactList,
+  EducationList,
+  Header,
+  ProjectList,
+  SkillList,
+  WorkList,
+  PrintButton
+} from "@/components";
 import type { ResumeSchemaOfficial, Locale } from "@/types";
 import { fetchRemoteResume, parseSchema } from "@/utils";
 import { useLanguage } from "@/hooks";
@@ -72,15 +80,25 @@ export default function App({ gistIds, name }: AppProps) {
           summary={resume?.basic?.summary}
           loading={loading}
         />
-        <WorkList works={resume?.works} loading={loading} />
+        {(loading || resume?.works) && (
+          <WorkList works={resume?.works} loading={loading} />
+        )}
       </main>
-      <Sidebar
-        basic={resume?.basic}
-        skills={resume?.skills}
-        educations={resume?.educations}
-        projects={resume?.projects}
-        loading={loading}
-      />
+      <aside className="sidebar">
+        {(loading || resume?.basic) && (
+          <ContactList {...resume?.basic} loading={loading} />
+        )}
+        {(loading || resume?.skills) && (
+          <SkillList skills={resume?.skills} loading={loading} />
+        )}
+        {(loading || resume?.educations) && (
+          <EducationList educations={resume?.educations} loading={loading} />
+        )}
+        {(loading || resume?.projects) && (
+          <ProjectList projects={resume?.projects} loading={loading} />
+        )}
+        <PrintButton />
+      </aside>
     </div>
   );
 }
