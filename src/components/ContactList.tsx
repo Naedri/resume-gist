@@ -24,32 +24,32 @@ export const ContactList = ({
         <ul className="contact-list">
           {email && (
             <li className="contact-item">
-              <Icon type="mail" />
               <a href={`mailto:${email}`}>
+                <Icon type="mail" />
                 <span>{email}</span>
               </a>
             </li>
           )}
           {phone && (
             <li className="contact-item">
-              <Icon type="phone" />
-              <a href={`tel:${phone}`}>
+              <a href={`tel:${phone.replaceAll(" ", "")}`}>
+                <Icon type="phone" />
                 <span>{phone}</span>
               </a>
             </li>
           )}
           {linkedin && (
             <li className="contact-item">
-              <Icon type="redirection" />
               <a href={linkedin.url} target="_blank" rel="noopener noreferrer">
+                <Icon type="redirection" />
                 <span>{linkedin.username}</span>
               </a>
             </li>
           )}
           {github && (
             <li className="contact-item">
-              <Icon type="redirection" />
               <a href={github.url} target="_blank" rel="noopener noreferrer">
+                <Icon type="redirection" />
                 <span>{github.username}</span>
               </a>
             </li>
