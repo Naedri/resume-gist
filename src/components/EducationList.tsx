@@ -16,15 +16,23 @@ export const EducationList = ({ educations, loading }: EducationListProps) => {
       <SkeletonLoader loading={loading} lines={4}>
         {educations?.map((e, index) => (
           <div key={index} className="education-item">
-            <h4 className="school">{e.institution}</h4>
-            <h5 className="degree">{e.studyType}</h5>
-            <div className="date">
-              <time dateTime={getDuration(e.startDate, e.endDate)}>
-                {[
-                  t("date.xxs", { val: e.startDate }),
-                  t("date.xxs", { val: e.endDate })
-                ].join(" - ")}
-              </time>
+            <div className="education-header">
+              <div>
+                <h4 className="education-institution">
+                  <a href={e.url} target="_blank" rel="noopener noreferrer">
+                    {e.institution}
+                  </a>
+                </h4>
+                <h5 className="education-type">{e.studyType}</h5>
+              </div>
+              <div className="date">
+                <time dateTime={getDuration(e.startDate, e.endDate)}>
+                  {[
+                    t("date.xxs", { val: e.startDate }),
+                    t("date.xxs", { val: e.endDate })
+                  ].join(" - ")}
+                </time>
+              </div>
             </div>
             {e.courses && e.courses.length > 0 && (
               <ul>

@@ -196,6 +196,7 @@ button {
 
 .work-header {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
 }
@@ -249,19 +250,29 @@ button {
   line-height: 1.4;
 }
 
-.education-container {
-  margin-top: 0.75rem;
+.education-item {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
 }
 
-.school {
+.education-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.education-institution {
   font-weight: 600;
-  font-size: 10pt;
+  font-size: 11pt;
 }
 
-.degree {
+.education-type {
+  font-weight: normal;
   font-style: italic;
-  color: var(--secondary-color);
-  font-size: 9.5pt;
+  font-size: 10pt;
 }
 
 .skill-list {
@@ -316,7 +327,7 @@ button {
   .resume-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.5rem;
     position: relative;
 
     .header-container {
@@ -335,6 +346,11 @@ button {
   .sidebar {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  /* Education */
+  .education-header {
+    flex-direction: row;
   }
 
   /* Manage lang-toggle and print-button */
