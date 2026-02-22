@@ -9,6 +9,15 @@
   --icon-color: #2c5282;
   --primary-font: "Cambria", "Times New Roman", serif;
   --line-size: 1px;
+  --font-weight-m: 400;
+  --font-weight-l: 600;
+  --font-weight-xl: 700;
+  --font-size-s: 9.5pt;
+  --font-size-m: 10pt;
+  --font-size-l: 11pt;
+  --font-size-xl: 12pt;
+  --font-size-xxl: 14pt;
+  --font-size-xxxl: 18pt;
 }
 
 * {
@@ -25,7 +34,7 @@ body {
   max-width: 8.5in;
   margin: 0 auto;
   padding: 1rem;
-  font-size: 10pt;
+  font-size: var(--font-size-m);
 }
 
 ul {
@@ -35,7 +44,7 @@ ul {
 
 li {
   margin-bottom: 0.25rem;
-  font-size: 9.5pt;
+  font-size: var(--font-size-s);
 }
 
 a {
@@ -104,18 +113,18 @@ button {
   }
 
   & > button.is-active {
-      text-decoration: underline;
-    }
+    text-decoration: underline;
+  }
 
   & > button:hover {
-    font-weight: 400;
+    font-weight: var(--font-weight-m);
     text-decoration: underline;
   }
 }
 
 .date {
   color: var(--secondary-color);
-  font-size: 10pt;
+  font-size: var(--font-size-m);
   font-style: italic;
 }
 
@@ -145,8 +154,8 @@ button {
 }
 
 .name {
-  font-size: 18pt;
-  font-weight: 700;
+  font-size: var(--font-size-xxxl);
+  font-weight: var(--font-weight-xl);
   color: var(--primary-color);
   margin-bottom: 0.25rem;
   line-height: 1.2;
@@ -154,7 +163,7 @@ button {
 }
 
 .label {
-  font-size: 14pt;
+  font-size: var(--font-size-xxl);
   color: var(--accent-color);
   margin-bottom: 0.5rem;
   line-height: 1.2;
@@ -163,7 +172,7 @@ button {
 }
 
 .summary {
-  font-size: 10pt;
+  font-size: var(--font-size-m);
   margin-bottom: 0.5rem;
   /* max-width: 90%;
   margin-left: auto;
@@ -171,8 +180,8 @@ button {
 }
 
 .section-title {
-  font-size: 12pt;
-  font-weight: 600;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-l);
   color: var(--primary-color);
   margin: 0.75rem 0 0.5rem 0;
   padding-bottom: 0.25rem;
@@ -202,18 +211,18 @@ button {
 }
 
 .work-name {
-  font-weight: 600;
-  font-size: 11pt;
+  font-weight: var(--font-weight-l);
+  font-size: var(--font-size-l);
 }
 
 .work-position {
   font-weight: normal;
   font-style: italic;
-  font-size: 10pt;
+  font-size: var(--font-size-m);
 }
 
 .work-stack {
-  font-size: 9.5pt;
+  font-size: var(--font-size-s);
   color: var(--secondary-color);
 }
 
@@ -226,7 +235,7 @@ button {
 }
 
 .contact-item {
-  font-size: 9.5pt;
+  font-size: var(--font-size-s);
 
   & > a {
     display: flex;
@@ -239,13 +248,13 @@ button {
 }
 
 .project-name {
-  font-weight: 600;
+  font-weight: var(--font-weight-l);
   margin-bottom: 0.1rem;
-  font-size: 9.5pt;
+  font-size: var(--font-size-s);
 }
 
 .project-description {
-  font-size: 9.5pt;
+  font-size: var(--font-size-s);
   color: var(--secondary-color);
   line-height: 1.4;
 }
@@ -265,14 +274,14 @@ button {
 }
 
 .education-institution {
-  font-weight: 600;
-  font-size: 11pt;
+  font-weight: var(--font-weight-l);
+  font-size: var(--font-size-l);
 }
 
 .education-type {
   font-weight: normal;
   font-style: italic;
-  font-size: 10pt;
+  font-size: var(--font-size-m);
 }
 
 .skill-list {
@@ -284,8 +293,8 @@ button {
 }
 
 .skill-name {
-  font-weight: 600;
-  font-size: 10pt;
+  font-weight: var(--font-weight-l);
+  font-size: var(--font-size-m);
 }
 
 /* Print-specific styles */
