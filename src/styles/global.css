@@ -26,19 +26,21 @@
   box-sizing: border-box;
 }
 
+/* ---------- Base ---------- */
+
 body {
   font-family: var(--primary-font);
+  font-size: var(--font-size-m);
   line-height: 1.5;
   color: var(--primary-color);
   background-color: var(--background-color);
   max-width: 8.5in;
   margin: 0 auto;
   padding: 1rem;
-  font-size: var(--font-size-m);
 }
 
 ul {
-  list-style-type: none;
+  list-style: none;
   margin-left: 0.5rem;
 }
 
@@ -47,21 +49,21 @@ li {
   font-size: var(--font-size-s);
 }
 
-a {
+/* ---------- Focus styles (DEDUPED) ---------- */
+
+a,
+button {
   color: var(--primary-color);
   text-decoration: none;
-  &:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-  }
 }
 
-button {
-  &:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-  }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
+
+/* ---------- Layout ---------- */
 
 .resume-container {
   display: grid;
@@ -73,97 +75,60 @@ button {
 .main-content {
   padding-right: 1rem;
 }
-/* 
-.header-section {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.work-section {
-  grid-column: 1;
-  grid-row: 2;
-} */
 
 .sidebar {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 1rem;
   position: relative;
-  /* grid-column: 2;
-  grid-row: 1 / span 2; */
 }
 
-.sidebar:before {
+.sidebar::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
+  inset: 0 auto 0 0;
   width: var(--line-size);
   background-color: var(--line-color);
 }
 
+/* ---------- Header ---------- */
+
 .header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  text-align: center;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  text-align: center;
   border-bottom: var(--line-size) solid var(--line-color);
-  position: relative;
 }
+
+/* ---------- Language toggle ---------- */
 
 .lang-toggle {
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
   padding: 0.25rem;
-
-  & > button {
-    background: none;
-    border: none;
-    color: var(--accent-color);
-    cursor: pointer;
-    padding: 0.125rem 0.25rem;
-  }
-
-  & > button.is-active {
-    text-decoration: underline;
-  }
-
-  & > button:hover {
-    font-weight: var(--font-weight-m);
-    text-decoration: underline;
-  }
 }
 
-.date {
-  color: var(--secondary-color);
-  font-size: var(--font-size-m);
-  font-style: italic;
+.lang-toggle > button {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  padding: 0.125rem 0.25rem;
 }
 
-.icon {
-  /* display: none; */
-  margin-right: 0.5rem;
-  width: 1rem;
-  height: 1rem;
-  object-fit: contain;
-  color: var(--icon-color);
+.lang-toggle > button:hover,
+.lang-toggle > button.is-active {
+  text-decoration: underline;
 }
 
-.print-button {
-  & > button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: var(--accent-color);
-    color: var(--background-color);
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    font-family: var(--primary-font);
-  }
-  & > button:focus-visible {
-    outline-color: var(--primary-color);
-  }
+.lang-toggle > button:hover {
+  font-weight: var(--font-weight-m);
 }
+
+/* ---------- Typography ---------- */
 
 .name {
   font-size: var(--font-size-xxxl);
@@ -176,136 +141,163 @@ button {
 
 .label {
   font-size: var(--font-size-xxl);
-  color: var(--accent-color);
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-  font-style: italic;
   font-weight: var(--font-weight-m);
+  color: var(--accent-color);
+  font-style: italic;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
 }
 
 .summary {
   font-size: var(--font-size-m);
+  text-align: justify;
   margin-bottom: 0.5rem;
-  /* max-width: 90%;
-  margin-left: auto;
-  margin-right: auto; */
+}
+
+.date,
+.work-stack {
+  color: var(--secondary-color);
+}
+
+.date {
+  font-size: var(--font-size-m);
+  font-style: italic;
 }
 
 .section-title {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-l);
   color: var(--primary-color);
-  margin: 0.75rem 0 0.5rem 0;
-  padding-bottom: 0.25rem;
-  border-bottom: var(--line-size) solid var(--line-color);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  margin: 0.75rem 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: var(--line-size) solid var(--line-color);
 }
 
-.work-item {
-  margin-bottom: 0.75rem;
+/* ---------- Shared flex column pattern ---------- */
+
+.work-item,
+.education-item {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-/* Visual separation between experiences to avoid date overlap issues */
+.education-item {
+  gap: 0.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.work-item {
+  margin-bottom: 0.75rem;
+}
+
+/* separation between work items */
 .work-item + .work-item {
   border-top: var(--line-size) solid var(--line-color);
   padding-top: 0.5rem;
 }
 
+/* ---------- Headers ---------- */
+
 .work-header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
-}
-
-.work-name {
-  font-weight: var(--font-weight-l);
-  font-size: var(--font-size-l);
-}
-
-.work-position {
-  font-weight: var(--font-weight-m);
-  font-style: italic;
-  font-size: var(--font-size-m);
-}
-
-.work-stack {
-  font-size: var(--font-size-s);
-  color: var(--secondary-color);
-}
-
-.contact-list {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-left: 0;
-}
-
-.contact-item {
-  font-size: var(--font-size-s);
-
-  & > a {
-    display: flex;
-    align-items: center;
-  }
-}
-
-.project-item {
-  margin-bottom: 0.5rem;
-}
-
-.project-name {
-  font-weight: var(--font-weight-l);
-}
-
-.project-description {
-  margin-left: 0.5rem;
-}
-
-.education-item {
-  margin-bottom: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
 }
 
 .education-header {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: baseline;
 }
 
-.education-institution {
+/* ---------- Items ---------- */
+
+.work-name,
+.education-institution,
+.project-name,
+.skill-name {
   font-weight: var(--font-weight-l);
+}
+
+.work-name,
+.education-institution {
   font-size: var(--font-size-l);
 }
 
+.work-position,
 .education-type {
   font-weight: var(--font-weight-m);
   font-style: italic;
   font-size: var(--font-size-m);
 }
 
+.work-stack,
+.contact-item {
+  font-size: var(--font-size-s);
+}
+
+/* ---------- Lists ---------- */
+
+.contact-list,
 .skill-list {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  gap: 0.4rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin-left: 0;
 }
 
-.skill-name {
-  font-weight: var(--font-weight-l);
-  font-size: var(--font-size-m);
+.skill-list {
+  gap: 0.4rem;
 }
 
-/* Print-specific styles */
+.contact-item > a {
+  display: flex;
+  align-items: center;
+}
+
+/* ---------- Projects ---------- */
+
+.project-item {
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  margin-left: 0.5rem;
+}
+
+/* ---------- Icon ---------- */
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  object-fit: contain;
+  color: var(--icon-color);
+}
+
+/* ---------- Print button ---------- */
+
+.print-button > button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: var(--primary-font);
+}
+
+.print-button > button:focus-visible {
+  outline-color: var(--primary-color);
+}
+
+/* ---------- Print-specific styles ---------- */
+
 @media print {
   @page {
     size: A4;
@@ -333,8 +325,8 @@ button {
     display: none;
   }
 }
+/* ---------- Responsive Design for Mobile ---------- */
 
-/* Responsive Design for Mobile */
 @media screen and (max-width: 768px) {
   body {
     padding: 0.5rem;
@@ -365,7 +357,6 @@ button {
     padding-right: 0;
   }
 
-  /* Education */
   .education-header {
     flex-direction: row;
   }
