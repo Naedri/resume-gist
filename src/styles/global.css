@@ -1,21 +1,23 @@
 :root {
-  /* light-dark(Accessibility-optimized, Dracula theme) */
+  /* light-dark(Resume-optimized, Dracula theme) */
   color-scheme: light dark;
 
-  /* Backgrounds */
-  --background-color: light-dark(#f4f1e8, #282a36);
-  --skeleton-background-color: light-dark(#e7e3d7, #282a36);
+  /* Paper-like background */
+  --background-color: light-dark(#faf9f6, #282a36);
+  --skeleton-background-color: light-dark(#f0efea, #282a36);
 
-  /* Primary UI colors (darkened for contrast on light bg) */
-  --primary-color: light-dark(#6b46c1, #bd93f9); /* accessible purple */
-  --secondary-color: light-dark(#c026d3, #ff79c6); /* strong magenta */
-  --tertiary-color: light-dark(#0e7490, #8be9fd); /* deep cyan */
-  --accent-color: light-dark(#15803d, #50fa7b); /* accessible green */
-  --button-color: light-dark(#c2410c, #ffb86c); /* deeper orange */
+  /* Professional accents */
+  --primary-color: light-dark(#1e3a8a, #bd93f9); /* deep indigo */
+  --secondary-color: light-dark(#7c2d12, #ff79c6); /* restrained warm accent */
+  --tertiary-color: light-dark(#0f766e, #8be9fd); /* muted teal */
+  --accent-color: light-dark(#166534, #50fa7b); /* dark green */
 
-  /* Neutrals */
-  --icon-color: light-dark(#1f2937, #f8f8f2); /* dark slate */
-  --line-color: light-dark(#6b7280, #6272a4);
+  /* Buttons / highlights */
+  --button-color: light-dark(#9a3412, #ffb86c);
+
+  /* Text & structure */
+  --icon-color: light-dark(#111827, #f8f8f2); /* near-black */
+  --line-color: light-dark(#d1d5db, #6272a4);
   --skeleton-color: light-dark(#9ca3af, #6272a4);
 
   /* Font */
