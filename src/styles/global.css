@@ -316,6 +316,46 @@ button:focus-visible {
   margin-left: 0.5rem;
 }
 
+/* ------ Skeleton loader ------ */
+
+@keyframes skeleton-shimming {
+  0% {
+    background-position: -21.9375rem 0; /* -468px */
+  }
+  100% {
+    background-position: 21.9375rem 0; /* 468px */
+  }
+}
+
+.skeleton-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-line {
+  height: 0.75rem;
+  margin-bottom: 0.5625rem;
+  border-radius: 0.1875rem;
+  background: var(--background-color);
+  background-image: linear-gradient(
+    to right,
+    var(--background-color) 0%,
+    color-mix(in srgb, var(--background-color) 85%, grey) 20%,
+    var(--background-color) 40%,
+    var(--background-color) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 37.5rem 100%; /* 800px */
+  animation: skeleton-shimming 1.2s linear infinite forwards;
+  width: 100%;
+}
+
+.skeleton-line:last-child {
+  margin-bottom: 0;
+  width: 60%;
+}
+
 /* ---------- Print-specific styles ---------- */
 
 @media print {

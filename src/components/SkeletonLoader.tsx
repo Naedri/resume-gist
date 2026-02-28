@@ -1,5 +1,3 @@
-import "./SkeletonLoader.css";
-
 interface SkeletonLoaderProps {
   loading?: boolean;
   children: React.ReactNode;

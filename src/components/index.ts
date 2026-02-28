@@ -6,5 +6,5 @@ export * from "./Icon.tsx";
 export * from "./LanguageToggle.tsx";
 export * from "./ProjectList.tsx";
 export * from "./SkillList.tsx";
-export * from "./SkeletonLoader";
+export * from "./SkeletonLoader.tsx";
 export * from "./PrintButton.tsx";
