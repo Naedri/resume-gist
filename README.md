@@ -1,4 +1,4 @@
-# Resume telemetry
+# Resume Gist
 
 Powered by data retrieved from GitHub gists, this project generates a web-based resume that tracks when it is accessed, helping you decide when to follow up on your applications.
 
@@ -6,7 +6,7 @@ Powered by data retrieved from GitHub gists, this project generates a web-based 
 
 - [x] Fetch resume data from GitHub gists containing a `resume.json` file.
 - [x] Support both English and French versions.
-- [x] Single page application is available in the [`main`](https://github.com/Naedri/resume-telemetry/tree/main) branch and server-side rendering is available in the [`feat/ssr`](https://github.com/Naedri/resume-telemetry/tree/feat/ssr) branch.
+- [x] Single page application is available in the [`main`](https://github.com/Naedri/resume-gist/tree/main) branch and server-side rendering is available in the [`feat/ssr`](https://github.com/Naedri/resume-gist/tree/feat/ssr) branch.
 - [x] Send telemetry to a provided endpoint.
 
 ## Setup
@@ -14,7 +14,7 @@ Powered by data retrieved from GitHub gists, this project generates a web-based 
 1. Clone and install:
 
 ```bash
-git clone https://github.com/Naedri/resume-telemetry.git
+git clone https://github.com/Naedri/resume-gist.git
 cd resume
 npm install
 ```
@@ -29,7 +29,7 @@ VITE_GIST_ID_FR=your_french_gist_idw
 VITE_RESUME_NAME=John Doe
 VITE_DOCUMENT_TITLE=John Doe
 VITE_DOCUMENT_LANG=en
-VITE_TELEMETRY_URL=https://yolofunyolo.provider.co/functions/v1/resume-telemetry
+VITE_TELEMETRY_URL=https://yolofunyolo.provider.co/functions/v1/resume-gist
 VITE_TELEMETRY_HEADER_KEY=sb_publishable_789456123_000
 ```
 
@@ -69,7 +69,7 @@ If you plan to use Supabase, you will need first to create the pqSQL data table 
 
 ## Theming
 
-The project uses colors from the [Dracula theme](https://github.com/dracula/dracula-theme). You can customize them by editing the CSS variables in the [`global.css`](https://github.com/Naedri/resume-telemetry/blob/main/src/styles/global.css) file.
+The project uses colors from the [Dracula theme](https://github.com/dracula/dracula-theme). You can customize them by editing the CSS variables in the [`global.css`](https://github.com/Naedri/resume-gist/blob/main/src/styles/global.css) file.
 
 ## Gist Structure
 
