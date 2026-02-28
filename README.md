@@ -67,6 +67,10 @@ To send data to another database service provider, additional `TelemetryService`
 
 If you plan to use Supabase, you will need first to create the pqSQL data table that will store telemetry data ([`01_create_table.sql`](https://gist.github.com/Naedri/02a2d08b2003422ae361e6adb1ddb94a#file-01_create_table-sql)) then create the edge functions that will validate the event data and perform associated database operations ([`02_telemetry_edge_function.ts`](https://gist.github.com/Naedri/02a2d08b2003422ae361e6adb1ddb94a#file-02_telemetry_edge_function-ts)).
 
+## Theming
+
+The project uses colors from the [Dracula theme](https://github.com/dracula/dracula-theme). You can customize them by editing the CSS variables in the [`global.css`](https://github.com/Naedri/resume-telemetry/blob/main/src/styles/global.css) file.
+
 ## Gist Structure
 
 Your gist must include a [`resume.json`](./src/types/gist.d.ts) file, of which the type is defined by the [JSON Resume schema](https://jsonresume.org/schema).

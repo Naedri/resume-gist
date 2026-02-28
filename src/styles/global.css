@@ -1,14 +1,30 @@
 :root {
-  --primary-color: #bd93f9;
-  --secondary-color: #ff79c6;
-  --tertiary-color: #8be9fd;
-  --accent-color: #50fa7b;
-  --button-color: #ffb86c;
-  --icon-color: #f8f8f2;
-  --line-color: #6272a4;
-  --background-color: #282a36;
-  --skeleton-background-color: #282a36;
-  --skeleton-color: #6272a4;
+  /* Dracula palette */
+  --background-color: #282a36; /* Background */
+  --current-line-color: #44475a; /* Current Line / Selection */
+  --selection-color: #44475a; /* Selection */
+  --foreground-color: #f8f8f2; /* Foreground */
+  --comment-color: #6272a4; /* Comment */
+  --cyan-color: #8be9fd; /* Cyan */
+  --green-color: #50fa7b; /* Green */
+  --orange-color: #ffb86c; /* Orange */
+  --pink-color: #ff79c6; /* Pink */
+  --purple-color: #bd93f9; /* Purple */
+  --red-color: #ff5555; /* Red */
+  --yellow-color: #f1fa8c; /* Yellow */
+
+  /* Semantic usage from palette */
+  --primary-color: var(--purple-color);
+  --secondary-color: var(--pink-color);
+  --tertiary-color: var(--cyan-color);
+  --accent-color: var(--green-color);
+  --button-color: var(--orange-color);
+  --icon-color: var(--foreground-color);
+  --line-color: var(--comment-color);
+  --skeleton-background-color: var(--background-color);
+  --skeleton-color: var(--comment-color);
+
+  /* Font */
   --primary-font: "Cambria", "Times New Roman", serif;
   --line-size: 1px;
   --font-weight-m: normal;
