@@ -1,14 +1,18 @@
 :root {
-  /* Semantic usage from palette - Light Theme Version */
-  --primary-color: #0d1b2a;
-  --secondary-color: #4b5563;
-  --tertiary-color: #9ca3af;
-  --accent-color: #2563eb;
-  --button-color: #1f2937;
-  --icon-color: #0d1b2a;
-  --line-color: #e5e7eb;
-  --skeleton-background-color: #f9fafb;
-  --skeleton-color: #e5e7eb;
+  /* light-dark(HSL complementary Dracula theme, Dracula theme) */
+  color-scheme: light dark;
+
+  --background-color: light-dark(#363428, #282a36);
+
+  --primary-color: light-dark(#cff993, #bd93f9);
+  --secondary-color: light-dark(#79ffb2, #ff79c6);
+  --tertiary-color: light-dark(#fda08b, #8be9fd);
+  --accent-color: light-dark(#fa50cf, #50fa7b);
+  --button-color: light-dark(#6cb3ff, #ffb86c);
+  --icon-color: light-dark(#f2f2f8, #f8f8f2);
+  --line-color: light-dark(#a49462, #6272a4);
+  --skeleton-background-color: light-dark(#363428, #282a36);
+  --skeleton-color: light-dark(#a49462, #6272a4);
 
   /* Font */
   --primary-font: "Cambria", "Times New Roman", serif;
