@@ -7,7 +7,6 @@
   --icon-color: #f8f8f2;
   --line-color: #6272a4;
   --background-color: #282a36;
-  --skeleton-size: 72rem;
   --skeleton-background-color: #282a36;
   --skeleton-color: #6272a4;
   --primary-font: "Cambria", "Times New Roman", serif;
@@ -312,37 +311,42 @@ button:focus-visible {
 /* ------ Skeleton loader ------ */
 
 @keyframes skeleton-shimmer {
-  0% {
-    background-position: 100% 0;
-  }
   100% {
-    background-position: 0% 0;
+    transform: translateX(100%);
   }
 }
+
 .skeleton-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
 }
+
 .skeleton-line {
   height: 0.75rem;
   border-radius: 1rem;
-  width: 100%;
+  position: relative;
+  overflow: hidden;
   background-color: var(--skeleton-background-color);
-  background-image: linear-gradient(
-    to right,
-    var(--skeleton-background-color) 0%,
-    var(--skeleton-color) 20%,
-    var(--skeleton-background-color) 40%,
-    var(--skeleton-background-color) 100%
-  );
-  background-repeat: repeat-y;
-  background-size: 200% 100%;
-  animation: skeleton-shimmer 1.5s ease-in-out infinite;
-}
-.skeleton-line:last-child {
-  width: 60%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--skeleton-color) 50%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    animation: skeleton-shimmer 1.4s infinite;
+  }
+
+  &:last-child {
+    width: 60%;
+  }
 }
 
 /* ---------- Print-specific styles ---------- */
