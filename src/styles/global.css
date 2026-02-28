@@ -1,24 +1,32 @@
 :root {
-  /* light-dark(Resume-optimized, Dracula theme) */
+  /* light-dark(AAA-PDF-optimized, Dracula theme) */
   color-scheme: light dark;
 
-  /* Paper-like background */
-  --background-color: light-dark(#faf9f6, #282a36);
-  --skeleton-background-color: light-dark(#f0efea, #282a36);
+  /* Paper background (very light warm neutral) */
+  --background-color: light-dark(#ffffff, #282a36);
+  --skeleton-background-color: light-dark(#f3f4f6, #282a36);
 
-  /* Professional accents */
-  --primary-color: light-dark(#1e3a8a, #bd93f9); /* deep indigo */
-  --secondary-color: light-dark(#7c2d12, #ff79c6); /* restrained warm accent */
-  --tertiary-color: light-dark(#0f766e, #8be9fd); /* muted teal */
-  --accent-color: light-dark(#166534, #50fa7b); /* dark green */
+  /* Primary heading color (AAA on white) */
+  --primary-color: light-dark(#1e3a8a, #bd93f9);
 
-  /* Buttons / highlights */
-  --button-color: light-dark(#9a3412, #ffb86c);
+  /* Secondary accent (AAA compliant) */
+  --secondary-color: light-dark(#7c2d12, #ff79c6);
 
-  /* Text & structure */
-  --icon-color: light-dark(#111827, #f8f8f2); /* near-black */
-  --line-color: light-dark(#d1d5db, #6272a4);
-  --skeleton-color: light-dark(#9ca3af, #6272a4);
+  /* Muted professional teal (AAA compliant) */
+  --tertiary-color: light-dark(#115e59, #8be9fd);
+
+  /* Dark green (AAA compliant) */
+  --accent-color: light-dark(#14532d, #50fa7b);
+
+  /* Buttons / section highlights */
+  --button-color: light-dark(#7c2d12, #ffb86c);
+
+  /* Main text */
+  --icon-color: light-dark(#111111, #f8f8f2);
+
+  /* Dividers */
+  --line-color: light-dark(#9ca3af, #6272a4);
+  --skeleton-color: light-dark(#6b7280, #6272a4);
 
   /* Font */
   --primary-font: "Cambria", "Times New Roman", serif;
