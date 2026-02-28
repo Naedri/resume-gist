@@ -13,16 +13,18 @@ export const ProjectList = ({ projects, loading }: ProjectListProps) => {
     <section className="projects-container">
       <h3 className="section-title">{t("section.project")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        {projects?.map((p, index) => (
-          <div key={index} className="project-item">
-            <h4 className="project-name">
-              <a href={p.url} target="_blank" rel="noopener noreferrer">
-                {p.name}
-              </a>
-            </h4>
-            <p className="project-description">{p.description}</p>
-          </div>
-        ))}
+        <div className="projects-list">
+          {projects?.map((p, index) => (
+            <div key={index} className="project-item">
+              <h4 className="project-name">
+                <a href={p.url} target="_blank" rel="noopener noreferrer">
+                  {p.name}
+                </a>
+              </h4>
+              <p className="project-description">{p.description}</p>
+            </div>
+          ))}
+        </div>
       </SkeletonLoader>
     </section>
   );

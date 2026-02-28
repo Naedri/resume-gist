@@ -21,7 +21,7 @@ export const ContactList = ({
     <section className="contacts-container">
       <h3 className="section-title">{t("section.contact")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        <ul className="contact-list">
+        <ul className="contacts-list">
           {email && (
             <li className="contact-item">
               <a href={`mailto:${email}`}>

@@ -14,35 +14,37 @@ export const EducationList = ({ educations, loading }: EducationListProps) => {
     <section className="educations-container">
       <h3 className="section-title">{t("section.education")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        {educations?.map((e, index) => (
-          <div key={index} className="education-item">
-            <div className="education-header">
-              <div>
-                <h4 className="education-institution">
-                  <a href={e.url} target="_blank" rel="noopener noreferrer">
-                    {e.institution}
-                  </a>
-                </h4>
-                <h5 className="education-type">{e.studyType}</h5>
+        <div className="educations-list">
+          {educations?.map((e, index) => (
+            <div key={index} className="education-item">
+              <div className="education-header">
+                <div>
+                  <h4 className="education-institution">
+                    <a href={e.url} target="_blank" rel="noopener noreferrer">
+                      {e.institution}
+                    </a>
+                  </h4>
+                  <h5 className="education-type">{e.studyType}</h5>
+                </div>
+                <div className="date">
+                  <time dateTime={getDuration(e.startDate, e.endDate)}>
+                    {[
+                      t("date.xxs", { val: e.startDate }),
+                      t("date.xxs", { val: e.endDate })
+                    ].join(" - ")}
+                  </time>
+                </div>
               </div>
-              <div className="date">
-                <time dateTime={getDuration(e.startDate, e.endDate)}>
-                  {[
-                    t("date.xxs", { val: e.startDate }),
-                    t("date.xxs", { val: e.endDate })
-                  ].join(" - ")}
-                </time>
-              </div>
+              {e.courses && e.courses.length > 0 && (
+                <ul>
+                  {e.courses.map((course, i) => (
+                    <li key={i}>{course}</li>
+                  ))}
+                </ul>
+              )}
             </div>
-            {e.courses && e.courses.length > 0 && (
-              <ul>
-                {e.courses.map((course, i) => (
-                  <li key={i}>{course}</li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </SkeletonLoader>
     </section>
   );
