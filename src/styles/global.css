@@ -49,8 +49,6 @@ li {
   font-size: var(--font-size-s);
 }
 
-/* ---------- Focus styles ---------- */
-
 a {
   color: inherit;
   text-decoration: none;
@@ -59,9 +57,12 @@ a {
 button {
   font: inherit;
   color: inherit;
+  cursor: pointer;
   background: none;
   border: none;
 }
+
+/* ---------- Focus styles ---------- */
 
 a:focus-visible,
 button:focus-visible {
@@ -80,6 +81,8 @@ button:focus-visible {
 
 .main-content {
   padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar {
@@ -100,58 +103,45 @@ button:focus-visible {
 .header-container {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   align-items: center;
   position: relative;
   text-align: center;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: var(--line-size) solid var(--line-color);
 }
 
 /* ---------- Button ---------- */
 
 /* Language toggle */
 
+.lang-toggle,
+.print-button {
+  cursor: pointer;
+  padding: 0.25rem 0;
+
+  & > button {
+    color: var(--button-color);
+    padding: 0.125rem 0.25rem;
+    font-weight: var(--font-weight-l);
+    font-size: var(--font-size-m);
+  }
+
+  & > button:hover,
+  & > button.is-active {
+    border-bottom: var(--line-size) solid var(--button-color);
+  }
+}
+
 .lang-toggle {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.25rem;
 }
 
-.lang-toggle > button {
-  background: none;
-  border: none;
-  color: var(--button-color);
-  cursor: pointer;
-  padding: 0.125rem 0.25rem;
-  font-weight: var(--font-weight-l);
-  font-size: var(--font-size-s);
-}
-
-.lang-toggle > button:hover,
-.lang-toggle > button.is-active {
-  border-bottom: var(--line-size) solid var(--button-color);
-}
-
-/* Print */
-
-.print-button > button {
-  margin-top: 1rem;
-  padding: 0.25rem;
-  background-color: var(--button-color);
-  color: var(--background-color);
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  font-family: var(--primary-font);
-  font-weight: var(--font-weight-l);
-  font-size: var(--font-size-s);
-}
-
-.print-button > button:focus-visible {
-  outline-color: var(--primary-color);
+.print-button {
+  font-style: italic;
+  margin-top: auto;
+  align-self: flex-end;
 }
 
 /* Icon */
@@ -428,16 +418,14 @@ button:focus-visible {
 
   .lang-toggle {
     position: absolute;
-    right: 0;
+    top: 0;
+    right: inherit;
+    left: 0;
   }
 
   .print-button {
     position: absolute;
     top: 0;
-    left: 0;
-  }
-
-  .print-button > button {
-    margin-top: 0;
+    right: 0;
   }
 }

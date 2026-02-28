@@ -101,9 +101,9 @@ export default function App({ gistIds, name }: AppProps) {
   return (
     <div className="resume-container">
       {isMobile ? (
-        <main>
-          {printButtonComponent}
+        <main className="main-content">
           {headerComponent}
+          {printButtonComponent}
           {contactListComponent}
           {skillListComponent}
           {workListComponent}
@@ -115,13 +115,13 @@ export default function App({ gistIds, name }: AppProps) {
           <main className="main-content">
             {headerComponent}
             {workListComponent}
+            {printButtonComponent}
           </main>
           <aside className="sidebar">
             {contactListComponent}
             {skillListComponent}
             {educationListComponent}
             {projectListComponent}
-            {printButtonComponent}
           </aside>
         </>
       )}
