@@ -1,28 +1,14 @@
 :root {
-  /* Dracula palette */
-  --background-color: #282a36; /* Background */
-  --current-line-color: #44475a; /* Current Line / Selection */
-  --selection-color: #44475a; /* Selection */
-  --foreground-color: #f8f8f2; /* Foreground */
-  --comment-color: #6272a4; /* Comment */
-  --cyan-color: #8be9fd; /* Cyan */
-  --green-color: #50fa7b; /* Green */
-  --orange-color: #ffb86c; /* Orange */
-  --pink-color: #ff79c6; /* Pink */
-  --purple-color: #bd93f9; /* Purple */
-  --red-color: #ff5555; /* Red */
-  --yellow-color: #f1fa8c; /* Yellow */
-
-  /* Semantic usage from palette */
-  --primary-color: var(--purple-color);
-  --secondary-color: var(--pink-color);
-  --tertiary-color: var(--cyan-color);
-  --accent-color: var(--green-color);
-  --button-color: var(--orange-color);
-  --icon-color: var(--foreground-color);
-  --line-color: var(--comment-color);
-  --skeleton-background-color: var(--background-color);
-  --skeleton-color: var(--comment-color);
+  /* Semantic usage from palette - Light Theme Version */
+  --primary-color: #0d1b2a;
+  --secondary-color: #4b5563;
+  --tertiary-color: #9ca3af;
+  --accent-color: #2563eb;
+  --button-color: #1f2937;
+  --icon-color: #0d1b2a;
+  --line-color: #e5e7eb;
+  --skeleton-background-color: #f9fafb;
+  --skeleton-color: #e5e7eb;
 
   /* Font */
   --primary-font: "Cambria", "Times New Roman", serif;
