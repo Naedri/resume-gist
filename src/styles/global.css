@@ -7,6 +7,9 @@
   --icon-color: #f8f8f2;
   --line-color: #6272a4;
   --background-color: #282a36;
+  --skeleton-size: 72rem;
+  --skeleton-background-color: #282a36;
+  --skeleton-color: #6272a4;
   --primary-font: "Cambria", "Times New Roman", serif;
   --line-size: 1px;
   --font-weight-m: normal;
@@ -308,41 +311,37 @@ button:focus-visible {
 
 /* ------ Skeleton loader ------ */
 
-@keyframes skeleton-shimming {
+@keyframes skeleton-shimmer {
   0% {
-    background-position: -21.9375rem 0; /* -468px */
+    background-position: 100% 0;
   }
   100% {
-    background-position: 21.9375rem 0; /* 468px */
+    background-position: 0% 0;
   }
 }
-
 .skeleton-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 0.625rem;
 }
-
 .skeleton-line {
   height: 0.75rem;
-  margin-bottom: 0.5625rem;
-  border-radius: 0.1875rem;
-  background: var(--background-color);
+  border-radius: 1rem;
+  width: 100%;
+  background-color: var(--skeleton-background-color);
   background-image: linear-gradient(
     to right,
-    var(--background-color) 0%,
-    color-mix(in srgb, var(--background-color) 85%, grey) 20%,
-    var(--background-color) 40%,
-    var(--background-color) 100%
+    var(--skeleton-background-color) 0%,
+    var(--skeleton-color) 20%,
+    var(--skeleton-background-color) 40%,
+    var(--skeleton-background-color) 100%
   );
-  background-repeat: no-repeat;
-  background-size: 37.5rem 100%; /* 800px */
-  animation: skeleton-shimming 1.2s linear infinite forwards;
-  width: 100%;
+  background-repeat: repeat-y;
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
 }
-
 .skeleton-line:last-child {
-  margin-bottom: 0;
   width: 60%;
 }
 
