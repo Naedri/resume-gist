@@ -2,36 +2,21 @@
   /* light-dark(AAA-PDF-optimized, Dracula theme) */
   color-scheme: light dark;
 
-  /* Paper background (very light warm neutral) */
   --background-color: light-dark(#ffffff, #282a36);
-  --skeleton-background-color: light-dark(#f3f4f6, #282a36);
-
-  /* Primary heading color (AAA on white) */
   --primary-color: light-dark(#1e3a8a, #bd93f9);
-
-  /* Secondary accent (AAA compliant) */
   --secondary-color: light-dark(#7c2d12, #ff79c6);
-
-  /* Muted professional teal (AAA compliant) */
   --tertiary-color: light-dark(#115e59, #8be9fd);
-
-  /* Dark green (AAA compliant) */
   --accent-color: light-dark(#14532d, #50fa7b);
-
-  /* Buttons / section highlights */
   --button-color: light-dark(#7c2d12, #ffb86c);
-
-  /* Main text */
   --icon-color: light-dark(#111111, #f8f8f2);
-
-  /* Dividers */
-  --line-color: light-dark(#9ca3af, #6272a4);
+  --skeleton-background-color: light-dark(#f3f4f6, #282a36);
   --skeleton-color: light-dark(#6b7280, #6272a4);
+  --line-color: light-dark(#9ca3af, #6272a4);
+  --line-size: 1px;
+  --line-spacing: 1rem;
 
   /* Font */
   --primary-font: "Cambria", "Times New Roman", serif;
-  --line-size: 1px;
-  --line-spacing: 1rem;
   --font-weight-m: normal;
   --font-weight-l: bold;
   --font-weight-xl: 700;
@@ -333,9 +318,14 @@ button:focus-visible {
 }
 
 /* icon alignment */
-.contact-item > a {
+.contact-item > a,
+.contact-item > div {
   display: flex;
   align-items: center;
+}
+svg.icon-location,
+svg.icon-user {
+  padding-bottom: 1px;
 }
 
 /* ---------- Projects ---------- */

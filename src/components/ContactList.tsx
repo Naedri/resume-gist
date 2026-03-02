@@ -56,16 +56,20 @@ export const ContactList = ({
           )}
           {location && (
             <li className="contact-item">
-              <Icon type="location" />
-              <span>
-                {location.city ?? location.postalCode ?? location.region}
-              </span>
+              <div>
+                <Icon type="location" />
+                <span>
+                  {location.city ?? location.postalCode ?? location.region}
+                </span>
+              </div>
             </li>
           )}
           {age && (
             <li className="contact-item">
-              <Icon type="user" />
-              <span>{t("basics.age", { age })}</span>
+              <div>
+                <Icon type="user" />
+                <span>{t("basics.age", { age })}</span>
+              </div>
             </li>
           )}
         </ul>
