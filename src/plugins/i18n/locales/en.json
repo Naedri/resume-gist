@@ -31,9 +31,10 @@
   "section": {
     "contact": "Contact",
     "education": "Education",
-    "work": "Professional Experiences",
+    "personal": "Personal Information",
     "project": "Open Source Softwares",
-    "skill": "Skills"
+    "skill": "Skills",
+    "work": "Professional Experiences"
   },
   "work": {
     "stack": "Stack :"

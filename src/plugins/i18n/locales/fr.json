@@ -3,7 +3,7 @@
     "age": "{{age}} ans"
   },
   "button": {
-    "print": "Exporter en PDF"
+    "print": "Export en PDF"
   },
   "date": {
     "xs": "{{val, DATE_XS}}",
@@ -31,9 +31,10 @@
   "section": {
     "contact": "Contact",
     "education": "Formations",
-    "work": "Expériences Professionnelles",
+    "personal": "Informations personnelles",
     "project": "Projets Open Source",
-    "skill": "Compétences"
+    "skill": "Compétences",
+    "work": "Expériences Professionnelles"
   },
   "work": {
     "stack": "Stack:"

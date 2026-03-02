@@ -19,7 +19,9 @@ export const ContactList = ({
   const linkedin = profiles?.find((p) => p.network == "LinkedIn");
   return (
     <section className="contacts-container">
-      <h3 className="section-title">{t("section.contact")}</h3>
+      <h3 className="section-title">
+        {age || location ? t("section.personal") : t("section.contact")}
+      </h3>
       <SkeletonLoader loading={loading} lines={4}>
         <ul className="contacts-list">
           {email && (
