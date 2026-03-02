@@ -23,7 +23,7 @@ export const ContactList = ({
         {age || location ? t("section.personal") : t("section.contact")}
       </h3>
       <SkeletonLoader loading={loading} lines={4}>
-        <ul className="contacts-list">
+        <ul className="contact-list">
           {email && (
             <li className="contact-item">
               <a href={`mailto:${email}`}>

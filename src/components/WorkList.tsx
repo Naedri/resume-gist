@@ -14,7 +14,7 @@ export const WorkList = ({ works, loading }: WorkListProps) => {
     <section className="works-container">
       <h3 className="section-title">{t("section.work")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        <div className="works-list">
+        <div className="work-list">
           {works?.map((w, index) => (
             <div key={index} className="work-item">
               <div className="work-header">

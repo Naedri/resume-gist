@@ -14,7 +14,7 @@ export const EducationList = ({ educations, loading }: EducationListProps) => {
     <section className="educations-container">
       <h3 className="section-title">{t("section.education")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        <div className="educations-list">
+        <div className="education-list">
           {educations?.map((e, index) => (
             <div key={index} className="education-item">
               <div className="education-header">

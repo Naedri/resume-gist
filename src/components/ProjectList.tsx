@@ -13,7 +13,7 @@ export const ProjectList = ({ projects, loading }: ProjectListProps) => {
     <section className="projects-container">
       <h3 className="section-title">{t("section.project")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        <div className="projects-list">
+        <div className="project-list">
           {projects?.map((p, index) => (
             <div key={index} className="project-item">
               <h4 className="project-name">

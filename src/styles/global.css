@@ -13,7 +13,14 @@
   --skeleton-color: light-dark(#6b7280, #6272a4);
   --line-color: light-dark(#9ca3af, #6272a4);
   --line-size: 1px;
-  --line-spacing: 1rem;
+
+  /* Spacing */
+  --spacing-el-xs: 0.25rem;
+  --spacing-el-s: 0.5rem;
+  --spacing-el-m: 0.75rem;
+  --spacing-el-l: 1rem;
+  --spacing-el-xl: 1.25rem;
+  --spacing-indentation: 0.5rem;
 
   /* Font */
   --primary-font: "Cambria", "Times New Roman", serif;
@@ -49,15 +56,14 @@ body {
 
 ul {
   list-style: none;
-  margin-left: 0.5rem;
+  margin-left: var(--spacing-indentation);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-el-xs);
 }
 
 li {
   font-size: var(--font-size-s);
-}
-
-li + li {
-  margin-top: 0.5rem;
 }
 
 a {
@@ -114,11 +120,35 @@ button:focus-visible {
 .header-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--spacing-el-xl);
   align-items: center;
   position: relative;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-el-s);
+}
+
+/* ---------- Header - MAIN ---------- */
+
+.section-title {
+  margin-top: var(--spacing-el-l);
+  margin-bottom: var(--spacing-el-s);
+}
+
+/* ---------- Header - SUB ---------- */
+
+.education-header,
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.education-header {
+  flex-direction: column;
+}
+
+.work-header {
+  flex-direction: row;
 }
 
 /* ---------- Button ---------- */
@@ -164,34 +194,9 @@ button:focus-visible {
 .icon {
   width: 1rem;
   height: 1rem;
-  margin-right: 0.5rem;
+  margin-right: var(--spacing-indentation);
   object-fit: contain;
   color: var(--icon-color);
-}
-
-/* ---------- Main Header ---------- */
-
-.section-title {
-  margin: 0.75rem 0 0.5rem;
-  padding-bottom: 0.25rem;
-  border-bottom: var(--line-size) solid var(--line-color);
-}
-
-/* ---------- Sub Headers ---------- */
-
-.education-header,
-.work-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.education-header {
-  flex-direction: column;
-}
-
-.work-header {
-  flex-direction: row;
 }
 
 /* ---------- Typography ---------- */
@@ -267,57 +272,56 @@ button:focus-visible {
   font-size: var(--font-size-s);
 }
 
-/* ---------- Flex containers ---------- */
+/* ---------- Spacing ---------- */
 
-/* ---------- Flex containers - LIST ---------- */
+/* ---------- Spacing - LIST ---------- */
 
-.contacts-list,
+.contact-list,
 .skill-list,
-.works-list,
-.educations-list,
-.projects-list {
+.work-list,
+.education-list,
+.project-list {
   display: flex;
   flex-direction: column;
 }
 
-.contacts-list {
-  gap: 0.5rem;
+.contact-list {
+  gap: var(--spacing-el-m);
 }
 
 .skill-list,
-.projects-list {
-  gap: 0.75rem;
+.project-list {
+  gap: var(--spacing-el-s);
 }
 
-.works-list,
-.educations-list {
-  gap: var(--line-spacing);
+.work-list,
+.education-list {
+  gap: var(--spacing-el-m);
 }
 
-/* ---------- Flex containers - ITEM ---------- */
+/* ---------- Spacing - ITEM ---------- */
 
+/* .contact-item, */
+.skill-item,
+.work-item,
 .education-item,
-.work-item {
+.project-item {
   display: flex;
   flex-direction: column;
 }
 
+.skill-item,
+.project-item {
+  gap: var(--spacing-el-xs);
+}
+
+.work-item,
 .education-item {
-  gap: 0.125rem;
+  gap: var(--spacing-el-s);
 }
 
-.work-item {
-  gap: 0.25rem;
-}
+/* ---------- Icon ---------- */
 
-/* separation between work items */
-.education-item + .education-item,
-.work-item + .work-item {
-  border-top: var(--line-size) solid var(--line-color);
-  padding-top: var(--line-spacing);
-}
-
-/* icon alignment */
 .contact-item > a,
 .contact-item > div {
   display: flex;
@@ -328,10 +332,22 @@ svg.icon-user {
   padding-bottom: 1px;
 }
 
-/* ---------- Projects ---------- */
+/* ---------- Lines ---------- */
+
+.section-title {
+  padding-bottom: var(--spacing-el-xs);
+  border-bottom: var(--line-size) solid var(--line-color);
+}
+
+.work-item + .work-item {
+  border-top: var(--line-size) solid var(--line-color);
+  padding-top: var(--spacing-el-m);
+}
+
+/* ---------- Project ---------- */
 
 .project-description {
-  margin-left: 0.5rem;
+  margin-left: var(--spacing-indentation);
 }
 
 /* ------ Skeleton loader ------ */
@@ -436,11 +452,28 @@ svg.icon-user {
     padding-right: 0;
   }
 
+  .section-title {
+    margin-top: var(--spacing-el-xl);
+  }
+
   .education-header {
     flex-direction: row;
   }
 
-  /* Manage lang-toggle and print-button */
+  /* ---------- Lines ---------- */
+
+  .section-title {
+    /* Lines */
+    padding-top: var(--spacing-el-xs);
+    border-top: var(--line-size) solid var(--line-color);
+  }
+
+  .education-item + .education-item {
+    border-top: var(--line-size) solid var(--line-color);
+    padding-top: var(--spacing-el-m);
+  }
+
+  /* ------ lang-toggle print-buttons ------ */
   .header-container {
     padding-top: 3rem;
   }
