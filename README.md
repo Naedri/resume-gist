@@ -15,7 +15,7 @@ Powered by data retrieved from GitHub gists, this project generates a web-based 
 
 ```bash
 git clone https://github.com/Naedri/resume-gist.git
-cd resume
+cd resume-gist
 npm install
 ```
 
