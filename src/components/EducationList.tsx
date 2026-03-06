@@ -11,13 +11,13 @@ export interface EducationListProps {
 export const EducationList = ({ educations, loading }: EducationListProps) => {
   const { t } = useTranslation();
   return (
-    <section className="educations-container">
+    <section className="educations-container flow">
       <h3 className="section-title">{t("section.education")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        <div className="education-list">
+        <div className="education-list stack">
           {educations?.map((e, index) => (
-            <div key={index} className="education-item">
-              <div className="education-header">
+            <div key={index} className="education-item stack">
+              <div className="education-header cluster">
                 <div>
                   <h4 className="education-institution">
                     <a href={e.url} target="_blank" rel="noopener noreferrer">

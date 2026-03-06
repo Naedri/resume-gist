@@ -10,12 +10,12 @@ export interface ProjectListProps {
 export const ProjectList = ({ projects, loading }: ProjectListProps) => {
   const { t } = useTranslation();
   return (
-    <section className="projects-container">
+    <section className="projects-container flow">
       <h3 className="section-title">{t("section.project")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        <div className="project-list">
+        <div className="project-list stack">
           {projects?.map((p, index) => (
-            <div key={index} className="project-item">
+            <div key={index} className="project-item stack">
               <h4 className="project-name">
                 <a href={p.url} target="_blank" rel="noopener noreferrer">
                   {p.name}

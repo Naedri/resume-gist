@@ -98,33 +98,31 @@ export default function App({ gistIds, name }: AppProps) {
   );
   const printButtonComponent = <PrintButton />;
 
-  return (
+  return isMobile ? (
     <div className="resume-container">
-      {isMobile ? (
-        <main className="main-content">
-          {headerComponent}
-          {printButtonComponent}
-          {contactListComponent}
-          {skillListComponent}
-          {workListComponent}
-          {educationListComponent}
-          {projectListComponent}
-        </main>
-      ) : (
-        <>
-          <main className="main-content">
-            {headerComponent}
-            {workListComponent}
-            {printButtonComponent}
-          </main>
-          <aside className="sidebar">
-            {contactListComponent}
-            {skillListComponent}
-            {educationListComponent}
-            {projectListComponent}
-          </aside>
-        </>
-      )}
+      <main className="main-content flow">
+        {headerComponent}
+        {printButtonComponent}
+        {contactListComponent}
+        {skillListComponent}
+        {workListComponent}
+        {educationListComponent}
+        {projectListComponent}
+      </main>
+    </div>
+  ) : (
+    <div className="resume-container sidebar-layout">
+      <main className="main-content flow">
+        {headerComponent}
+        {workListComponent}
+        {printButtonComponent}
+      </main>
+      <aside className="sidebar flow">
+        {contactListComponent}
+        {skillListComponent}
+        {educationListComponent}
+        {projectListComponent}
+      </aside>
     </div>
   );
 }

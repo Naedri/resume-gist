@@ -9,24 +9,29 @@
   --accent-color: light-dark(#14532d, #50fa7b);
   --button-color: light-dark(#7c2d12, #ffb86c);
   --icon-color: light-dark(#111111, #f8f8f2);
-  --skeleton-background-color: light-dark(#f3f4f6, #282a36);
-  --skeleton-color: light-dark(#6b7280, #6272a4);
   --line-color: light-dark(#9ca3af, #6272a4);
+
   --line-size: 1px;
 
-  /* Spacing */
+  /* skeleton */
+  --skeleton-background-color: light-dark(#f3f4f6, #282a36);
+  --skeleton-color: light-dark(#6b7280, #6272a4);
+
+  /* spacing */
   --spacing-el-xs: 0.25rem;
   --spacing-el-s: 0.5rem;
   --spacing-el-m: 0.75rem;
   --spacing-el-l: 1rem;
   --spacing-el-xl: 1.25rem;
   --spacing-indentation: 0.5rem;
+  --spacing-side-bar: 1rem;
 
-  /* Font */
+  /* typography */
   --primary-font: "Cambria", "Times New Roman", serif;
   --font-weight-m: normal;
   --font-weight-l: bold;
   --font-weight-xl: 700;
+
   --font-size-s: 9.5pt;
   --font-size-m: 10pt;
   --font-size-l: 11pt;
@@ -57,9 +62,6 @@ body {
 ul {
   list-style: none;
   margin-left: var(--spacing-indentation);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-el-xs);
 }
 
 li {
@@ -79,7 +81,7 @@ button {
   border: none;
 }
 
-/* ---------- Focus styles ---------- */
+/* ---------- Focus ---------- */
 
 a:focus-visible,
 button:focus-visible {
@@ -87,24 +89,35 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* ---------- Layout ---------- */
+/* ---------- Layout Utilities ---------- */
 
-.resume-container {
+.flow > * + * {
+  margin-top: var(--flow-space, var(--spacing-el-m));
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-space, var(--spacing-el-m));
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cluster-space, var(--spacing-el-s));
+}
+
+.sidebar-layout {
   display: grid;
   grid-template-columns: 60% 40%;
   gap: 1.5rem;
-  background-color: var(--background-color);
-}
-
-.main-content {
-  padding-right: 1rem;
-  display: flex;
-  flex-direction: column;
 }
 
 .sidebar {
-  padding: 0 1rem;
   position: relative;
+  padding-top: var(--spacing-side-bar);
+  padding-left: var(--spacing-side-bar);
 }
 
 .sidebar::before {
@@ -115,45 +128,26 @@ button:focus-visible {
   background-color: var(--line-color);
 }
 
+/* ---------- Main Layout ---------- */
+
+.resume-container {
+  background-color: var(--background-color);
+}
+
+.main-content {
+  padding-right: var(--spacing-side-bar);
+}
+
 /* ---------- Header ---------- */
 
 .header-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-el-xl);
+  text-align: center;
   align-items: center;
   position: relative;
-  text-align: center;
-  margin-bottom: var(--spacing-el-s);
-}
-
-/* ---------- Header - MAIN ---------- */
-
-.section-title {
-  margin-top: var(--spacing-el-l);
-  margin-bottom: var(--spacing-el-s);
-}
-
-/* ---------- Header - SUB ---------- */
-
-.education-header,
-.work-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.education-header {
-  flex-direction: column;
-}
-
-.work-header {
-  flex-direction: row;
+  --stack-space: var(--spacing-el-xl);
 }
 
 /* ---------- Button ---------- */
-
-/* Language toggle */
 
 .lang-toggle,
 .print-button {
@@ -169,9 +163,7 @@ button:focus-visible {
     border-bottom: var(--line-size) solid transparent;
   }
 
-  & > button:hover {
-    border-color: var(--button-color);
-  }
+  & > button:hover,
   & > button.is-active {
     border-color: var(--button-color);
   }
@@ -185,46 +177,46 @@ button:focus-visible {
 
 .print-button {
   font-style: italic;
-  margin-top: auto;
   align-self: flex-end;
+  margin-top: auto;
 }
 
-/* Icon */
+/* ---------- Icon ---------- */
 
 .icon {
   width: 1rem;
   height: 1rem;
-  margin-right: var(--spacing-indentation);
-  object-fit: contain;
   color: var(--icon-color);
+}
+
+.contact-item > a,
+.contact-item > div {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-indentation);
 }
 
 /* ---------- Typography ---------- */
 
-/* Head */
 .name {
   font-size: var(--font-size-xxxl);
   font-weight: var(--font-weight-xl);
-  color: var(--primary-color);
-  line-height: 1.2;
   letter-spacing: 0.05em;
+  line-height: 1.2;
 }
 
 .label {
   font-size: var(--font-size-xxl);
-  font-weight: var(--font-weight-m);
   color: var(--accent-color);
   font-style: italic;
-  line-height: 1.2;
 }
 
 .summary {
-  font-size: var(--font-size-m);
-  color: var(--primary-color);
   text-align: justify;
 }
 
-/* Headers */
+/* section titles */
+
 .section-title {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-l);
@@ -233,7 +225,8 @@ button:focus-visible {
   letter-spacing: 0.05em;
 }
 
-/* Group 1 */
+/* group headings */
+
 .work-name,
 .education-institution,
 .project-name,
@@ -252,91 +245,29 @@ button:focus-visible {
   font-size: var(--font-size-m);
 }
 
-/* Group 2 */
-.date,
-.education-type,
-.work-position,
-.work-stack {
-  font-style: italic;
-  font-weight: var(--font-weight-m);
-}
-
 .date,
 .education-type,
 .work-position {
+  font-style: italic;
   color: var(--tertiary-color);
-  font-size: var(--font-size-m);
 }
+
 .work-stack {
-  color: var(--accent-color);
+  font-style: italic;
   font-size: var(--font-size-s);
+  color: var(--accent-color);
 }
 
-/* ---------- Spacing ---------- */
+/* ---------- Components ---------- */
 
-/* ---------- Spacing - LIST ---------- */
+.work-header,
+.education-header {
+  justify-content: space-between;
+  align-items: baseline;
+}
 
-.contact-list,
-.skill-list,
-.work-list,
-.education-list,
-.project-list {
-  display: flex;
+.education-header {
   flex-direction: column;
-}
-
-.contact-list {
-  gap: var(--spacing-el-m);
-}
-
-.skill-list,
-.project-list {
-  gap: var(--spacing-el-s);
-}
-
-.work-list,
-.education-list {
-  gap: var(--spacing-el-m);
-}
-
-/* ---------- Spacing - ITEM ---------- */
-
-/* .contact-item, */
-.skill-item,
-.work-item,
-.education-item,
-.project-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.skill-item,
-.project-item {
-  gap: var(--spacing-el-xs);
-}
-
-.work-item,
-.education-item {
-  gap: var(--spacing-el-s);
-}
-
-/* ---------- Icon ---------- */
-
-.contact-item > a,
-.contact-item > div {
-  display: flex;
-  align-items: center;
-}
-svg.icon-location,
-svg.icon-user {
-  padding-bottom: 1px;
-}
-
-/* ---------- Lines ---------- */
-
-.section-title {
-  padding-bottom: var(--spacing-el-xs);
-  border-bottom: var(--line-size) solid var(--line-color);
 }
 
 .work-item + .work-item {
@@ -344,10 +275,13 @@ svg.icon-user {
   padding-top: var(--spacing-el-m);
 }
 
-/* ---------- Project ---------- */
-
 .project-description {
   margin-left: var(--spacing-indentation);
+}
+
+.section-title {
+  padding-bottom: var(--spacing-el-xs);
+  border-bottom: var(--line-size) solid var(--line-color);
 }
 
 /* ------ Skeleton loader ------ */
@@ -396,7 +330,10 @@ svg.icon-user {
 @media print {
   @page {
     size: A4;
-    margin: 15mm;
+  }
+
+  :root {
+    color-scheme: light;
   }
 
   body {
@@ -406,14 +343,12 @@ svg.icon-user {
     print-color-adjust: exact;
   }
 
-  a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-
   .resume-container {
-    width: 100%;
-    height: 100%;
+    /* ! Fixed width for print */
+    /* 21cm − 4cm = 17cms => 16.5cm is nicer*/
+    width: 16.5cm;
+    margin: 0 auto; /* horizontal centering */
+    padding: 0;
   }
 
   .no-print {
@@ -439,16 +374,7 @@ svg.icon-user {
     }
   }
 
-  .sidebar:before {
-    display: none;
-  }
-
   .main-content {
-    padding-right: 0;
-  }
-
-  .sidebar {
-    padding-left: 0;
     padding-right: 0;
   }
 
@@ -473,7 +399,7 @@ svg.icon-user {
     padding-top: var(--spacing-el-m);
   }
 
-  /* ------ lang-toggle print-buttons ------ */
+  /* ------ Lang-toggle print-buttons ------ */
   .header-container {
     padding-top: 3rem;
   }

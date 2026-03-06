@@ -11,13 +11,13 @@ export interface WorkListProps {
 export const WorkList = ({ works, loading }: WorkListProps) => {
   const { t } = useTranslation();
   return (
-    <section className="works-container">
+    <section className="works-container flow">
       <h3 className="section-title">{t("section.work")}</h3>
       <SkeletonLoader loading={loading} lines={4}>
-        <div className="work-list">
+        <div className="work-list stack">
           {works?.map((w, index) => (
-            <div key={index} className="work-item">
-              <div className="work-header">
+            <div key={index} className="work-item stack">
+              <div className="work-header cluster">
                 <div>
                   <h4 className="work-name">
                     <a href={w.url} target="_blank" rel="noopener noreferrer">

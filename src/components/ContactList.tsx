@@ -18,12 +18,12 @@ export const ContactList = ({
   const github = profiles?.find((p) => p.network == "GitHub");
   const linkedin = profiles?.find((p) => p.network == "LinkedIn");
   return (
-    <section className="contacts-container">
+    <section className="contacts-container flow">
       <h3 className="section-title">
         {age || location ? t("section.personal") : t("section.contact")}
       </h3>
       <SkeletonLoader loading={loading} lines={4}>
-        <ul className="contact-list">
+        <ul className="contact-list stack">
           {email && (
             <li className="contact-item">
               <a href={`mailto:${email}`}>
