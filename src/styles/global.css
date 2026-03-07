@@ -18,7 +18,6 @@
   --skeleton-color: light-dark(#6b7280, #6272a4);
 
   /* spacing */
-  --spacing-el-xxs: 0.125rem;
   --spacing-el-xs: 0.25rem;
   --spacing-el-s: 0.5rem;
   --spacing-el-m: 0.75rem;
@@ -170,7 +169,7 @@ button:focus-visible {
 
 .sidebar {
   position: relative;
-  padding-top: var(--spacing-side-bar);
+  padding-top: calc(var(--spacing-side-bar) * 2);
   padding-left: var(--spacing-side-bar);
 }
 
@@ -309,7 +308,7 @@ button:focus-visible {
 .education-area,
 .work-stack {
   font-style: italic;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-m);
   color: var(--accent-color);
 }
 
@@ -383,6 +382,14 @@ button:focus-visible {
 /* ---------- Print-specific styles ---------- */
 
 @media print {
+  :root {
+    --spacing-el-xs: 0.125rem;
+    --spacing-el-s: 0.25rem;
+    --spacing-el-m: 0.5rem;
+    --spacing-el-l: 0.75rem;
+    --spacing-el-xl: 1rem;
+  }
+
   @page {
     size: A4;
   }
