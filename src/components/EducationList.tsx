@@ -44,6 +44,12 @@ export const EducationList = ({ educations, loading }: EducationListProps) => {
                   ))}
                 </ul>
               )}
+              {e.area && e.area.length > 0 && (
+                <div className="education-area">
+                  <span>{t("education.area")}</span>
+                  {` ${e.area}`}
+                </div>
+              )}
             </div>
           ))}
         </div>

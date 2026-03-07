@@ -306,6 +306,7 @@ button:focus-visible {
   font-size: var(--font-size-m);
 }
 
+.education-area,
 .work-stack {
   font-style: italic;
   font-size: var(--font-size-s);
