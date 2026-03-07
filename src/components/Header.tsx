@@ -10,7 +10,7 @@ export const Header = ({ name, label, summary, loading }: HeaderProps) => {
   const { t } = useTranslation();
 
   return (
-    <header className="header-container stack">
+    <header className="header-container stack stack-xl">
       <LanguageToggle />
       <h1 className="name">{name}</h1>
       <h2 className="label">

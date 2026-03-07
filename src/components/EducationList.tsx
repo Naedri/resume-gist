@@ -17,7 +17,7 @@ export const EducationList = ({ educations, loading }: EducationListProps) => {
         <div className="education-list stack">
           {educations?.map((e, index) => (
             <div key={index} className="education-item stack">
-              <div className="education-header cluster">
+              <div className="education-header cluster cluster-xxs">
                 <div>
                   <h4 className="education-institution">
                     <a href={e.url} target="_blank" rel="noopener noreferrer">
@@ -36,9 +36,11 @@ export const EducationList = ({ educations, loading }: EducationListProps) => {
                 </div>
               </div>
               {e.courses && e.courses.length > 0 && (
-                <ul>
+                <ul className="education-highlight-list stack stack-xs">
                   {e.courses.map((course, i) => (
-                    <li key={i}>{course}</li>
+                    <li className="education-highlight" key={i}>
+                      {course}
+                    </li>
                   ))}
                 </ul>
               )}

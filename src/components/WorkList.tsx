@@ -37,7 +37,7 @@ export const WorkList = ({ works, loading }: WorkListProps) => {
               </div>
               {w.summary && <p className="work-summary">{w.summary}</p>}
               {w.highlights && w.highlights.length > 0 && (
-                <ul className="work-highlight-list">
+                <ul className="work-highlight-list stack stack-xs">
                   {w?.highlights?.map((highlight, i) => (
                     <li className="work-highlight" key={i}>
                       {highlight}

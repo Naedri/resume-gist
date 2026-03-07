@@ -15,7 +15,7 @@ export const SkillList = ({ skills, loading }: SkillListProps) => {
       <SkeletonLoader loading={loading} lines={4}>
         <div className="skill-list stack">
           {skills?.map((s, index) => (
-            <div key={index} className="skill-item stack">
+            <div key={index} className="skill-item stack stack-xs">
               <h4 className="skill-name">{s.name}</h4>
               {s.keywords && s.keywords.length > 0 && (
                 <ul className="skill-keyword-list">

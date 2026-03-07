@@ -112,7 +112,7 @@ export default function App({ gistIds, name }: AppProps) {
     </div>
   ) : (
     <div className="resume-container sidebar-layout">
-      <main className="main-content flow">
+      <main className="main-content flow flow-xl">
         {headerComponent}
         {workListComponent}
         {printButtonComponent}
