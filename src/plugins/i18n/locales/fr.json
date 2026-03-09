@@ -22,7 +22,7 @@
   },
   "message": {
     "error": {
-      "display": "Erreur: {{error}}",
+      "display": "Erreur : {{error}}",
       "fetchResume": "Echec du chargement des données du CV.",
       "noData": "Pas de données disponibles"
     },
@@ -37,9 +37,9 @@
     "work": "Expériences Professionnelles"
   },
   "work": {
-    "stack": "Stack:"
+    "stack": "Stack :"
   },
   "education": {
-    "area": "Spécialité:"
+    "area": "Spécialité :"
   }
 }
