@@ -171,14 +171,7 @@ button:focus-visible {
   position: relative;
   padding-top: calc(var(--spacing-side-bar) * 2);
   padding-left: var(--spacing-side-bar);
-}
-
-.sidebar::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: var(--line-size);
-  background-color: var(--line-color);
+  border-left: var(--line-size) solid var(--line-color);
 }
 
 /* ---------- Main Layout ---------- */
