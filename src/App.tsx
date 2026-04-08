@@ -102,7 +102,7 @@ export default function App({ gistIds, name }: AppProps) {
     <div className="resume-container">
       <main className="main-content flow">
         {headerComponent}
-        {printButtonComponent}
+        {/* {printButtonComponent} */}
         {contactListComponent}
         {skillListComponent}
         {workListComponent}
