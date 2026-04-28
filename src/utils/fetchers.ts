@@ -1,3 +1,4 @@
+import { parse as parseJSONC } from "jsonc-parser";
 import type { ResumeSchemaOfficial, GistResponse } from "@/types";
 
 const gistCache: Record<string, ResumeSchemaOfficial> = {};
@@ -7,6 +8,10 @@ export const fetchLocalResume = async (): Promise<ResumeSchemaOfficial> => {
   for (const url of urls) {
     const response = await fetch(url);
     if (response.ok) {
+      if (url.endsWith(".jsonc")) {
+        const text = await response.text();
+        return parseJSONC(text) as ResumeSchemaOfficial;
+      }
       return (await response.json()) as ResumeSchemaOfficial;
     }
   }
