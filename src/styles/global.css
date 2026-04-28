@@ -163,13 +163,13 @@ button:focus-visible {
 
 .sidebar-layout {
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 65% 35%;
+  align-items: center;
   gap: 1.5rem;
 }
 
 .sidebar {
   position: relative;
-  padding-top: calc(var(--spacing-side-bar) * 2);
   padding-left: var(--spacing-side-bar);
   border-left: var(--line-size) solid var(--line-color);
 }
