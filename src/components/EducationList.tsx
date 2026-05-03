@@ -29,8 +29,8 @@ export const EducationList = ({ educations, loading }: EducationListProps) => {
                 <div className="date">
                   <time dateTime={getDuration(e.startDate, e.endDate)}>
                     {[
-                      t("date.xxs", { val: e.startDate }),
-                      t("date.xxs", { val: e.endDate })
+                      t("date.xs", { val: e.startDate }),
+                      t("date.xs", { val: e.endDate })
                     ].join(" - ")}
                   </time>
                 </div>
