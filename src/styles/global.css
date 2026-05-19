@@ -299,6 +299,7 @@ button:focus-visible {
 }
 
 .education-area,
+.project-stack,
 .work-stack {
   font-style: italic;
   font-size: var(--font-size-m);
@@ -322,7 +323,8 @@ button:focus-visible {
   padding-top: var(--spacing-el-m);
 }
 
-.project-description {
+.project-description,
+.project-stack {
   margin-left: var(--spacing-indentation);
 }
 

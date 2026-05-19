@@ -19,7 +19,11 @@ export type LanguageType = NonNullable<
 export type ReferenceType = NonNullable<
   ResumeSchemaOfficial["references"]
 >[number];
-export type ProjectType = NonNullable<ResumeSchemaOfficial["projects"]>[number];
+export type ProjectType = NonNullable<
+  ResumeSchemaOfficial["projects"]
+>[number] & {
+  stack?: string[];
+};
 
 export interface ResumeSchema {
   basic: BasicType;

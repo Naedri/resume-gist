@@ -21,7 +21,15 @@ export const ProjectList = ({ projects, loading }: ProjectListProps) => {
                   {p.name}
                 </a>
               </h4>
-              <p className="project-description">{p.description}</p>
+              {p?.description && (
+                <p className="project-description">{p.description}</p>
+              )}
+              {p?.stack && (
+                <div className="project-stack">
+                  <span>{t("project.stack")}</span>
+                  {` ${p.stack.join(", ")}`}
+                </div>
+              )}
             </div>
           ))}
         </div>

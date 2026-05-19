@@ -36,10 +36,13 @@
     "skill": "Skills",
     "work": "Professional Experiences"
   },
-  "work": {
-    "stack": "Stack :"
-  },
   "education": {
     "area": "Major :"
+  },
+  "project": {
+    "stack": "Stack :"
+  },
+  "work": {
+    "stack": "Stack :"
   }
 }
