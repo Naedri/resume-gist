@@ -323,8 +323,11 @@ button:focus-visible {
   padding-top: var(--spacing-el-m);
 }
 
+.education-header .date time,
+.education-area,
 .project-description,
-.project-stack {
+.project-stack,
+.work-stack {
   margin-left: var(--spacing-indentation);
 }
 
